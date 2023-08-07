@@ -1,0 +1,9 @@
+
+/* Class = "UILabel"; text = "Find all informatios of your favorite vehicles"; ObjectID = "1EV-N3-XFR"; */
+"first_screen_message" = "Find all informatios of your favorite vehicles";
+
+/* Class = "UILabel"; text = "Say hello to your app."; ObjectID = "ANb-Zy-9oT"; */
+"first_screen_message_welcome" = "Say hello to your app.";
+
+/* Class = "UIButton"; normalTitle = "Log In"; ObjectID = "Ptf-9h-JjW"; */
+"first_screen_message_log_in" = "Log In";
