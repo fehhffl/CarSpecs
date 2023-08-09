@@ -7,12 +7,11 @@
 
 import UIKit
 
-
-class ViewController: UIViewController {
+class WelcomeViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
-    
+
     func setUpViews() {
         loginButton.layer.cornerRadius = loginButton.frame.size.height/2
         subtitleLabel.text = "first_screen_message".localize()
@@ -23,20 +22,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViews()
-       
     }
-    
+
     @IBAction func onLoginButtonTapped(_ sender: Any) {
         navigationController?.pushViewController(LoginViewController(), animated: true)
     }
 
 }
 
-
 extension String {
     func localize() -> String {
         return NSLocalizedString(self, comment: "")
     }
 }
-
-
