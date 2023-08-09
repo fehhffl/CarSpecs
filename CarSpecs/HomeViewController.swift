@@ -11,6 +11,7 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        title = "Home"
+        navigationController?.navigationBar.prefersLargeTitles = false
     }
 }
