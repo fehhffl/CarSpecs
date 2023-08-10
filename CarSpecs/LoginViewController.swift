@@ -20,6 +20,8 @@ class LoginViewController: UIViewController {
         title = "Sign In"
         navigationController?.navigationBar.prefersLargeTitles = true
         passwordErrorLabel.isHidden = true
+        userTextField.text = ""
+        passwordTextField.text = ""
     }
 
     @IBAction private func onLogInButtonTapped(_ sender: Any) {
@@ -37,15 +39,9 @@ class LoginViewController: UIViewController {
     }
 
     private func setupButtons() {
-        logInButton.layer.cornerRadius = logInButton.frame.size.height / 2
-        passwordTextField.layer.cornerRadius = passwordTextField.frame.size.height / 2
-        passwordTextField.layer.borderWidth = 1
-        passwordTextField.layer.borderColor = UIColor.lightGray.cgColor
-        passwordTextField.clipsToBounds = true
-        userTextField.layer.cornerRadius = userTextField.frame.size.height / 2
-        userTextField.layer.borderWidth = 1
-        userTextField.layer.borderColor = UIColor.lightGray.cgColor
-        userTextField.clipsToBounds = true
+        logInButton.styleAsPill()
+        passwordTextField.styleAsPill()
+        userTextField.styleAsPill()
     }
 
     override func viewDidLoad() {

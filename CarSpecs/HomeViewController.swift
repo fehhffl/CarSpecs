@@ -10,7 +10,6 @@ import UIKit
 class HomeViewController: UIViewController {
     @IBOutlet private weak var newCarsLabel: UILabel!
     @IBOutlet private weak var exploreLabel: UILabel!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         exploreLabel.text = "explore_home_screen_label".localize()
