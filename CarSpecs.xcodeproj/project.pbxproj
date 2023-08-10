@@ -32,11 +32,8 @@
 		55086B0C2A84502E00327B6C /* SquareCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SquareCard.xib; sourceTree = "<group>"; };
 		55843A512A7C6DAE007FDDA1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		55843A522A7C6DAE007FDDA1 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
-		5591463B2A819C4C00AE3F57 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
-		5591463C2A819C4D00AE3F57 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		559146442A819C8E00AE3F57 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		5591464E2A819DCA00AE3F57 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		559146532A819DCD00AE3F57 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		5599F0C52A67563200E1EEDC /* CarSpecs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarSpecs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5599F0C82A67563200E1EEDC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5599F0CA2A67563200E1EEDC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -171,7 +168,6 @@
 			knownRegions = (
 				en,
 				Base,
-				"pt-BR",
 			);
 			mainGroup = 5599F0BC2A67563200E1EEDC;
 			productRefGroup = 5599F0C62A67563200E1EEDC /* Products */;
@@ -264,7 +260,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				5591464E2A819DCA00AE3F57 /* en */,
-				559146532A819DCD00AE3F57 /* pt-BR */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -273,7 +268,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				5599F0CF2A67563200E1EEDC /* Base */,
-				5591463B2A819C4C00AE3F57 /* pt-BR */,
 				559146442A819C8E00AE3F57 /* en */,
 			);
 			name = Main.storyboard;
@@ -283,7 +277,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				5599F0D42A67563E00E1EEDC /* Base */,
-				5591463C2A819C4D00AE3F57 /* pt-BR */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
