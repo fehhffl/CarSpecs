@@ -89,6 +89,44 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		5567B7BB2A85A61E0012AB3E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5567B7BC2A85A6260012AB3E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				55086B0B2A84502E00327B6C /* SquareCard.swift */,
+				55086B0C2A84502E00327B6C /* SquareCard.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5567B7BD2A85A62D0012AB3E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5599F0CE2A67563200E1EEDC /* Main.storyboard */,
+				55843A522A7C6DAE007FDDA1 /* LoginViewController.xib */,
+				55086B062A844E4F00327B6C /* HomeViewController.swift */,
+				55086B072A844E4F00327B6C /* HomeViewController.xib */,
+				55843A512A7C6DAE007FDDA1 /* LoginViewController.swift */,
+				5599F0CC2A67563200E1EEDC /* WelcomeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5567B7BE2A85A67C0012AB3E /* Resources  */ = {
+			isa = PBXGroup;
+			children = (
+				5599F0D32A67563E00E1EEDC /* LaunchScreen.storyboard */,
+				5599F0D12A67563E00E1EEDC /* Assets.xcassets */,
+			);
+			path = "Resources ";
+			sourceTree = "<group>";
+		};
 		5599F0BC2A67563200E1EEDC = {
 			isa = PBXGroup;
 			children = (
@@ -111,20 +149,14 @@
 		5599F0C72A67563200E1EEDC /* CarSpecs */ = {
 			isa = PBXGroup;
 			children = (
+				5567B7BE2A85A67C0012AB3E /* Resources  */,
+				5567B7BB2A85A61E0012AB3E /* Model */,
+				5567B7BC2A85A6260012AB3E /* View */,
+				5567B7BD2A85A62D0012AB3E /* Controller */,
 				5567B7AB2A85A0BF0012AB3E /* Extensions */,
 				5599F0C82A67563200E1EEDC /* AppDelegate.swift */,
 				5599F0CA2A67563200E1EEDC /* SceneDelegate.swift */,
-				5599F0CC2A67563200E1EEDC /* WelcomeViewController.swift */,
-				5599F0CE2A67563200E1EEDC /* Main.storyboard */,
-				5599F0D12A67563E00E1EEDC /* Assets.xcassets */,
-				5599F0D32A67563E00E1EEDC /* LaunchScreen.storyboard */,
 				5599F0D62A67563E00E1EEDC /* Info.plist */,
-				55843A512A7C6DAE007FDDA1 /* LoginViewController.swift */,
-				55843A522A7C6DAE007FDDA1 /* LoginViewController.xib */,
-				55086B062A844E4F00327B6C /* HomeViewController.swift */,
-				55086B072A844E4F00327B6C /* HomeViewController.xib */,
-				55086B0B2A84502E00327B6C /* SquareCard.swift */,
-				55086B0C2A84502E00327B6C /* SquareCard.xib */,
 			);
 			path = CarSpecs;
 			sourceTree = "<group>";
