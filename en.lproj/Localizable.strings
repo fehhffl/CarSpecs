@@ -1,3 +1,6 @@
 "first_screen_message" = "Find all informatios of your favorite vehicles";
 "first_screen_message_welcome" = "Say hello to your app.";
 "first_screen_message_log_in" = "Log In";
+"home_title_screen_label" = "Home";
+"explore_home_screen_label" = "Explore";
+"new_cars_home_screen_label" = "New Cars";

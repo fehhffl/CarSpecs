@@ -10,6 +10,8 @@
 		3B9792910A4CC4DD9FB6D2BB /* Pods_CarSpecs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92C2AF38429C7B5069DE3A48 /* Pods_CarSpecs.framework */; };
 		55086B082A844E4F00327B6C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55086B062A844E4F00327B6C /* HomeViewController.swift */; };
 		55086B092A844E4F00327B6C /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55086B072A844E4F00327B6C /* HomeViewController.xib */; };
+		55086B0D2A84502E00327B6C /* SquareCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55086B0B2A84502E00327B6C /* SquareCard.swift */; };
+		55086B0E2A84502E00327B6C /* SquareCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55086B0C2A84502E00327B6C /* SquareCard.xib */; };
 		55843A532A7C6DAE007FDDA1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55843A512A7C6DAE007FDDA1 /* LoginViewController.swift */; };
 		55843A542A7C6DAE007FDDA1 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55843A522A7C6DAE007FDDA1 /* LoginViewController.xib */; };
 		5591464D2A819DCA00AE3F57 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5591464F2A819DCA00AE3F57 /* Localizable.strings */; };
@@ -26,13 +28,12 @@
 		4A024EA59CBEA8116C7FF9EE /* Pods-CarSpecsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarSpecsTests.debug.xcconfig"; path = "Target Support Files/Pods-CarSpecsTests/Pods-CarSpecsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		55086B062A844E4F00327B6C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		55086B072A844E4F00327B6C /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		55086B0B2A84502E00327B6C /* SquareCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareCard.swift; sourceTree = "<group>"; };
+		55086B0C2A84502E00327B6C /* SquareCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SquareCard.xib; sourceTree = "<group>"; };
 		55843A512A7C6DAE007FDDA1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		55843A522A7C6DAE007FDDA1 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
-		5591463B2A819C4C00AE3F57 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
-		5591463C2A819C4D00AE3F57 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		559146442A819C8E00AE3F57 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		5591464E2A819DCA00AE3F57 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		559146532A819DCD00AE3F57 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		5599F0C52A67563200E1EEDC /* CarSpecs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarSpecs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5599F0C82A67563200E1EEDC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5599F0CA2A67563200E1EEDC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +109,8 @@
 				55843A522A7C6DAE007FDDA1 /* LoginViewController.xib */,
 				55086B062A844E4F00327B6C /* HomeViewController.swift */,
 				55086B072A844E4F00327B6C /* HomeViewController.xib */,
+				55086B0B2A84502E00327B6C /* SquareCard.swift */,
+				55086B0C2A84502E00327B6C /* SquareCard.xib */,
 			);
 			path = CarSpecs;
 			sourceTree = "<group>";
@@ -165,7 +168,6 @@
 			knownRegions = (
 				en,
 				Base,
-				"pt-BR",
 			);
 			mainGroup = 5599F0BC2A67563200E1EEDC;
 			productRefGroup = 5599F0C62A67563200E1EEDC /* Products */;
@@ -185,6 +187,7 @@
 				5591464D2A819DCA00AE3F57 /* Localizable.strings in Resources */,
 				55843A542A7C6DAE007FDDA1 /* LoginViewController.xib in Resources */,
 				5599F0D52A67563E00E1EEDC /* LaunchScreen.storyboard in Resources */,
+				55086B0E2A84502E00327B6C /* SquareCard.xib in Resources */,
 				5599F0D22A67563E00E1EEDC /* Assets.xcassets in Resources */,
 				5599F0D02A67563200E1EEDC /* Main.storyboard in Resources */,
 				55086B092A844E4F00327B6C /* HomeViewController.xib in Resources */,
@@ -243,6 +246,7 @@
 			files = (
 				55086B082A844E4F00327B6C /* HomeViewController.swift in Sources */,
 				55843A532A7C6DAE007FDDA1 /* LoginViewController.swift in Sources */,
+				55086B0D2A84502E00327B6C /* SquareCard.swift in Sources */,
 				5599F0CD2A67563200E1EEDC /* WelcomeViewController.swift in Sources */,
 				5599F0C92A67563200E1EEDC /* AppDelegate.swift in Sources */,
 				5599F0CB2A67563200E1EEDC /* SceneDelegate.swift in Sources */,
@@ -256,7 +260,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				5591464E2A819DCA00AE3F57 /* en */,
-				559146532A819DCD00AE3F57 /* pt-BR */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -265,7 +268,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				5599F0CF2A67563200E1EEDC /* Base */,
-				5591463B2A819C4C00AE3F57 /* pt-BR */,
 				559146442A819C8E00AE3F57 /* en */,
 			);
 			name = Main.storyboard;
@@ -275,7 +277,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				5599F0D42A67563E00E1EEDC /* Base */,
-				5591463C2A819C4D00AE3F57 /* pt-BR */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
