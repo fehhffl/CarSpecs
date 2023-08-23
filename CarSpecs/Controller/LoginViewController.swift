@@ -20,8 +20,8 @@ class LoginViewController: UIViewController {
         title = "Sign In"
         navigationController?.navigationBar.prefersLargeTitles = true
         passwordErrorLabel.isHidden = true
-        userTextField.text = ""
-        passwordTextField.text = ""
+        userTextField.text = user
+        passwordTextField.text = password
     }
 
     @IBAction private func onLogInButtonTapped(_ sender: Any) {
