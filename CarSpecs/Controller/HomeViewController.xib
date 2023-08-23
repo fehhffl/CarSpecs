@@ -10,7 +10,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="CarSpecs" customModuleProvider="target">
             <connections>
+                <outlet property="exploreCollectionView" destination="JSM-O8-vfF" id="yMB-c9-m6j"/>
                 <outlet property="exploreLabel" destination="z2S-X6-sCG" id="fCr-F8-PoD"/>
+                <outlet property="newCarsCollectionView" destination="fP9-YT-gpg" id="X1I-4Z-dLe"/>
                 <outlet property="newCarsLabel" destination="dNW-id-Ihg" id="bgY-et-DJ6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -33,13 +35,13 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="JSM-O8-vfF">
-                                    <rect key="frame" x="24" y="70" width="404" height="128"/>
+                                    <rect key="frame" x="24" y="70" width="404" height="160"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <color key="tintColor" systemColor="opaqueSeparatorColor"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="128" id="oVd-3M-iF7"/>
+                                        <constraint firstAttribute="height" constant="160" id="oVd-3M-iF7"/>
                                     </constraints>
-                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bXy-hO-gnP">
+                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bXy-hO-gnP">
                                         <size key="itemSize" width="128" height="128"/>
                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -47,13 +49,13 @@
                                     </collectionViewFlowLayout>
                                 </collectionView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Cars" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dNW-id-Ihg">
-                                    <rect key="frame" x="24" y="228" width="99" height="27"/>
+                                    <rect key="frame" x="24" y="260" width="99" height="27"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="fP9-YT-gpg">
-                                    <rect key="frame" x="24" y="263" width="380" height="577"/>
+                                    <rect key="frame" x="24" y="295" width="380" height="545"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="clN-4K-baH">
                                         <size key="itemSize" width="128" height="128"/>
