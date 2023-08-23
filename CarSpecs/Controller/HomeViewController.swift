@@ -15,8 +15,10 @@ class HomeViewController: UIViewController,
         if collectionView == exploreCollectionView {
             return 4
         } else {
-            return 4        }
+            return 4
+        }
     }
+
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
