@@ -35,7 +35,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="JSM-O8-vfF">
-                                    <rect key="frame" x="24" y="70" width="404" height="160"/>
+                                    <rect key="frame" x="5" y="70" width="423" height="160"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <color key="tintColor" systemColor="opaqueSeparatorColor"/>
                                     <constraints>
@@ -54,8 +54,8 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="fP9-YT-gpg">
-                                    <rect key="frame" x="24" y="295" width="380" height="545"/>
+                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="fP9-YT-gpg">
+                                    <rect key="frame" x="5" y="295" width="418" height="545"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="clN-4K-baH">
                                         <size key="itemSize" width="128" height="128"/>
@@ -67,13 +67,13 @@
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="fP9-YT-gpg" secondAttribute="trailing" constant="24" id="722-SS-eXl"/>
+                                <constraint firstAttribute="trailing" secondItem="fP9-YT-gpg" secondAttribute="trailing" constant="5" id="722-SS-eXl"/>
                                 <constraint firstAttribute="bottom" secondItem="fP9-YT-gpg" secondAttribute="bottom" constant="460" id="JwQ-uN-1RN"/>
                                 <constraint firstItem="fP9-YT-gpg" firstAttribute="top" secondItem="dNW-id-Ihg" secondAttribute="bottom" constant="8" id="P66-eU-cn1"/>
-                                <constraint firstItem="JSM-O8-vfF" firstAttribute="leading" secondItem="Xbw-Gv-ADC" secondAttribute="leading" constant="24" id="SB0-D8-55r"/>
+                                <constraint firstItem="JSM-O8-vfF" firstAttribute="leading" secondItem="Xbw-Gv-ADC" secondAttribute="leading" constant="5" id="SB0-D8-55r"/>
                                 <constraint firstItem="z2S-X6-sCG" firstAttribute="top" secondItem="Xbw-Gv-ADC" secondAttribute="top" constant="35" id="TtL-rE-NPZ"/>
                                 <constraint firstItem="z2S-X6-sCG" firstAttribute="leading" secondItem="Xbw-Gv-ADC" secondAttribute="leading" constant="24" id="WEl-IQ-tDj"/>
-                                <constraint firstItem="fP9-YT-gpg" firstAttribute="leading" secondItem="Xbw-Gv-ADC" secondAttribute="leading" constant="24" id="abb-4F-GRG"/>
+                                <constraint firstItem="fP9-YT-gpg" firstAttribute="leading" secondItem="Xbw-Gv-ADC" secondAttribute="leading" constant="5" id="abb-4F-GRG"/>
                                 <constraint firstItem="dNW-id-Ihg" firstAttribute="leading" secondItem="Xbw-Gv-ADC" secondAttribute="leading" constant="24" id="cFR-lI-4Fl"/>
                                 <constraint firstItem="JSM-O8-vfF" firstAttribute="top" secondItem="z2S-X6-sCG" secondAttribute="bottom" constant="8" id="dab-Tk-iOU"/>
                                 <constraint firstAttribute="trailing" secondItem="JSM-O8-vfF" secondAttribute="trailing" id="tap-1Z-nDG"/>
