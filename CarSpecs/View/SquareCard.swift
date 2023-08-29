@@ -21,7 +21,7 @@ class SquareCard: UICollectionViewCell {
     @IBOutlet weak var heartButton: UIButton!
     private var isFavorite: Bool = false
 
-    func configure(with style: Style) {
+    func configure(with style: Style, item: SquareCardItem) {
         switch style {
         case .style1:
             imageViewHeightConstraint.constant = 75
@@ -31,13 +31,15 @@ class SquareCard: UICollectionViewCell {
             secondLabel.isHidden = true
             squareCardView.layer.borderColor = UIColor.lightGray.cgColor
             heartButton.isHidden = true
+            firstLabel.text = item.title
+            imageView.image = UIImage(named: item.imageName)
         case .style2:
             heartButton.isHidden = false
             imageViewHeightConstraint.constant = 120
-            imageView.image = UIImage(named: "tesla-model-x.jpg")
+            imageView.image = UIImage(named: item.imageName)
             secondLabel.isHidden = false
-            secondLabel.text = "Used Audi A4 1.8T 2016"
-            firstLabel.text = "Eletric"
+            secondLabel.text = item.subtitle
+            firstLabel.text = item.title
             squareCardView.layer.borderWidth = 0
         }
     }
