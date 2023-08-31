@@ -12,15 +12,20 @@
 		55086B092A844E4F00327B6C /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55086B072A844E4F00327B6C /* HomeViewController.xib */; };
 		55086B0D2A84502E00327B6C /* SquareCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55086B0B2A84502E00327B6C /* SquareCard.swift */; };
 		55086B0E2A84502E00327B6C /* SquareCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55086B0C2A84502E00327B6C /* SquareCard.xib */; };
+		5521478E2AA14A2300BDF35C /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5521478D2AA14A2300BDF35C /* WelcomeViewController.xib */; };
 		5567B7AD2A85A0D10012AB3E /* UIButton+CarSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5567B7AC2A85A0D10012AB3E /* UIButton+CarSpecs.swift */; };
 		5567B7B12A85A0EC0012AB3E /* UITextField+CardSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5567B7B02A85A0EC0012AB3E /* UITextField+CardSpecs.swift */; };
 		55843A532A7C6DAE007FDDA1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55843A512A7C6DAE007FDDA1 /* LoginViewController.swift */; };
 		55843A542A7C6DAE007FDDA1 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55843A522A7C6DAE007FDDA1 /* LoginViewController.xib */; };
 		5591464D2A819DCA00AE3F57 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5591464F2A819DCA00AE3F57 /* Localizable.strings */; };
+		55964F412A9FB12B00BA3B16 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55964F3F2A9FB12B00BA3B16 /* CategoriesViewController.swift */; };
+		55964F422A9FB12B00BA3B16 /* CategoriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55964F402A9FB12B00BA3B16 /* CategoriesViewController.xib */; };
+		55964F462A9FB53600BA3B16 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55964F442A9FB53600BA3B16 /* CategoryCell.swift */; };
+		55964F472A9FB53600BA3B16 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55964F452A9FB53600BA3B16 /* CategoryCell.xib */; };
+		55964F4A2A9FBEA800BA3B16 /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55964F492A9FBEA800BA3B16 /* CategoryItem.swift */; };
 		5599F0C92A67563200E1EEDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5599F0C82A67563200E1EEDC /* AppDelegate.swift */; };
 		5599F0CB2A67563200E1EEDC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5599F0CA2A67563200E1EEDC /* SceneDelegate.swift */; };
 		5599F0CD2A67563200E1EEDC /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5599F0CC2A67563200E1EEDC /* WelcomeViewController.swift */; };
-		5599F0D02A67563200E1EEDC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5599F0CE2A67563200E1EEDC /* Main.storyboard */; };
 		5599F0D22A67563E00E1EEDC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5599F0D12A67563E00E1EEDC /* Assets.xcassets */; };
 		5599F0D52A67563E00E1EEDC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5599F0D32A67563E00E1EEDC /* LaunchScreen.storyboard */; };
 		559F4DE32A9D0F51000E743C /* SquareCardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559F4DE22A9D0F51000E743C /* SquareCardItem.swift */; };
@@ -33,17 +38,21 @@
 		55086B072A844E4F00327B6C /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		55086B0B2A84502E00327B6C /* SquareCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareCard.swift; sourceTree = "<group>"; };
 		55086B0C2A84502E00327B6C /* SquareCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SquareCard.xib; sourceTree = "<group>"; };
+		5521478D2AA14A2300BDF35C /* WelcomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
 		5567B7AC2A85A0D10012AB3E /* UIButton+CarSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+CarSpecs.swift"; sourceTree = "<group>"; };
 		5567B7B02A85A0EC0012AB3E /* UITextField+CardSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+CardSpecs.swift"; sourceTree = "<group>"; };
 		55843A512A7C6DAE007FDDA1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		55843A522A7C6DAE007FDDA1 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
-		559146442A819C8E00AE3F57 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		5591464E2A819DCA00AE3F57 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		55964F3F2A9FB12B00BA3B16 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
+		55964F402A9FB12B00BA3B16 /* CategoriesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoriesViewController.xib; sourceTree = "<group>"; };
+		55964F442A9FB53600BA3B16 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		55964F452A9FB53600BA3B16 /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
+		55964F492A9FBEA800BA3B16 /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
 		5599F0C52A67563200E1EEDC /* CarSpecs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarSpecs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5599F0C82A67563200E1EEDC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5599F0CA2A67563200E1EEDC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5599F0CC2A67563200E1EEDC /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
-		5599F0CF2A67563200E1EEDC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5599F0D12A67563E00E1EEDC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5599F0D42A67563E00E1EEDC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5599F0D62A67563E00E1EEDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -95,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				559F4DE22A9D0F51000E743C /* SquareCardItem.swift */,
+				55964F492A9FBEA800BA3B16 /* CategoryItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -104,6 +114,8 @@
 			children = (
 				55086B0B2A84502E00327B6C /* SquareCard.swift */,
 				55086B0C2A84502E00327B6C /* SquareCard.xib */,
+				55964F442A9FB53600BA3B16 /* CategoryCell.swift */,
+				55964F452A9FB53600BA3B16 /* CategoryCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -111,12 +123,14 @@
 		5567B7BD2A85A62D0012AB3E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				5599F0CE2A67563200E1EEDC /* Main.storyboard */,
 				55843A522A7C6DAE007FDDA1 /* LoginViewController.xib */,
 				55086B062A844E4F00327B6C /* HomeViewController.swift */,
 				55086B072A844E4F00327B6C /* HomeViewController.xib */,
 				55843A512A7C6DAE007FDDA1 /* LoginViewController.swift */,
+				5521478D2AA14A2300BDF35C /* WelcomeViewController.xib */,
 				5599F0CC2A67563200E1EEDC /* WelcomeViewController.swift */,
+				55964F3F2A9FB12B00BA3B16 /* CategoriesViewController.swift */,
+				55964F402A9FB12B00BA3B16 /* CategoriesViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -235,10 +249,12 @@
 			files = (
 				5591464D2A819DCA00AE3F57 /* Localizable.strings in Resources */,
 				55843A542A7C6DAE007FDDA1 /* LoginViewController.xib in Resources */,
+				55964F422A9FB12B00BA3B16 /* CategoriesViewController.xib in Resources */,
 				5599F0D52A67563E00E1EEDC /* LaunchScreen.storyboard in Resources */,
 				55086B0E2A84502E00327B6C /* SquareCard.xib in Resources */,
+				5521478E2AA14A2300BDF35C /* WelcomeViewController.xib in Resources */,
 				5599F0D22A67563E00E1EEDC /* Assets.xcassets in Resources */,
-				5599F0D02A67563200E1EEDC /* Main.storyboard in Resources */,
+				55964F472A9FB53600BA3B16 /* CategoryCell.xib in Resources */,
 				55086B092A844E4F00327B6C /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,11 +313,14 @@
 				5567B7B12A85A0EC0012AB3E /* UITextField+CardSpecs.swift in Sources */,
 				55843A532A7C6DAE007FDDA1 /* LoginViewController.swift in Sources */,
 				55086B0D2A84502E00327B6C /* SquareCard.swift in Sources */,
+				55964F412A9FB12B00BA3B16 /* CategoriesViewController.swift in Sources */,
 				559F4DE32A9D0F51000E743C /* SquareCardItem.swift in Sources */,
 				5599F0CD2A67563200E1EEDC /* WelcomeViewController.swift in Sources */,
 				5567B7AD2A85A0D10012AB3E /* UIButton+CarSpecs.swift in Sources */,
 				5599F0C92A67563200E1EEDC /* AppDelegate.swift in Sources */,
 				5599F0CB2A67563200E1EEDC /* SceneDelegate.swift in Sources */,
+				55964F4A2A9FBEA800BA3B16 /* CategoryItem.swift in Sources */,
+				55964F462A9FB53600BA3B16 /* CategoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,15 +333,6 @@
 				5591464E2A819DCA00AE3F57 /* en */,
 			);
 			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		5599F0CE2A67563200E1EEDC /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5599F0CF2A67563200E1EEDC /* Base */,
-				559146442A819C8E00AE3F57 /* en */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		5599F0D32A67563E00E1EEDC /* LaunchScreen.storyboard */ = {

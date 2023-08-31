@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="IndentifierCategoryCell" rowHeight="198" id="KGk-i7-Jjw" customClass="CategoryCell" customModule="CarSpecs" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="198"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="400" height="198"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mercedes-benz-vision-eqs" translatesAutoresizingMaskIntoConstraints="NO" id="y4d-h8-7it">
+                        <rect key="frame" x="0.0" y="10" width="400" height="188"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="188" id="NUd-qG-ZTs"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XgI-4x-o5n">
+                        <rect key="frame" x="0.0" y="10" width="400" height="188"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eletric" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oax-qD-jYf">
+                        <rect key="frame" x="171" y="92" width="58" height="24"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Oax-qD-jYf" firstAttribute="centerX" secondItem="y4d-h8-7it" secondAttribute="centerX" id="23F-Oz-BfB"/>
+                    <constraint firstItem="XgI-4x-o5n" firstAttribute="top" secondItem="y4d-h8-7it" secondAttribute="top" id="2UG-WE-z9m"/>
+                    <constraint firstItem="XgI-4x-o5n" firstAttribute="bottom" secondItem="y4d-h8-7it" secondAttribute="bottom" id="5DP-H5-wKT"/>
+                    <constraint firstItem="y4d-h8-7it" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="7pz-bf-uD1"/>
+                    <constraint firstAttribute="bottom" secondItem="y4d-h8-7it" secondAttribute="bottom" id="AYy-rB-mzB"/>
+                    <constraint firstItem="y4d-h8-7it" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="JJI-Pf-5Cp"/>
+                    <constraint firstItem="XgI-4x-o5n" firstAttribute="leading" secondItem="y4d-h8-7it" secondAttribute="leading" id="RnU-B5-K3F"/>
+                    <constraint firstItem="Oax-qD-jYf" firstAttribute="centerY" secondItem="y4d-h8-7it" secondAttribute="centerY" id="VUz-DI-7Qx"/>
+                    <constraint firstAttribute="trailing" secondItem="y4d-h8-7it" secondAttribute="trailing" id="bmK-te-K7r"/>
+                    <constraint firstItem="XgI-4x-o5n" firstAttribute="trailing" secondItem="y4d-h8-7it" secondAttribute="trailing" id="zFt-qN-imY"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="gradientView" destination="XgI-4x-o5n" id="cVn-rg-NVt"/>
+                <outlet property="mainImage" destination="y4d-h8-7it" id="eGi-gA-NWQ"/>
+                <outlet property="titleLabel" destination="Oax-qD-jYf" id="aaU-mw-YAo"/>
+            </connections>
+            <point key="canvasLocation" x="-128.98550724637681" y="172.09821428571428"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="mercedes-benz-vision-eqs" width="2730" height="1536"/>
+    </resources>
+</document>
