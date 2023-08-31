@@ -55,6 +55,9 @@
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                             <color key="tintColor" name="Color"/>
                             <state key="normal" title="Log In"/>
+                            <connections>
+                                <action selector="onLoginButtonTapped:" destination="-1" eventType="touchUpInside" id="5Tk-Gj-Zba"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
