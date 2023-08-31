@@ -26,7 +26,7 @@ class HomeViewController: UIViewController,
     override func viewDidLoad() {
         exploreCards = [
             SquareCardItem(title: "Eletric", imageName: "tesla-model-x"),
-            SquareCardItem(title: "New Cars", imageName: "morgan-aero 8"),
+            SquareCardItem(title: "New Cars", imageName: "vw_gti"),
             SquareCardItem(title: "Luxury", imageName: "morgan-aero 8"),
             SquareCardItem(title: "Hybrid", imageName: "bmw-i3"),
             SquareCardItem(title: "Trucks", imageName: "dodge-ram")

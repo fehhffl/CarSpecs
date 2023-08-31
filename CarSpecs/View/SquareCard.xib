@@ -91,7 +91,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="heart" catalog="system" width="32" height="32"/>
+        <image name="heart" catalog="system" width="128" height="109"/>
         <image name="mercedes-benz-vision-eqs" width="2730" height="1536"/>
         <namedColor name="Color">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
