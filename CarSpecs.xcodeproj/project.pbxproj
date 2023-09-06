@@ -16,6 +16,7 @@
 		5551EAD02AA7D2BA00285CE9 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5551EACF2AA7D2BA00285CE9 /* TabBarController.swift */; };
 		5567B7AD2A85A0D10012AB3E /* UIButton+CarSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5567B7AC2A85A0D10012AB3E /* UIButton+CarSpecs.swift */; };
 		5567B7B12A85A0EC0012AB3E /* UITextField+CardSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5567B7B02A85A0EC0012AB3E /* UITextField+CardSpecs.swift */; };
+		5579C1832AA93D97008DC5B3 /* CarRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5579C1822AA93D97008DC5B3 /* CarRepository.swift */; };
 		55843A532A7C6DAE007FDDA1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55843A512A7C6DAE007FDDA1 /* LoginViewController.swift */; };
 		55843A542A7C6DAE007FDDA1 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55843A522A7C6DAE007FDDA1 /* LoginViewController.xib */; };
 		5591464D2A819DCA00AE3F57 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5591464F2A819DCA00AE3F57 /* Localizable.strings */; };
@@ -43,6 +44,7 @@
 		5551EACF2AA7D2BA00285CE9 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		5567B7AC2A85A0D10012AB3E /* UIButton+CarSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+CarSpecs.swift"; sourceTree = "<group>"; };
 		5567B7B02A85A0EC0012AB3E /* UITextField+CardSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+CardSpecs.swift"; sourceTree = "<group>"; };
+		5579C1822AA93D97008DC5B3 /* CarRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarRepository.swift; sourceTree = "<group>"; };
 		55843A512A7C6DAE007FDDA1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		55843A522A7C6DAE007FDDA1 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		5591464E2A819DCA00AE3F57 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			children = (
 				559F4DE22A9D0F51000E743C /* SquareCardItem.swift */,
 				55964F492A9FBEA800BA3B16 /* CategoryItem.swift */,
+				5579C1822AA93D97008DC5B3 /* CarRepository.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				55964F412A9FB12B00BA3B16 /* CategoriesViewController.swift in Sources */,
 				559F4DE32A9D0F51000E743C /* SquareCardItem.swift in Sources */,
 				5599F0CD2A67563200E1EEDC /* WelcomeViewController.swift in Sources */,
+				5579C1832AA93D97008DC5B3 /* CarRepository.swift in Sources */,
 				5567B7AD2A85A0D10012AB3E /* UIButton+CarSpecs.swift in Sources */,
 				5599F0C92A67563200E1EEDC /* AppDelegate.swift in Sources */,
 				5599F0CB2A67563200E1EEDC /* SceneDelegate.swift in Sources */,
