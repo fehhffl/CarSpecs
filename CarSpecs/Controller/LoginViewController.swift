@@ -30,7 +30,7 @@ class LoginViewController: UIViewController {
             passwordErrorLabel.isHidden = false
             passwordErrorLabel.text = "Success"
             passwordErrorLabel.textColor = .green
-            navigationController?.pushViewController(HomeViewController(), animated: true)
+            navigationController?.pushViewController(TabBarController(), animated: true)
         } else {
             passwordErrorLabel.isHidden = false
             passwordErrorLabel.text = "Wrong password or email!"
