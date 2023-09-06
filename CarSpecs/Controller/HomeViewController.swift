@@ -17,6 +17,7 @@ class HomeViewController: UIViewController,
     @IBOutlet private weak var newCarsCollectionView: UICollectionView!
     private var exploreCards: [SquareCardItem] = []
     private var newCarCards: [SquareCardItem] = []
+    let carsRepository = CarRepository.init()
     public var screenWidth: CGFloat {
         return UIScreen.main.bounds.width
     }
@@ -24,21 +25,8 @@ class HomeViewController: UIViewController,
         return UIScreen.main.bounds.height
     }
     override func viewDidLoad() {
-        exploreCards = [
-            SquareCardItem(title: "Eletric", imageName: "mercedes-benz-vision-eqs"),
-            SquareCardItem(title: "New Cars", imageName: "vw_gti"),
-            SquareCardItem(title: "Luxury", imageName: "morgan-aero 8"),
-            SquareCardItem(title: "Hybrid", imageName: "bmw-i3"),
-            SquareCardItem(title: "Trucks", imageName: "dodge-ram")
-        ]
-
-        newCarCards = [
-            SquareCardItem(title: "New Cars", subtitle: "Used Audi A4 1.8T 2015", imageName: "tesla-model-x"),
-            SquareCardItem(title: "New Cars", subtitle: "Used Audi A4 1.8T 2015", imageName: "tesla-model-x"),
-            SquareCardItem(title: "New Cars", subtitle: "Used Audi A4 1.8T 2015", imageName: "tesla-model-x"),
-            SquareCardItem(title: "New Cars", subtitle: "Used Audi A4 1.8T 2015", imageName: "tesla-model-x"),
-            SquareCardItem(title: "New Cars", subtitle: "Used Audi A4 1.8T 2015", imageName: "tesla-model-x")
-        ]
+        exploreCards = carsRepository.getCategoriesCar()
+        newCarCards = carsRepository.getIndividualCars()
 
         super.viewDidLoad()
         exploreLabel.text = "explore_home_screen_label".localize()
