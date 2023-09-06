@@ -7,21 +7,38 @@
 
 import UIKit
 
+enum TabOption: Int {
+    case home
+    case categories
+}
+
 class TabBarController: UITabBarController {
 
     let arrayViewControllers: [UINavigationController] = [
         UINavigationController(rootViewController: HomeViewController()),
         UINavigationController(rootViewController: CategoriesViewController())
     ]
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
-
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        arrayViewControllers[0].tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), tag: 0)
-    arrayViewControllers[1].tabBarItem = UITabBarItem(title: "Categories", image: UIImage(systemName: "heart"), tag: 1)
+
+        arrayViewControllers[TabOption.home.rawValue].tabBarItem = UITabBarItem(
+            title: "Home",
+            image: UIImage(systemName: "house"),
+            tag: TabOption.home.rawValue
+        )
+
+        arrayViewControllers[TabOption.categories.rawValue].tabBarItem = UITabBarItem(
+            title: "Categories",
+            image: UIImage(systemName: "heart"),
+            tag: TabOption.categories.rawValue
+        )
+
         setViewControllers(arrayViewControllers, animated: true)
     }
 }
