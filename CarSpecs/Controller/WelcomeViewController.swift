@@ -25,7 +25,7 @@ class WelcomeViewController: UIViewController {
     }
 
     @IBAction func onLoginButtonTapped(_ sender: Any) {
-        navigationController?.pushViewController(HomeViewController(), animated: true)
+        navigationController?.pushViewController(LoginViewController(), animated: true)
     }
 
 }
