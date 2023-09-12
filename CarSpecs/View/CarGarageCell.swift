@@ -14,9 +14,8 @@ class CarGarageCell: UITableViewCell {
     @IBOutlet weak var cardBackgroundView: UIView!
     @IBOutlet weak var carPrice: UILabel!
 
-    func configure(item: CarGarageItem) {
-        let moeda = "USD"
-        carPrice.text = String(format: "$%.2f %@", item.price, moeda)
+    func configure(item: SquareCardItem) {
+        carPrice.text = item.subtitle
         cellImage.image = UIImage(named: item.imageName)
         carName.text = item.title
         cardBackgroundView.layer.cornerRadius = 10

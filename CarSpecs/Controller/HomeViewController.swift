@@ -17,7 +17,7 @@ class HomeViewController: UIViewController,
     @IBOutlet private weak var newCarsCollectionView: UICollectionView!
     private var exploreCards: [SquareCardItem] = []
     private var newCarCards: [SquareCardItem] = []
-    let carsRepository = CarRepository.init()
+    let squareCardsRepository = SquareCardsRepository.init()
     public var screenWidth: CGFloat {
         return UIScreen.main.bounds.width
     }
@@ -25,8 +25,8 @@ class HomeViewController: UIViewController,
         return UIScreen.main.bounds.height
     }
     override func viewDidLoad() {
-        exploreCards = carsRepository.getCategoriesCar()
-        newCarCards = carsRepository.getIndividualCars()
+        exploreCards = squareCardsRepository.getCategoriesCar()
+        newCarCards = squareCardsRepository.getAllSquareCards()
 
         super.viewDidLoad()
         exploreLabel.text = "explore_home_screen_label".localize()

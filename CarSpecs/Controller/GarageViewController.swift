@@ -10,12 +10,8 @@ import UIKit
 class GarageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
-    var garageCarsCards: [CarGarageItem] = [
-    .init(title:"Used Audi A4 1.8T 2015", imageName: "tesla-model-x", price: 300000.00),
-        .init(title: "Audi", imageName: "tesla-model-x", price: 300000.00),
-    .init(title: "Audi", imageName: "tesla-model-x", price: 300000.00),
-    .init(title: "Audi", imageName: "tesla-model-x", price: 300000.00),
-    .init(title: "Audi", imageName: "tesla-model-x", price: 300000.00)]
+    let squareCardsRepository = SquareCardsRepository()
+    var squareCardItems: [SquareCardItem] = []
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -23,6 +19,7 @@ class GarageViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     override func viewDidLoad() {
+        squareCardItems = squareCardsRepository.getAllSquareCards()
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
@@ -31,7 +28,7 @@ class GarageViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        garageCarsCards.count
+        squareCardItems.count
     }
 
     // Retorna a célula (UITableViewCell) que sera mostrada na linha indexPath.row e seçao indexPath.section
@@ -39,7 +36,7 @@ class GarageViewController: UIViewController, UITableViewDelegate, UITableViewDa
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "IdentifierCarGarageCell") as? CarGarageCell else {
             return UITableViewCell()
         }
-        let item = garageCarsCards[indexPath.row]
+        let item = squareCardItems[indexPath.row]
         cell.configure(item: item)
         return cell
     }
