@@ -5,21 +5,24 @@
 //  Created by Felipe Lima on 06/09/23.
 //
 
+import SwiftyUserDefaults
 import UIKit
 
 class GarageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
-    let squareCardsRepository = SquareCardsRepository()
-    var squareCardItems: [SquareCardItem] = []
+    let carRepository = CarRepository()
+    var favoriteCars: [Car] = []
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         title = "Saved items"
+        let savedFavoriteCars = Defaults[key: DefaultsKeys.favoriteCars]
+        favoriteCars = savedFavoriteCars
+        tableView.reloadData()
     }
 
     override func viewDidLoad() {
-        squareCardItems = squareCardsRepository.getAllSquareCards()
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
@@ -28,7 +31,7 @@ class GarageViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        squareCardItems.count
+        favoriteCars.count
     }
 
     // Retorna a célula (UITableViewCell) que sera mostrada na linha indexPath.row e seçao indexPath.section
@@ -36,7 +39,11 @@ class GarageViewController: UIViewController, UITableViewDelegate, UITableViewDa
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "IdentifierCarGarageCell") as? CarGarageCell else {
             return UITableViewCell()
         }
-        let item = squareCardItems[indexPath.row]
+        let car = favoriteCars[indexPath.row]
+        let item = SquareCardItem(
+            title: car.name,
+            subtitle: String(format: "$%.2f", car.price),
+            imageName: car.imageName)
         cell.configure(item: item)
         return cell
     }

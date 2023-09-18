@@ -18,18 +18,4 @@ struct SquareCardsRepository {
                 SquareCardItem(title: "Trucks", imageName: "dodge-ram")
         ]
     }
-
-    func getAllSquareCards() -> [SquareCardItem] {
-        let cars = carRepository.getAllCars()
-        var squareCardsItemsArray: [SquareCardItem] = []
-        for car in cars {
-            let item = SquareCardItem(
-                title: car.name,
-                subtitle: String(format: "$%.2f", car.price),
-                imageName: car.imageName
-            )
-            squareCardsItemsArray.append(item)
-        }
-        return squareCardsItemsArray
-    }
 }

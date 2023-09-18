@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftyUserDefaults
 
 class HomeViewController: UIViewController,
                           UICollectionViewDelegate,
@@ -16,7 +17,8 @@ class HomeViewController: UIViewController,
     @IBOutlet private weak var exploreLabel: UILabel!
     @IBOutlet private weak var newCarsCollectionView: UICollectionView!
     private var exploreCards: [SquareCardItem] = []
-    private var newCarCards: [SquareCardItem] = []
+    private let carRepository = CarRepository()
+    private var cars: [Car] = []
     let squareCardsRepository = SquareCardsRepository.init()
     public var screenWidth: CGFloat {
         return UIScreen.main.bounds.width
@@ -26,7 +28,7 @@ class HomeViewController: UIViewController,
     }
     override func viewDidLoad() {
         exploreCards = squareCardsRepository.getCategoriesCar()
-        newCarCards = squareCardsRepository.getAllSquareCards()
+        cars = carRepository.getAllCars()
 
         super.viewDidLoad()
         exploreLabel.text = "explore_home_screen_label".localize()
@@ -50,7 +52,7 @@ class HomeViewController: UIViewController,
         if collectionView == exploreCollectionView {
             return exploreCards.count
         } else {
-            return newCarCards.count
+            return cars.count
         }
     }
 
@@ -76,8 +78,35 @@ class HomeViewController: UIViewController,
             cell.configure(with: .style1, item: exploreCards[indexPath.row])
             return cell
         } else {
-            cell.configure(with: .style2, item: newCarCards[indexPath.row])
+            let car = cars[indexPath.row]
+            let squareCardItem = SquareCardItem(
+                title: car.name,
+                subtitle: String(format: "$%.2f", car.price),
+                imageName: car.imageName)
+
+            cell.configure(with: .style2, item: squareCardItem)
             return cell
         }
     }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == newCarsCollectionView {
+            let selectedCar = cars[indexPath.item]
+            
+            var currentFavoriteCars = Defaults[key: DefaultsKeys.favoriteCars]
+            currentFavoriteCars.append(selectedCar)
+            Defaults[key: DefaultsKeys.favoriteCars] = currentFavoriteCars
+
+            let alertController = UIAlertController(title: "Saved", message: "Car added to favorites", preferredStyle: .alert)
+            let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alertController.addAction(action)
+            present(alertController, animated: true)
+        }
+
+        // carRepository1.favorites.push(carSelected)
+    }
+}
+
+extension DefaultsKeys {
+    static var favoriteCars: DefaultsKey<[Car]> { DefaultsKey("favoriteCarsKey", defaultValue: []) }
 }

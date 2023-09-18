@@ -11,6 +11,7 @@ enum TabOption: Int {
     case home
     case categories
     case garage
+    case search
 }
 
 class TabBarController: UITabBarController {
@@ -18,7 +19,8 @@ class TabBarController: UITabBarController {
     let arrayViewControllers: [UINavigationController] = [
         UINavigationController(rootViewController: HomeViewController()),
         UINavigationController(rootViewController: CategoriesViewController()),
-        UINavigationController(rootViewController: GarageViewController())
+        UINavigationController(rootViewController: GarageViewController()),
+        UINavigationController(rootViewController: SearchViewController())
     ]
 
     override func viewWillAppear(_ animated: Bool) {
@@ -44,6 +46,11 @@ class TabBarController: UITabBarController {
             title: "Categories",
             image: UIImage(systemName: "list.bullet.indent"),
             tag: TabOption.categories.rawValue
+        )
+        arrayViewControllers[TabOption.search.rawValue].tabBarItem = UITabBarItem(
+            title: "Search",
+            image: UIImage(systemName: "magnifyingglass"),
+            tag: TabOption.search.rawValue
         )
 
         setViewControllers(arrayViewControllers, animated: true)

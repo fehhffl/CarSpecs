@@ -37,6 +37,8 @@
 		5599F0D22A67563E00E1EEDC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5599F0D12A67563E00E1EEDC /* Assets.xcassets */; };
 		5599F0D52A67563E00E1EEDC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5599F0D32A67563E00E1EEDC /* LaunchScreen.storyboard */; };
 		559F4DE32A9D0F51000E743C /* SquareCardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559F4DE22A9D0F51000E743C /* SquareCardItem.swift */; };
+		55EFE9F72AB4E11B007AD8D6 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EFE9F52AB4E11B007AD8D6 /* SearchViewController.swift */; };
+		55EFE9F82AB4E11B007AD8D6 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55EFE9F62AB4E11B007AD8D6 /* SearchViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +75,8 @@
 		5599F0D42A67563E00E1EEDC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5599F0D62A67563E00E1EEDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		559F4DE22A9D0F51000E743C /* SquareCardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareCardItem.swift; sourceTree = "<group>"; };
+		55EFE9F52AB4E11B007AD8D6 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		55EFE9F62AB4E11B007AD8D6 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		8547FAF74F8CB9B83853D75E /* Pods_CarSpecs_CarSpecsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarSpecs_CarSpecsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92C2AF38429C7B5069DE3A48 /* Pods_CarSpecs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarSpecs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A741121D3DAE79040C192467 /* Pods_CarSpecsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarSpecsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,6 +159,8 @@
 				5521478D2AA14A2300BDF35C /* WelcomeViewController.xib */,
 				5579C1872AA942AE008DC5B3 /* GarageViewController.swift */,
 				5579C1882AA942AE008DC5B3 /* GarageViewController.xib */,
+				55EFE9F52AB4E11B007AD8D6 /* SearchViewController.swift */,
+				55EFE9F62AB4E11B007AD8D6 /* SearchViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -224,6 +230,7 @@
 				5599F0C22A67563200E1EEDC /* Frameworks */,
 				5599F0C32A67563200E1EEDC /* Resources */,
 				55086AF92A844B7D00327B6C /* ShellScript */,
+				5A0116FF59135C90D5786712 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -273,6 +280,7 @@
 			files = (
 				5591464D2A819DCA00AE3F57 /* Localizable.strings in Resources */,
 				5579C18A2AA942AE008DC5B3 /* GarageViewController.xib in Resources */,
+				55EFE9F82AB4E11B007AD8D6 /* SearchViewController.xib in Resources */,
 				55843A542A7C6DAE007FDDA1 /* LoginViewController.xib in Resources */,
 				55964F422A9FB12B00BA3B16 /* CategoriesViewController.xib in Resources */,
 				5599F0D52A67563E00E1EEDC /* LaunchScreen.storyboard in Resources */,
@@ -305,6 +313,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		5A0116FF59135C90D5786712 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CarSpecs/Pods-CarSpecs-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CarSpecs/Pods-CarSpecs-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CarSpecs/Pods-CarSpecs-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		B1D4EEA2FBC2BB526D878509 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -339,6 +364,7 @@
 				5551EAD02AA7D2BA00285CE9 /* TabBarController.swift in Sources */,
 				5567B7B12A85A0EC0012AB3E /* UITextField+CardSpecs.swift in Sources */,
 				5542B6162AB11AF10055B4C8 /* CarRepository.swift in Sources */,
+				55EFE9F72AB4E11B007AD8D6 /* SearchViewController.swift in Sources */,
 				55843A532A7C6DAE007FDDA1 /* LoginViewController.swift in Sources */,
 				55086B0D2A84502E00327B6C /* SquareCard.swift in Sources */,
 				55964F412A9FB12B00BA3B16 /* CategoriesViewController.swift in Sources */,

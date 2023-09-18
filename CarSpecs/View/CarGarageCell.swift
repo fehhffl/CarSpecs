@@ -5,6 +5,7 @@
 //  Created by Felipe Lima on 06/09/23.
 //
 
+import Kingfisher
 import UIKit
 
 class CarGarageCell: UITableViewCell {
@@ -16,7 +17,7 @@ class CarGarageCell: UITableViewCell {
 
     func configure(item: SquareCardItem) {
         carPrice.text = item.subtitle
-        cellImage.image = UIImage(named: item.imageName)
+        cellImage.kf.setImage(with: URL(string: item.imageName)!)
         carName.text = item.title
         cardBackgroundView.layer.cornerRadius = 10
         cardBackgroundView.clipsToBounds = true
