@@ -26,17 +26,17 @@
                                     <constraint firstAttribute="height" constant="80" id="OeY-Zm-geU"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="d2z-DH-Xi8">
-                                <rect key="frame" x="8" y="88" width="165" height="40"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="d2z-DH-Xi8">
+                                <rect key="frame" x="8" y="88" width="165" height="54"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Electric" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YtS-nH-tjP">
-                                        <rect key="frame" x="0.0" y="0.0" width="165" height="18"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="80.5" height="54"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Used Audi A4 1.8T 2016" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nCd-WS-qdd">
-                                        <rect key="frame" x="0.0" y="22" width="165" height="18"/>
+                                        <rect key="frame" x="84.5" y="0.0" width="80.5" height="54"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -84,6 +84,7 @@
                 <outlet property="heartButton" destination="pbW-vA-pUp" id="pMp-kK-EpE"/>
                 <outlet property="imageView" destination="CxY-Lg-dlu" id="88V-6m-FuY"/>
                 <outlet property="imageViewHeightConstraint" destination="OeY-Zm-geU" id="Vwm-hM-qkO"/>
+                <outlet property="labelsStackView" destination="d2z-DH-Xi8" id="mOM-5J-aud"/>
                 <outlet property="secondLabel" destination="nCd-WS-qdd" id="hP1-nQ-uyP"/>
                 <outlet property="squareCardView" destination="P2S-qa-EPe" id="Ipx-NO-8Pm"/>
             </connections>

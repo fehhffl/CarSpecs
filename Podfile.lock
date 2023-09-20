@@ -1,16 +1,24 @@
 PODS:
+  - Kingfisher (7.6.2)
   - SwiftLint (0.52.4)
+  - SwiftyUserDefaults (5.3.0)
 
 DEPENDENCIES:
+  - Kingfisher (~> 7.6.2)
   - SwiftLint (~> 0.52.2)
+  - SwiftyUserDefaults (~> 5.0)
 
 SPEC REPOS:
   trunk:
+    - Kingfisher
     - SwiftLint
+    - SwiftyUserDefaults
 
 SPEC CHECKSUMS:
+  Kingfisher: 6c5449c6450c5239166510ba04afe374a98afc4f
   SwiftLint: 1cc5cd61ba9bacb2194e340aeb47a2a37fda00b3
+  SwiftyUserDefaults: 63f80248cf5bfb3458825d9a78f2eb7e1293a040
 
-PODFILE CHECKSUM: 7da5a80044f3ea2df8fed09bc7b0af6782e0d8d5
+PODFILE CHECKSUM: 7b672d6118c13872b5b99b4f110e569dbbdd143d
 
 COCOAPODS: 1.8.4

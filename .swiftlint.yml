@@ -1,0 +1,15 @@
+included:
+  - CarSpecs
+
+excluded:
+  - Pods
+
+disabled_rules:
+   - line_length
+   - identifier_name
+   - for_where
+   - function_body_length
+   - file_length
+   - type_body_length
+   - type_name
+   - unused_enumerated

@@ -13,10 +13,16 @@
 		55086B0D2A84502E00327B6C /* SquareCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55086B0B2A84502E00327B6C /* SquareCard.swift */; };
 		55086B0E2A84502E00327B6C /* SquareCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55086B0C2A84502E00327B6C /* SquareCard.xib */; };
 		5521478E2AA14A2300BDF35C /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5521478D2AA14A2300BDF35C /* WelcomeViewController.xib */; };
+		5542B6122AB11A3F0055B4C8 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5542B6112AB11A3F0055B4C8 /* Car.swift */; };
+		5542B6162AB11AF10055B4C8 /* CarRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5542B6152AB11AF10055B4C8 /* CarRepository.swift */; };
 		5551EAD02AA7D2BA00285CE9 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5551EACF2AA7D2BA00285CE9 /* TabBarController.swift */; };
 		5567B7AD2A85A0D10012AB3E /* UIButton+CarSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5567B7AC2A85A0D10012AB3E /* UIButton+CarSpecs.swift */; };
 		5567B7B12A85A0EC0012AB3E /* UITextField+CardSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5567B7B02A85A0EC0012AB3E /* UITextField+CardSpecs.swift */; };
-		5579C1832AA93D97008DC5B3 /* CarRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5579C1822AA93D97008DC5B3 /* CarRepository.swift */; };
+		5579C1832AA93D97008DC5B3 /* SquareCardsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5579C1822AA93D97008DC5B3 /* SquareCardsRepository.swift */; };
+		5579C1892AA942AE008DC5B3 /* GarageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5579C1872AA942AE008DC5B3 /* GarageViewController.swift */; };
+		5579C18A2AA942AE008DC5B3 /* GarageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5579C1882AA942AE008DC5B3 /* GarageViewController.xib */; };
+		5579C1922AA949AD008DC5B3 /* CarGarageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5579C1902AA949AC008DC5B3 /* CarGarageCell.swift */; };
+		5579C1932AA949AD008DC5B3 /* CarGarageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5579C1912AA949AC008DC5B3 /* CarGarageCell.xib */; };
 		55843A532A7C6DAE007FDDA1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55843A512A7C6DAE007FDDA1 /* LoginViewController.swift */; };
 		55843A542A7C6DAE007FDDA1 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55843A522A7C6DAE007FDDA1 /* LoginViewController.xib */; };
 		5591464D2A819DCA00AE3F57 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5591464F2A819DCA00AE3F57 /* Localizable.strings */; };
@@ -31,6 +37,8 @@
 		5599F0D22A67563E00E1EEDC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5599F0D12A67563E00E1EEDC /* Assets.xcassets */; };
 		5599F0D52A67563E00E1EEDC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5599F0D32A67563E00E1EEDC /* LaunchScreen.storyboard */; };
 		559F4DE32A9D0F51000E743C /* SquareCardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559F4DE22A9D0F51000E743C /* SquareCardItem.swift */; };
+		55EFE9F72AB4E11B007AD8D6 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EFE9F52AB4E11B007AD8D6 /* SearchViewController.swift */; };
+		55EFE9F82AB4E11B007AD8D6 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55EFE9F62AB4E11B007AD8D6 /* SearchViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,10 +49,16 @@
 		55086B0B2A84502E00327B6C /* SquareCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareCard.swift; sourceTree = "<group>"; };
 		55086B0C2A84502E00327B6C /* SquareCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SquareCard.xib; sourceTree = "<group>"; };
 		5521478D2AA14A2300BDF35C /* WelcomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
+		5542B6112AB11A3F0055B4C8 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
+		5542B6152AB11AF10055B4C8 /* CarRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarRepository.swift; sourceTree = "<group>"; };
 		5551EACF2AA7D2BA00285CE9 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		5567B7AC2A85A0D10012AB3E /* UIButton+CarSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+CarSpecs.swift"; sourceTree = "<group>"; };
 		5567B7B02A85A0EC0012AB3E /* UITextField+CardSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+CardSpecs.swift"; sourceTree = "<group>"; };
-		5579C1822AA93D97008DC5B3 /* CarRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarRepository.swift; sourceTree = "<group>"; };
+		5579C1822AA93D97008DC5B3 /* SquareCardsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareCardsRepository.swift; sourceTree = "<group>"; };
+		5579C1872AA942AE008DC5B3 /* GarageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageViewController.swift; sourceTree = "<group>"; };
+		5579C1882AA942AE008DC5B3 /* GarageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GarageViewController.xib; sourceTree = "<group>"; };
+		5579C1902AA949AC008DC5B3 /* CarGarageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarGarageCell.swift; sourceTree = "<group>"; };
+		5579C1912AA949AC008DC5B3 /* CarGarageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarGarageCell.xib; sourceTree = "<group>"; };
 		55843A512A7C6DAE007FDDA1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		55843A522A7C6DAE007FDDA1 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		5591464E2A819DCA00AE3F57 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -61,6 +75,8 @@
 		5599F0D42A67563E00E1EEDC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5599F0D62A67563E00E1EEDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		559F4DE22A9D0F51000E743C /* SquareCardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareCardItem.swift; sourceTree = "<group>"; };
+		55EFE9F52AB4E11B007AD8D6 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		55EFE9F62AB4E11B007AD8D6 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		8547FAF74F8CB9B83853D75E /* Pods_CarSpecs_CarSpecsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarSpecs_CarSpecsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92C2AF38429C7B5069DE3A48 /* Pods_CarSpecs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarSpecs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A741121D3DAE79040C192467 /* Pods_CarSpecsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarSpecsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,7 +125,9 @@
 			children = (
 				559F4DE22A9D0F51000E743C /* SquareCardItem.swift */,
 				55964F492A9FBEA800BA3B16 /* CategoryItem.swift */,
-				5579C1822AA93D97008DC5B3 /* CarRepository.swift */,
+				5579C1822AA93D97008DC5B3 /* SquareCardsRepository.swift */,
+				5542B6112AB11A3F0055B4C8 /* Car.swift */,
+				5542B6152AB11AF10055B4C8 /* CarRepository.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -117,10 +135,12 @@
 		5567B7BC2A85A6260012AB3E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				55086B0B2A84502E00327B6C /* SquareCard.swift */,
-				55086B0C2A84502E00327B6C /* SquareCard.xib */,
 				55964F442A9FB53600BA3B16 /* CategoryCell.swift */,
+				55086B0C2A84502E00327B6C /* SquareCard.xib */,
+				55086B0B2A84502E00327B6C /* SquareCard.swift */,
 				55964F452A9FB53600BA3B16 /* CategoryCell.xib */,
+				5579C1902AA949AC008DC5B3 /* CarGarageCell.swift */,
+				5579C1912AA949AC008DC5B3 /* CarGarageCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -137,6 +157,10 @@
 				5551EACF2AA7D2BA00285CE9 /* TabBarController.swift */,
 				5599F0CC2A67563200E1EEDC /* WelcomeViewController.swift */,
 				5521478D2AA14A2300BDF35C /* WelcomeViewController.xib */,
+				5579C1872AA942AE008DC5B3 /* GarageViewController.swift */,
+				5579C1882AA942AE008DC5B3 /* GarageViewController.xib */,
+				55EFE9F52AB4E11B007AD8D6 /* SearchViewController.swift */,
+				55EFE9F62AB4E11B007AD8D6 /* SearchViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -206,6 +230,7 @@
 				5599F0C22A67563200E1EEDC /* Frameworks */,
 				5599F0C32A67563200E1EEDC /* Resources */,
 				55086AF92A844B7D00327B6C /* ShellScript */,
+				5A0116FF59135C90D5786712 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -254,6 +279,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5591464D2A819DCA00AE3F57 /* Localizable.strings in Resources */,
+				5579C18A2AA942AE008DC5B3 /* GarageViewController.xib in Resources */,
+				55EFE9F82AB4E11B007AD8D6 /* SearchViewController.xib in Resources */,
 				55843A542A7C6DAE007FDDA1 /* LoginViewController.xib in Resources */,
 				55964F422A9FB12B00BA3B16 /* CategoriesViewController.xib in Resources */,
 				5599F0D52A67563E00E1EEDC /* LaunchScreen.storyboard in Resources */,
@@ -262,6 +289,7 @@
 				5599F0D22A67563E00E1EEDC /* Assets.xcassets in Resources */,
 				55964F472A9FB53600BA3B16 /* CategoryCell.xib in Resources */,
 				55086B092A844E4F00327B6C /* HomeViewController.xib in Resources */,
+				5579C1932AA949AD008DC5B3 /* CarGarageCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +313,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		5A0116FF59135C90D5786712 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CarSpecs/Pods-CarSpecs-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CarSpecs/Pods-CarSpecs-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CarSpecs/Pods-CarSpecs-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		B1D4EEA2FBC2BB526D878509 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -318,14 +363,19 @@
 				55086B082A844E4F00327B6C /* HomeViewController.swift in Sources */,
 				5551EAD02AA7D2BA00285CE9 /* TabBarController.swift in Sources */,
 				5567B7B12A85A0EC0012AB3E /* UITextField+CardSpecs.swift in Sources */,
+				5542B6162AB11AF10055B4C8 /* CarRepository.swift in Sources */,
+				55EFE9F72AB4E11B007AD8D6 /* SearchViewController.swift in Sources */,
 				55843A532A7C6DAE007FDDA1 /* LoginViewController.swift in Sources */,
 				55086B0D2A84502E00327B6C /* SquareCard.swift in Sources */,
 				55964F412A9FB12B00BA3B16 /* CategoriesViewController.swift in Sources */,
 				559F4DE32A9D0F51000E743C /* SquareCardItem.swift in Sources */,
 				5599F0CD2A67563200E1EEDC /* WelcomeViewController.swift in Sources */,
-				5579C1832AA93D97008DC5B3 /* CarRepository.swift in Sources */,
+				5579C1892AA942AE008DC5B3 /* GarageViewController.swift in Sources */,
+				5579C1832AA93D97008DC5B3 /* SquareCardsRepository.swift in Sources */,
 				5567B7AD2A85A0D10012AB3E /* UIButton+CarSpecs.swift in Sources */,
+				5579C1922AA949AD008DC5B3 /* CarGarageCell.swift in Sources */,
 				5599F0C92A67563200E1EEDC /* AppDelegate.swift in Sources */,
+				5542B6122AB11A3F0055B4C8 /* Car.swift in Sources */,
 				5599F0CB2A67563200E1EEDC /* SceneDelegate.swift in Sources */,
 				55964F4A2A9FBEA800BA3B16 /* CategoryItem.swift in Sources */,
 				55964F462A9FB53600BA3B16 /* CategoryCell.swift in Sources */,

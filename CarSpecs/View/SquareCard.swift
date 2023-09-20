@@ -10,6 +10,7 @@ import UIKit
 enum Style {
     case style1
     case style2
+    case style3
 }
 
 class SquareCard: UICollectionViewCell {
@@ -19,6 +20,8 @@ class SquareCard: UICollectionViewCell {
     @IBOutlet weak var squareCardView: UIView!
     @IBOutlet weak var firstLabel: UILabel!
     @IBOutlet weak var heartButton: UIButton!
+    @IBOutlet weak var labelsStackView: UIStackView!
+
     private var isFavorite: Bool = false
 
     func configure(with style: Style, item: SquareCardItem) {
@@ -33,14 +36,30 @@ class SquareCard: UICollectionViewCell {
             heartButton.isHidden = true
             firstLabel.text = item.title
             imageView.image = UIImage(named: item.imageName)
+            labelsStackView.axis = .vertical
         case .style2:
             heartButton.isHidden = false
+            imageViewHeightConstraint.constant = 120
+            imageView.kf.setImage(with: URL(string: item.imageName)!)
+            secondLabel.isHidden = false
+            secondLabel.text = item.subtitle
+            firstLabel.text = item.title
+            squareCardView.layer.borderWidth = 0
+            labelsStackView.axis = .vertical
+        case .style3:
+            heartButton.isHidden = true
+            squareCardView.layer.borderWidth = 10
             imageViewHeightConstraint.constant = 120
             imageView.image = UIImage(named: item.imageName)
             secondLabel.isHidden = false
             secondLabel.text = item.subtitle
             firstLabel.text = item.title
             squareCardView.layer.borderWidth = 0
+            labelsStackView.axis = .horizontal
+            labelsStackView.removeArrangedSubview(firstLabel)
+            labelsStackView.removeArrangedSubview(secondLabel)
+            labelsStackView.addArrangedSubview(secondLabel)
+            labelsStackView.addArrangedSubview(firstLabel)
         }
     }
 

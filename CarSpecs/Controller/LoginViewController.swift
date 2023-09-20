@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import SwiftyUserDefaults
 
 class LoginViewController: UIViewController {
     @IBOutlet private weak var userTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var passwordErrorLabel: UILabel!
     @IBOutlet private weak var logInButton: UIButton!
-    private let user = "fe.forioni@gmail.com"
+    private let user = "Felipe"
     private let password = "Banana123"
 
     override func viewWillAppear(_ animated: Bool) {
@@ -31,6 +32,7 @@ class LoginViewController: UIViewController {
             passwordErrorLabel.text = "Success"
             passwordErrorLabel.textColor = .green
             navigationController?.pushViewController(TabBarController(), animated: true)
+            Defaults[\.username] = userTextField.text
         } else {
             passwordErrorLabel.isHidden = false
             passwordErrorLabel.text = "Wrong password or email!"
@@ -49,4 +51,7 @@ class LoginViewController: UIViewController {
         setupButtons()
     }
 
+}
+extension DefaultsKeys {
+    var username: DefaultsKey<String?> { .init("username") }
 }
