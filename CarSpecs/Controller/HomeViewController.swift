@@ -45,7 +45,8 @@ class HomeViewController: UIViewController,
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        title = "home_title_screen_label".localize()
+        let valorRecuperado = Defaults[keyPath: \.username]
+        title = valorRecuperado
         navigationController?.navigationBar.prefersLargeTitles = false
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -92,7 +93,6 @@ class HomeViewController: UIViewController,
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == newCarsCollectionView {
             let selectedCar = cars[indexPath.item]
-            
             var currentFavoriteCars = Defaults[key: DefaultsKeys.favoriteCars]
             currentFavoriteCars.append(selectedCar)
             Defaults[key: DefaultsKeys.favoriteCars] = currentFavoriteCars
@@ -102,11 +102,8 @@ class HomeViewController: UIViewController,
             alertController.addAction(action)
             present(alertController, animated: true)
         }
-
-        // carRepository1.favorites.push(carSelected)
     }
 }
-
 extension DefaultsKeys {
     static var favoriteCars: DefaultsKey<[Car]> { DefaultsKey("favoriteCarsKey", defaultValue: []) }
 }
