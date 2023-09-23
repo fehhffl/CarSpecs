@@ -45,6 +45,9 @@
 		9B4C082E2ABF5A1A0006B839 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4C082D2ABF5A1A0006B839 /* Database.swift */; };
 		9B4C08302ABF62CD0006B839 /* cars.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C082F2ABF62CD0006B839 /* cars.json */; };
 		9B4C08312ABF62FB0006B839 /* cars.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C082F2ABF62CD0006B839 /* cars.json */; };
+		9B4C08322ABF808F0006B839 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4C082D2ABF5A1A0006B839 /* Database.swift */; };
+		9B4C08342ABF809D0006B839 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4C08332ABF809D0006B839 /* API.swift */; };
+		9B4C08362ABF82680006B839 /* APIErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4C08352ABF82680006B839 /* APIErrors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +116,8 @@
 		9B3DB94B2ABF53140069720A /* Backend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Backend.h; sourceTree = "<group>"; };
 		9B4C082D2ABF5A1A0006B839 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		9B4C082F2ABF62CD0006B839 /* cars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cars.json; sourceTree = "<group>"; };
+		9B4C08332ABF809D0006B839 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		9B4C08352ABF82680006B839 /* APIErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIErrors.swift; sourceTree = "<group>"; };
 		A741121D3DAE79040C192467 /* Pods_CarSpecsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarSpecsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF44069BD706463B1305BEE0 /* Pods-CarSpecs-CarSpecsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarSpecs-CarSpecsUITests.release.xcconfig"; path = "Target Support Files/Pods-CarSpecs-CarSpecsUITests/Pods-CarSpecs-CarSpecsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BE56B3A0F2D951EC7EB67FD2 /* Pods-CarSpecs-CarSpecsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarSpecs-CarSpecsUITests.debug.xcconfig"; path = "Target Support Files/Pods-CarSpecs-CarSpecsUITests/Pods-CarSpecs-CarSpecsUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -276,7 +281,6 @@
 		9B3DB9552ABF531B0069720A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				9B4C082C2ABF5A060006B839 /* API */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -284,6 +288,7 @@
 		9B3DB9562ABF53270069720A /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				9B4C082D2ABF5A1A0006B839 /* Database.swift */,
 				9B4C082F2ABF62CD0006B839 /* cars.json */,
 			);
 			path = Data;
@@ -292,14 +297,8 @@
 		9B3DB9572ABF532D0069720A /* API */ = {
 			isa = PBXGroup;
 			children = (
-			);
-			path = API;
-			sourceTree = "<group>";
-		};
-		9B4C082C2ABF5A060006B839 /* API */ = {
-			isa = PBXGroup;
-			children = (
-				9B4C082D2ABF5A1A0006B839 /* Database.swift */,
+				9B4C08332ABF809D0006B839 /* API.swift */,
+				9B4C08352ABF82680006B839 /* APIErrors.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -509,6 +508,7 @@
 				5542B6122AB11A3F0055B4C8 /* Car.swift in Sources */,
 				5599F0CB2A67563200E1EEDC /* SceneDelegate.swift in Sources */,
 				55964F4A2A9FBEA800BA3B16 /* CategoryItem.swift in Sources */,
+				9B4C08322ABF808F0006B839 /* Database.swift in Sources */,
 				55964F462A9FB53600BA3B16 /* CategoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -518,6 +518,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B4C082E2ABF5A1A0006B839 /* Database.swift in Sources */,
+				9B4C08342ABF809D0006B839 /* API.swift in Sources */,
+				9B4C08362ABF82680006B839 /* APIErrors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

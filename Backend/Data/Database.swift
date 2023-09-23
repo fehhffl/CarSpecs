@@ -7,9 +7,9 @@
 
 import Foundation
 
-public class Database {
-    public static let shared = Database()
-    public lazy var cars = convertJSONToDictionary(fileName: "cars.json")
+class Database {
+    static let shared = Database()
+    private(set) lazy var cars = convertJSONToDictionary(fileName: "cars.json")
 
     private func convertJSONToDictionary(fileName: String) -> [[String: Any]] {
         guard let pathToJSON = Bundle.main.path(forResource: fileName.removeFileExtension, ofType: "json") else {
@@ -37,11 +37,11 @@ public class Database {
 
 private extension String {
     var removeFileExtension: String {
-        guard let indexOfDot = self.firstIndex(of: ".") else {
+        guard let indexOfDot: String.Index = self.firstIndex(of: ".") else {
             return self
         }
-        let lengthUntilReachDot = self.distance(from: self.startIndex, to: indexOfDot)
-        let stringWithoutFileExtension = self.prefix(lengthUntilReachDot)
+        let lengthUntilReachDot: Int = self.distance(from: self.startIndex, to: indexOfDot)
+        let stringWithoutFileExtension: Substring = self.prefix(lengthUntilReachDot)
         return String(stringWithoutFileExtension)
     }
 }
