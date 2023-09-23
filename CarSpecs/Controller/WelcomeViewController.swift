@@ -23,12 +23,21 @@ class WelcomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViews()
-        guard let url = URL(string: "https://www.cars-data.com/carList?page=2&limit=10") else {
+        guard let url = URL(string: "https://www.cars-data.com/carList?page=1&limit=5") else {
             print("Invalid URL")
             return
         }
-        API.shared.dataTask(with: URLRequest(url: url)) { data, response, error in
-            print(data, response, error)
+        API.shared.get(request: URLRequest(url: url)) { data, response, error in
+            if let data = data {
+                do {
+                    let dict = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+                    print(dict)
+                } catch {
+                    print(error.localizedDescription)
+                }
+            } else {
+                print(data, response, error)
+            }
         }
     }
 

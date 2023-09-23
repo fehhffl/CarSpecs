@@ -11,7 +11,7 @@ public class API {
     public static var shared = API()
     private lazy var dataBase = Database.shared
 
-    public func dataTask(with request: URLRequest, completionHandler: (Data?, URLResponse?, Error?) -> Void) {
+    public func get(request: URLRequest, completionHandler: (Data?, URLResponse?, Error?) -> Void) {
         guard let url = request.url else {
             sendResponse(for: request, statusCode: 400, error: APIError.missingURL, completionHandler)
             return
