@@ -42,7 +42,9 @@
 		9B3DB94C2ABF53140069720A /* Backend.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B3DB94B2ABF53140069720A /* Backend.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9B3DB94F2ABF53140069720A /* Backend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B3DB9492ABF53140069720A /* Backend.framework */; };
 		9B3DB9502ABF53140069720A /* Backend.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9B3DB9492ABF53140069720A /* Backend.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		9B3DB9612ABF53CE0069720A /* cars.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B3DB9602ABF53CE0069720A /* cars.json */; };
+		9B4C082E2ABF5A1A0006B839 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4C082D2ABF5A1A0006B839 /* Database.swift */; };
+		9B4C08302ABF62CD0006B839 /* cars.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C082F2ABF62CD0006B839 /* cars.json */; };
+		9B4C08312ABF62FB0006B839 /* cars.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C082F2ABF62CD0006B839 /* cars.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,7 +111,8 @@
 		92C2AF38429C7B5069DE3A48 /* Pods_CarSpecs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarSpecs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B3DB9492ABF53140069720A /* Backend.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Backend.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B3DB94B2ABF53140069720A /* Backend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Backend.h; sourceTree = "<group>"; };
-		9B3DB9602ABF53CE0069720A /* cars.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = cars.json; sourceTree = "<group>"; };
+		9B4C082D2ABF5A1A0006B839 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		9B4C082F2ABF62CD0006B839 /* cars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cars.json; sourceTree = "<group>"; };
 		A741121D3DAE79040C192467 /* Pods_CarSpecsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarSpecsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF44069BD706463B1305BEE0 /* Pods-CarSpecs-CarSpecsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarSpecs-CarSpecsUITests.release.xcconfig"; path = "Target Support Files/Pods-CarSpecs-CarSpecsUITests/Pods-CarSpecs-CarSpecsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BE56B3A0F2D951EC7EB67FD2 /* Pods-CarSpecs-CarSpecsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarSpecs-CarSpecsUITests.debug.xcconfig"; path = "Target Support Files/Pods-CarSpecs-CarSpecsUITests/Pods-CarSpecs-CarSpecsUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -273,6 +276,7 @@
 		9B3DB9552ABF531B0069720A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9B4C082C2ABF5A060006B839 /* API */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -280,7 +284,7 @@
 		9B3DB9562ABF53270069720A /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				9B3DB9602ABF53CE0069720A /* cars.json */,
+				9B4C082F2ABF62CD0006B839 /* cars.json */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -288,6 +292,14 @@
 		9B3DB9572ABF532D0069720A /* API */ = {
 			isa = PBXGroup;
 			children = (
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		9B4C082C2ABF5A060006B839 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				9B4C082D2ABF5A1A0006B839 /* Database.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -388,6 +400,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B4C08312ABF62FB0006B839 /* cars.json in Resources */,
 				5591464D2A819DCA00AE3F57 /* Localizable.strings in Resources */,
 				5579C18A2AA942AE008DC5B3 /* GarageViewController.xib in Resources */,
 				55EFE9F82AB4E11B007AD8D6 /* SearchViewController.xib in Resources */,
@@ -407,7 +420,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B3DB9612ABF53CE0069720A /* cars.json in Resources */,
+				9B4C08302ABF62CD0006B839 /* cars.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,6 +517,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B4C082E2ABF5A1A0006B839 /* Database.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -659,9 +673,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 35D9482D84600504D5B0C779 /* Pods-CarSpecs.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KFA62LZ5XJ;
 				INFOPLIST_FILE = CarSpecs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -678,9 +694,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FC30D4655C47AB67489D27F7 /* Pods-CarSpecs.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KFA62LZ5XJ;
 				INFOPLIST_FILE = CarSpecs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -711,7 +729,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -752,7 +770,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
