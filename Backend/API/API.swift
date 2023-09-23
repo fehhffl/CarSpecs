@@ -8,6 +8,7 @@
 import Foundation
 
 public class API {
+    public static var shared = API()
     private lazy var dataBase = Database.shared
 
     public func dataTask(with request: URLRequest, completionHandler: (Data?, URLResponse?, Error?) -> Void) {
@@ -15,7 +16,10 @@ public class API {
             sendResponse(for: request, statusCode: 400, error: APIError.missingURL, completionHandler)
             return
         }
-        guard let baseUrl = url.pathComponents.first, !baseUrl.isEmpty else {
+
+        let (baseUrl, stringAfterBaseUrl) = url.getURLComponents()
+
+        guard let baseUrl, !baseUrl.isEmpty else {
             sendResponse(for: request, statusCode: 400, error: APIError.malformedURL, completionHandler)
             return
         }
@@ -27,13 +31,15 @@ public class API {
             return
         }
 
-        var endpoint = urlWithoutBaseUrl
+        var endpoint: String = ""
         var queryParams: [String: String] = [:]
 
-        if urlWithoutBaseUrl.contains("?") {
-            let splitedUrl = urlWithoutBaseUrl.split(separator: "?")
-            endpoint = String(splitedUrl[0])
-            queryParams = createQueryParametersDict(using: String(splitedUrl[1]))
+        if stringAfterBaseUrl.contains("?") {
+            let componentAfterBaseUrl = stringAfterBaseUrl.split(separator: "?")
+            endpoint = String(componentAfterBaseUrl[0])
+            queryParams = createQueryParametersDict(using: String(componentAfterBaseUrl[1]))
+        } else {
+            endpoint = stringAfterBaseUrl
         }
 
         switch endpoint {
@@ -101,5 +107,24 @@ public class API {
             }
         }
         return queryParametersDict
+    }
+}
+
+extension URL {
+    func getURLComponents() -> (String?, String) {
+        let urlString = self.absoluteString
+        if urlString.contains("://") {
+            var components = urlString.components(separatedBy: "://")
+            let internetProtocol = components[0] + "://"
+            let urlWithoutProtocol = components[1]
+
+            if urlWithoutProtocol.contains("/") {
+                components = urlWithoutProtocol.components(separatedBy: "/")
+                let baseURL = internetProtocol + components[0] + "/"
+                let stringAfterBaseUrl = urlString.replacingOccurrences(of: baseURL, with: "")
+                return (baseURL, stringAfterBaseUrl)
+            }
+        }
+        return (nil, "")
     }
 }

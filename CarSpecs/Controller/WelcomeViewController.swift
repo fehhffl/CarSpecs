@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Backend
 
 class WelcomeViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
@@ -22,6 +23,13 @@ class WelcomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViews()
+        guard let url = URL(string: "https://www.cars-data.com/carList?page=2&limit=10") else {
+            print("Invalid URL")
+            return
+        }
+        API.shared.dataTask(with: URLRequest(url: url)) { data, response, error in
+            print(data, response, error)
+        }
     }
 
     @IBAction func onLoginButtonTapped(_ sender: Any) {
