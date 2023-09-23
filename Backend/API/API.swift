@@ -12,33 +12,51 @@ public class API {
 
     public func dataTask(with request: URLRequest, completionHandler: (Data?, URLResponse?, Error?) -> Void) {
         guard let url = request.url else {
-            sendResponse(for: request, statusCode: 400, error: .missingURL, completionHandler)
+            sendResponse(for: request, statusCode: 400, error: APIError.missingURL, completionHandler)
             return
         }
         guard let baseUrl = url.pathComponents.first, !baseUrl.isEmpty else {
-            sendResponse(for: request, statusCode: 400, error: .malformedURL, completionHandler)
+            sendResponse(for: request, statusCode: 400, error: APIError.malformedURL, completionHandler)
             return
         }
 
         let urlWithoutBaseUrl = url.absoluteString.replacingOccurrences(of: baseUrl, with: "")
 
         guard !urlWithoutBaseUrl.isEmpty else {
-            sendResponse(for: request, statusCode: 400, error: .missingEndpoint, completionHandler)
+            sendResponse(for: request, statusCode: 400, error: APIError.missingEndpoint, completionHandler)
             return
         }
 
         var endpoint = urlWithoutBaseUrl
-        var queryParams: String = ""
+        var queryParams: [String: String] = [:]
 
         if urlWithoutBaseUrl.contains("?") {
             let splitedUrl = urlWithoutBaseUrl.split(separator: "?")
             endpoint = String(splitedUrl[0])
-            queryParams = String(splitedUrl[1])
+            queryParams = createQueryParametersDict(using: String(splitedUrl[1]))
         }
 
         switch endpoint {
         case "carList":
-            break
+            var carPreviews: [[String: Any]] = [[:]]
+            if queryParams.isEmpty {
+                carPreviews = dataBase.getCarsPreviews(page: 1, limit: 5)
+            } else if let page = Int(queryParams["page"] ?? ""),
+                      let limit = Int(queryParams["limit"] ?? "5") {
+                carPreviews = dataBase.getCarsPreviews(page: page, limit: limit)
+            } else {
+                sendResponse(for: request, statusCode: 400, error: APIError.missingPageNumber, completionHandler)
+                return
+            }
+            do {
+                let responseData: Data = try ["cars": carPreviews].toData()
+                sendResponse(for: request, statusCode: 200, data: responseData, completionHandler)
+                return
+            } catch {
+                sendResponse(for: request, statusCode: 500, error: error, completionHandler)
+                return
+            }
+
         case "details":
             break
         case "search":
@@ -46,7 +64,7 @@ public class API {
         case "categories":
             break
         default:
-            sendResponse(for: request, statusCode: 400, error: .invalidEndpoint, completionHandler)
+            sendResponse(for: request, statusCode: 400, error: APIError.invalidEndpoint, completionHandler)
         }
     }
 
@@ -54,7 +72,7 @@ public class API {
         for request: URLRequest,
         statusCode: Int,
         data: Data? = nil,
-        error: APIError? = nil,
+        error: Error? = nil,
         _ completionHandler: (Data?, URLResponse?, Error?) -> Void
     ) {
         completionHandler(
@@ -66,5 +84,22 @@ public class API {
                 headerFields: request.allHTTPHeaderFields),
             error
         )
+    }
+
+    func createQueryParametersDict(using queryParametersString: String) -> [String: String] {
+        let queryParameters = queryParametersString.split(separator: "&")
+        guard !queryParameters.isEmpty else {
+            return [:]
+        }
+        var queryParametersDict: [String: String] = [:]
+        queryParameters.forEach { queryParameter in
+            if queryParameter.contains("=") {
+                let keyOrValue = queryParameter.split(separator: "=")
+                let key = String(keyOrValue[0])
+                let value = String(keyOrValue[1])
+                queryParametersDict[key] = value
+            }
+        }
+        return queryParametersDict
     }
 }

@@ -11,6 +11,7 @@ enum APIError: LocalizedError {
     case invalidEndpoint
     case malformedURL
     case missingEndpoint
+    case missingPageNumber
     case missingURL
 
     var errorDescription: String? {
@@ -21,6 +22,8 @@ enum APIError: LocalizedError {
             return "Something is wrong with the URL format"
         case .missingEndpoint:
             return "Couldn't find any endpoint specified after the baseUrl"
+        case .missingPageNumber:
+            return "Failed to find query parameter \"page\" in the URL"
         case .missingURL:
             return "No URL provided to the request"
         }
