@@ -109,6 +109,7 @@
 		92C2AF38429C7B5069DE3A48 /* Pods_CarSpecs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarSpecs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B3DB9492ABF53140069720A /* Backend.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Backend.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B3DB94B2ABF53140069720A /* Backend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Backend.h; sourceTree = "<group>"; };
+		9B3DB9602ABF53CE0069720A /* cars.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = cars.json; sourceTree = "<group>"; };
 		A741121D3DAE79040C192467 /* Pods_CarSpecsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarSpecsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF44069BD706463B1305BEE0 /* Pods-CarSpecs-CarSpecsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarSpecs-CarSpecsUITests.release.xcconfig"; path = "Target Support Files/Pods-CarSpecs-CarSpecsUITests/Pods-CarSpecs-CarSpecsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BE56B3A0F2D951EC7EB67FD2 /* Pods-CarSpecs-CarSpecsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarSpecs-CarSpecsUITests.debug.xcconfig"; path = "Target Support Files/Pods-CarSpecs-CarSpecsUITests/Pods-CarSpecs-CarSpecsUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -261,8 +262,34 @@
 		9B3DB94A2ABF53140069720A /* Backend */ = {
 			isa = PBXGroup;
 			children = (
+				9B3DB9572ABF532D0069720A /* API */,
+				9B3DB9562ABF53270069720A /* Data */,
+				9B3DB9552ABF531B0069720A /* Models */,
+				9B3DB94B2ABF53140069720A /* Backend.h */,
 			);
 			path = Backend;
+			sourceTree = "<group>";
+		};
+		9B3DB9552ABF531B0069720A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9B3DB9562ABF53270069720A /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				9B3DB9602ABF53CE0069720A /* cars.json */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		9B3DB9572ABF532D0069720A /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -380,6 +407,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B3DB9612ABF53CE0069720A /* cars.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
