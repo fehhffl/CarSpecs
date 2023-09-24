@@ -52,6 +52,3 @@ class LoginViewController: UIViewController {
     }
 
 }
-extension DefaultsKeys {
-    var username: DefaultsKey<String?> { .init("username") }
-}

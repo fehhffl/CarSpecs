@@ -45,8 +45,7 @@ class HomeViewController: UIViewController,
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        let valorRecuperado = Defaults[keyPath: \.username]
-        title = valorRecuperado
+        title = "Home"
         navigationController?.navigationBar.prefersLargeTitles = false
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -76,34 +75,18 @@ class HomeViewController: UIViewController,
             fatalError()
         }
         if collectionView == exploreCollectionView {
-            cell.configure(with: .style1, item: exploreCards[indexPath.row])
+            cell.configure(with: .style1, item: exploreCards[indexPath.row], car: cars[indexPath.row])
             return cell
         } else {
-            let car = cars[indexPath.row]
+            let currentCar = cars[indexPath.row]
             let squareCardItem = SquareCardItem(
-                title: car.name,
-                subtitle: String(format: "$%.2f", car.price),
-                imageName: car.imageName)
+                title: currentCar.name,
+                subtitle: String(format: "$%.2f", currentCar.price),
+                imageName: currentCar.imageName)
 
-            cell.configure(with: .style2, item: squareCardItem)
+            cell.configure(with: .style2, item: squareCardItem, car: currentCar)
             return cell
         }
     }
-
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView == newCarsCollectionView {
-            let selectedCar = cars[indexPath.item]
-            var currentFavoriteCars = Defaults[key: DefaultsKeys.favoriteCars]
-            currentFavoriteCars.append(selectedCar)
-            Defaults[key: DefaultsKeys.favoriteCars] = currentFavoriteCars
-
-            let alertController = UIAlertController(title: "Saved", message: "Car added to favorites", preferredStyle: .alert)
-            let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
-            alertController.addAction(action)
-            present(alertController, animated: true)
-        }
-    }
 }
-extension DefaultsKeys {
-    static var favoriteCars: DefaultsKey<[Car]> { DefaultsKey("favoriteCarsKey", defaultValue: []) }
-}
+

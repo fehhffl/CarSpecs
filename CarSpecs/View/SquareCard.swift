@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftyUserDefaults
 
 enum Style {
     case style1
@@ -21,10 +22,33 @@ class SquareCard: UICollectionViewCell {
     @IBOutlet weak var firstLabel: UILabel!
     @IBOutlet weak var heartButton: UIButton!
     @IBOutlet weak var labelsStackView: UIStackView!
+    private var carroQueRepresento: Car?
+    private var listaCarrosFavoritos: [Car] {
+        return Defaults[key: DefaultsKeys.favoriteCars]
+    }
 
     private var isFavorite: Bool = false
+    func isCarFavorite() -> Bool {
+        return listaCarrosFavoritos.contains(where: { (car) -> Bool in
+            if car.name == carroQueRepresento?.name {
+                return true
+            } else {
+                return false
+            }
+        })
+    }
 
-    func configure(with style: Style, item: SquareCardItem) {
+    func configure(with style: Style, item: SquareCardItem, car: Car) {
+        self.carroQueRepresento = car
+
+        if isCarFavorite() {
+            isFavorite = true
+            heartButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        } else {
+            isFavorite = false
+            heartButton.setImage(UIImage(systemName: "heart"), for: .normal)
+        }
+
         switch style {
         case .style1:
             imageViewHeightConstraint.constant = 75
@@ -67,9 +91,26 @@ class SquareCard: UICollectionViewCell {
         if !isFavorite {
             isFavorite = true
             heartButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            addCellCarToFavorites()
         } else {
             isFavorite = false
             heartButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            removeFromFavorites()
+        }
+    }
+    private func removeFromFavorites() {
+        Defaults[key: DefaultsKeys.favoriteCars].removeAll { (car) -> Bool in
+            if car.name == carroQueRepresento?.name {
+                return true
+            } else {
+                return false
+            }
+        }
+    }
+
+    private func addCellCarToFavorites() {
+        if let carro = carroQueRepresento {
+            Defaults[key: DefaultsKeys.favoriteCars].append(carro)
         }
     }
 }
