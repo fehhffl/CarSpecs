@@ -20,6 +20,7 @@ class CategoriesViewController: UIViewController, UITableViewDelegate, UITableVi
         super.viewWillAppear(animated)
         title = "Collection"
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView?.delegate = self
@@ -29,12 +30,12 @@ class CategoriesViewController: UIViewController, UITableViewDelegate, UITableVi
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        categoryItems.count    }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = self.tableView?.dequeueReusableCell(withIdentifier: "IndentifierCategoryCell", for: indexPath)
-            as? CategoryCell else {
-            return UITableViewCell()
+        return categoryItems.count
+    }
 
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = self.tableView?.dequeueReusableCell(withIdentifier: "IndentifierCategoryCell", for: indexPath) as? CategoryCell else {
+            return UITableViewCell()
         }
         cell.configure(with: categoryItems[indexPath.row])
         return cell
