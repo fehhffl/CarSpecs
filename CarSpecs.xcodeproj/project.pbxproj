@@ -39,6 +39,7 @@
 		559F4DE32A9D0F51000E743C /* SquareCardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559F4DE22A9D0F51000E743C /* SquareCardItem.swift */; };
 		55EFE9F72AB4E11B007AD8D6 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EFE9F52AB4E11B007AD8D6 /* SearchViewController.swift */; };
 		55EFE9F82AB4E11B007AD8D6 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55EFE9F62AB4E11B007AD8D6 /* SearchViewController.xib */; };
+		9B0722042AC084EC0008F41D /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0722032AC084EC0008F41D /* NetworkMonitor.swift */; };
 		9B3DB94C2ABF53140069720A /* Backend.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B3DB94B2ABF53140069720A /* Backend.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9B3DB94F2ABF53140069720A /* Backend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B3DB9492ABF53140069720A /* Backend.framework */; };
 		9B3DB9502ABF53140069720A /* Backend.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9B3DB9492ABF53140069720A /* Backend.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -117,6 +118,7 @@
 		55EFE9F62AB4E11B007AD8D6 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		8547FAF74F8CB9B83853D75E /* Pods_CarSpecs_CarSpecsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarSpecs_CarSpecsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92C2AF38429C7B5069DE3A48 /* Pods_CarSpecs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarSpecs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B0722032AC084EC0008F41D /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		9B3DB9492ABF53140069720A /* Backend.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Backend.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B3DB94B2ABF53140069720A /* Backend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Backend.h; sourceTree = "<group>"; };
 		9B4C082D2ABF5A1A0006B839 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
@@ -323,6 +325,7 @@
 			children = (
 				9B4C08382ABF92820006B839 /* JSONConverter.swift */,
 				9B8C6A422ABFAE4A00278207 /* RandomNumberGenerator.swift */,
+				9B0722032AC084EC0008F41D /* NetworkMonitor.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -554,6 +557,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B4C08392ABF92820006B839 /* JSONConverter.swift in Sources */,
+				9B0722042AC084EC0008F41D /* NetworkMonitor.swift in Sources */,
 				9B4C082E2ABF5A1A0006B839 /* Database.swift in Sources */,
 				9B8C6A432ABFAE4A00278207 /* RandomNumberGenerator.swift in Sources */,
 				9B4C08342ABF809D0006B839 /* API.swift in Sources */,

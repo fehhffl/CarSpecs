@@ -17,6 +17,9 @@ public class API {
     }
 
     public func get(request: URLRequest, completionHandler: (Data?, URLResponse?, Error?) -> Void) {
+        if !NetworkMonitor.shared.isMonitoring {
+            NetworkMonitor.shared.startMonitoring()
+        }
         guard let url = request.url else {
             sendResponse(for: request, statusCode: 400, error: APIError.missingURL, completionHandler)
             return
@@ -144,6 +147,10 @@ public class API {
     ) {
         // Simulate network response time
         sleep(delayInSeconds)
+        // Only send response if network is available
+        guard NetworkMonitor.shared.status == .satisfied else {
+            return
+        }
         completionHandler(
             data,
             HTTPURLResponse(
