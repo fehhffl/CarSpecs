@@ -9,19 +9,18 @@ import Backend
 import UIKit
 import SwiftyUserDefaults
 
-class HomeViewController: UIViewController,
-                          UICollectionViewDelegate,
-                          UICollectionViewDataSource,
-                          UICollectionViewDelegateFlowLayout {
+class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     @IBOutlet private weak var newCarsLabel: UILabel!
     @IBOutlet private weak var exploreCollectionView: UICollectionView!
     @IBOutlet private weak var exploreLabel: UILabel!
     @IBOutlet private weak var newCarsCollectionView: UICollectionView!
-    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var newCarsCollectionViewHeightConstraint: NSLayoutConstraint!
     private var exploreCards: [SquareCardItem] = []
     private let carRepository = CarRepository()
-    private var cars: [[String: Any]] = [[:]]
-    let squareCardsRepository = SquareCardsRepository.init()
+    private let squareCardsRepository = SquareCardsRepository()
+
+    private var cars: [[String: Any]] = []
+
     public var screenWidth: CGFloat {
         return UIScreen.main.bounds.width
     }
@@ -31,10 +30,13 @@ class HomeViewController: UIViewController,
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        // To make the height of collection view to update when new cars appear
+        // https://stackoverflow.com/questions/42437966/
         let height: CGFloat = self.newCarsCollectionView.collectionViewLayout.collectionViewContentSize.height
-       heightConstraint.constant = height
+        newCarsCollectionViewHeightConstraint.constant = height
         newCarsCollectionView.layoutIfNeeded()
     }
+
     override func viewDidLoad() {
         exploreCards = squareCardsRepository.getCategoriesCar()
         carRepository.getAllCars { [weak self] cars in
@@ -47,12 +49,10 @@ class HomeViewController: UIViewController,
         super.viewDidLoad()
         exploreLabel.text = "explore_home_screen_label".localize()
         newCarsLabel.text = "new_cars_home_screen_label".localize()
-        exploreCollectionView.register(UINib(nibName: "SquareCard", bundle: .main
-        ), forCellWithReuseIdentifier: "SquareCard")
+        exploreCollectionView.register(UINib(nibName: "SquareCard", bundle: .main), forCellWithReuseIdentifier: "SquareCard")
         exploreCollectionView.delegate = self
         exploreCollectionView.dataSource = self
-        newCarsCollectionView.register(UINib(nibName: "SquareCard", bundle: .main
-        ), forCellWithReuseIdentifier: "SquareCard")
+        newCarsCollectionView.register(UINib(nibName: "SquareCard", bundle: .main), forCellWithReuseIdentifier: "SquareCard")
         newCarsCollectionView.delegate = self
         newCarsCollectionView.dataSource = self
     }
@@ -63,6 +63,7 @@ class HomeViewController: UIViewController,
         title = valorRecuperado
         navigationController?.navigationBar.prefersLargeTitles = false
     }
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == exploreCollectionView {
             return exploreCards.count
@@ -83,11 +84,8 @@ class HomeViewController: UIViewController,
 
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: "SquareCard",
-                for: indexPath) as? SquareCard
-        else {
-            fatalError()
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SquareCard", for: indexPath) as? SquareCard else {
+            return UICollectionViewCell()
         }
         if collectionView == exploreCollectionView {
             cell.configure(with: .style1, item: exploreCards[indexPath.row])
@@ -104,7 +102,7 @@ class HomeViewController: UIViewController,
 
             let squareCardItem = SquareCardItem(
                 title: carName,
-                subtitle: String(format: "$%.d", carPrice),
+                subtitle: carPrice.currencyFR,
                 imageName: carImage)
 
             cell.configure(with: .style2, item: squareCardItem)

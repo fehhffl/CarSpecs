@@ -13,8 +13,8 @@
             <connections>
                 <outlet property="exploreCollectionView" destination="JSM-O8-vfF" id="yMB-c9-m6j"/>
                 <outlet property="exploreLabel" destination="z2S-X6-sCG" id="fCr-F8-PoD"/>
-                <outlet property="heightConstraint" destination="qKJ-ZW-feu" id="yLG-EF-zXi"/>
                 <outlet property="newCarsCollectionView" destination="fP9-YT-gpg" id="X1I-4Z-dLe"/>
+                <outlet property="newCarsCollectionViewHeightConstraint" destination="qKJ-ZW-feu" id="yLG-EF-zXi"/>
                 <outlet property="newCarsLabel" destination="dNW-id-Ihg" id="bgY-et-DJ6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

@@ -14,7 +14,19 @@ class Database {
 
     func getCarsPreviews(page: Int, limit: Int) -> [[String: Any]] {
         let start = (page - 1) * limit
-        let end = start + limit
+        var end = start + limit
+
+        guard start < cars.count else {
+            print("Max page reached")
+            return []
+        }
+        if end > cars.count {
+            end = cars.count
+        }
+        guard end > start else {
+            print("Max page reached")
+            return []
+        }
 
         let cars = Array(carsSortedByYear[start..<end])
 

@@ -9,23 +9,23 @@ class JSONConverter {
     static func convertJSONToDictionary(fileName: String) -> [[String: Any]] {
         guard let pathToJSON = Bundle.main.path(forResource: fileName.removeFileExtension, ofType: "json") else {
             print("Failed to find \(fileName)")
-            return [[:]]
+            return []
         }
         do {
             let jsonData = try Data(contentsOf: URL(fileURLWithPath: pathToJSON), options: .mappedIfSafe)
             let jsonObject = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers)
             guard let jsonDict = jsonObject as? [String: Any] else {
                 print("Failed to parse JSON Object to Dict")
-                return [[:]]
+                return []
             }
             guard let carsDictArray = jsonDict["cars"] as? [[String: Any]] else {
                 print("Failed to obtain value for key 'cars' in dict:\n", jsonDict)
-                return [[:]]
+                return []
             }
             return carsDictArray
         } catch {
             print(error)
-            return [[:]]
+            return []
         }
     }
 }

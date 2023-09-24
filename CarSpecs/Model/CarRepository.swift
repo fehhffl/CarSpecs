@@ -14,7 +14,7 @@ struct CarRepository {
     func getAllCars(completion: ([[String: Any]]) -> Void) {
         guard let url = URL(string: "https://www.cars-data.com/carList?page=1&limit=10") else {
             print("Invalid URL")
-            completion([[:]])
+            completion([])
             return
         }
         API.shared.get(request: URLRequest(url: url)) { data, response, error in
@@ -25,12 +25,12 @@ struct CarRepository {
                         completion(cars)
                     } else {
                         print("Could not obtain cars")
-                        completion([[:]])
+                        completion([])
                         return
                     }
                 } catch {
                     print(error.localizedDescription)
-                    completion([[:]])
+                    completion([])
                     return
                 }
             } else {
@@ -43,7 +43,7 @@ struct CarRepository {
                 if let error = error {
                     print(error)
                 }
-                completion([[:]])
+                completion([])
                 return
             }
         }

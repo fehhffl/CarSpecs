@@ -13,6 +13,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     let carRepository = CarRepository()
     var cars: [Car] = []
     var filtered: [Car] = []
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         title = "Search Cars"

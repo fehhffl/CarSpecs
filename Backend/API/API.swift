@@ -48,7 +48,7 @@ public class API {
 
         switch endpoint {
         case "carList":
-            var carPreviews: [[String: Any]] = [[:]]
+            var carPreviews: [[String: Any]] = []
             if queryParams.isEmpty {
                 carPreviews = dataBase.getCarsPreviews(page: 1, limit: Constants.defaultCarsPerPage)
             } else if let page = Int(queryParams["page"] ?? ""),

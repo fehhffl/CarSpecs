@@ -43,9 +43,8 @@ class SquareCard: UICollectionViewCell {
             if let imageUrl = URL(string: item.imageName) {
                 imageView.kf.setImage(with: imageUrl)
             } else {
-                print("Failed to load image:\n\(item.imageName)")
+                imageView.image = UIImage(named: "no-image")
             }
-
             secondLabel.isHidden = false
             secondLabel.text = item.subtitle
             firstLabel.text = item.title
