@@ -85,9 +85,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         } else {
             let currentCar = cars[indexPath.row]
             let squareCardItem = SquareCardItem(
-                title: car.name,
-                subtitle: car.price.currencyUS,
-                imageName: car.imageName)
+                title: currentCar.name,
+                subtitle: currentCar.price.currencyUS,
+                imageName: currentCar.imageName)
 
             cell.configure(with: .style2, item: squareCardItem, car: currentCar)
 
@@ -95,4 +95,3 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
     }
 }
-

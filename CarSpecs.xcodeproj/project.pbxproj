@@ -297,17 +297,9 @@
 				9B3DB94B2ABF53140069720A /* Backend.h */,
 				9B3DB9572ABF532D0069720A /* API */,
 				9B3DB9562ABF53270069720A /* Data */,
-				9B3DB9552ABF531B0069720A /* Models */,
 				9B4C08372ABF92670006B839 /* Utils */,
 			);
 			path = Backend;
-			sourceTree = "<group>";
-		};
-		9B3DB9552ABF531B0069720A /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		9B3DB9562ABF53270069720A /* Data */ = {
