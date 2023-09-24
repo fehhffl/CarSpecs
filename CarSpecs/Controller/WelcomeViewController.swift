@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Backend
 
 class WelcomeViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!

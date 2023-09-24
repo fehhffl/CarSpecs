@@ -5,7 +5,6 @@
 //  Created by Felipe Lima on 09/08/23.
 //
 
-import Backend
 import UIKit
 import SwiftyUserDefaults
 
@@ -17,9 +16,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBOutlet private weak var newCarsCollectionViewHeightConstraint: NSLayoutConstraint!
     private var exploreCards: [SquareCardItem] = []
     private let carRepository = CarRepository()
+    private var cars: [Car] = []
     private let squareCardsRepository = SquareCardsRepository()
-
-    private var cars: [[String: Any]] = []
 
     public var screenWidth: CGFloat {
         return UIScreen.main.bounds.width
@@ -39,16 +37,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
     override func viewDidLoad() {
         exploreCards = squareCardsRepository.getCategoriesCar()
-        carRepository.getAllCars { [weak self] cars in
-            guard let self = self else { return }
-            self.cars = cars
-            newCarsCollectionView.reloadData()
-            newCarsCollectionView.layoutIfNeeded()
-        }
-
-        carRepository.searchCarBy(name: " civic") { cars in
-            print(cars)
-        }
+        cars = carRepository.getAllCars()
 
         super.viewDidLoad()
         exploreLabel.text = "explore_home_screen_label".localize()
@@ -96,18 +85,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             return cell
         } else {
             let car = cars[indexPath.row]
-
-            guard let carName = car["name"] as? String,
-                  let carPrice = car["price"] as? Int64,
-                  let carImage = car["image"] as? String else {
-                print("Unable to obtain car specs")
-                return cell
-            }
-
             let squareCardItem = SquareCardItem(
-                title: carName,
-                subtitle: carPrice.currencyFR,
-                imageName: carImage)
+                title: car.name,
+                subtitle: car.price.currencyUS,
+                imageName: car.imageName)
 
             cell.configure(with: .style2, item: squareCardItem)
 
@@ -117,10 +98,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == newCarsCollectionView {
-            // let selectedCar = cars[indexPath.item]
-            // var currentFavoriteCars = Defaults[key: DefaultsKeys.favoriteCars]
-            // currentFavoriteCars.append(selectedCar)
-            // Defaults[key: DefaultsKeys.favoriteCars] = currentFavoriteCars
+            let selectedCar = cars[indexPath.item]
+            var currentFavoriteCars = Defaults[key: DefaultsKeys.favoriteCars]
+            currentFavoriteCars.append(selectedCar)
+            Defaults[key: DefaultsKeys.favoriteCars] = currentFavoriteCars
 
             let alertController = UIAlertController(title: "Saved", message: "Car added to favorites", preferredStyle: .alert)
             let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
