@@ -11,6 +11,10 @@ public class API {
     public static var shared = API()
     private lazy var dataBase = Database.shared
 
+    private enum Constants {
+        static let defaultCarsPerPage: Int = 10
+    }
+
     public func get(request: URLRequest, completionHandler: (Data?, URLResponse?, Error?) -> Void) {
         guard let url = request.url else {
             sendResponse(for: request, statusCode: 400, error: APIError.missingURL, completionHandler)
@@ -46,9 +50,9 @@ public class API {
         case "carList":
             var carPreviews: [[String: Any]] = [[:]]
             if queryParams.isEmpty {
-                carPreviews = dataBase.getCarsPreviews(page: 1, limit: 5)
+                carPreviews = dataBase.getCarsPreviews(page: 1, limit: Constants.defaultCarsPerPage)
             } else if let page = Int(queryParams["page"] ?? ""),
-                      let limit = Int(queryParams["limit"] ?? "5") {
+                      let limit = Int(queryParams["limit"] ?? String(Constants.defaultCarsPerPage)) {
                 carPreviews = dataBase.getCarsPreviews(page: page, limit: limit)
             } else {
                 sendResponse(for: request, statusCode: 400, error: APIError.missingPageNumber, completionHandler)
