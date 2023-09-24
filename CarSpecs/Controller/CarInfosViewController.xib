@@ -25,25 +25,13 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="1300"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="yd2-n5-rul">
-                                    <rect key="frame" x="15" y="50" width="384" height="300"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="carName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3IX-Pf-R37">
-                                            <rect key="frame" x="0.0" y="0.0" width="384" height="26"/>
-                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="23"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="carMake" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="47x-Dr-ZI0">
-                                            <rect key="frame" x="0.0" y="36" width="384" height="20.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jhK-Bq-qTc">
-                                            <rect key="frame" x="0.0" y="66.5" width="384" height="233.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hyundai-elantra" translatesAutoresizingMaskIntoConstraints="NO" id="bkh-A9-xbn">
-                                                    <rect key="frame" x="0.0" y="0.0" width="384" height="233.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -59,78 +47,13 @@
                                         <constraint firstAttribute="height" constant="300" id="7T9-kE-lf4"/>
                                     </constraints>
                                 </stackView>
-                                <stackView opaque="NO" contentMode="scaleAspectFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="wqq-pJ-37h">
-                                    <rect key="frame" x="35" y="370" width="344" height="20.5"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="info1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SYb-Kg-I2U">
-                                            <rect key="frame" x="0.0" y="0.0" width="63.5" height="20.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="info2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iq7-Ob-aUb">
-                                            <rect key="frame" x="93.5" y="0.0" width="63.5" height="20.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="info3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="biP-Un-Bt4">
-                                            <rect key="frame" x="187" y="0.0" width="63.5" height="20.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="info4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aih-HX-KKO">
-                                            <rect key="frame" x="280.5" y="0.0" width="63.5" height="20.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </stackView>
-                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="yyU-UP-SSX">
-                                    <rect key="frame" x="10" y="405.5" width="374" height="30"/>
-                                    <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="snow" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="JzQ-xy-ozp">
-                                            <rect key="frame" x="0.0" y="0.5" width="82.5" height="29"/>
-                                        </imageView>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paperclip" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="dd3-kY-I9g">
-                                            <rect key="frame" x="97.5" y="-0.5" width="82" height="31"/>
-                                        </imageView>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.stack.3d.down.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="daF-DY-zQF">
-                                            <rect key="frame" x="194.5" y="-0.5" width="82.5" height="31"/>
-                                        </imageView>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="phone.down.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="3ZM-Ok-Y1N">
-                                            <rect key="frame" x="292" y="5.5" width="82" height="19.5"/>
-                                        </imageView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="30" id="BdQ-MI-nRM"/>
-                                    </constraints>
-                                </stackView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wXv-BI-gKG">
-                                    <rect key="frame" x="20" y="459.5" width="374" height="203"/>
-                                    <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cras tincidunt lobortis feugiat vivamus at. Aenean pharetra magna ac placerat vestibulum lectus. A lacus vestibulum sed arcu. Eget egestas purus viverra accumsan in nisl nisi. Montes nascetur ridiculus mus mauris vitae ultricies leo integer. Nisi quis eleifend quam adipiscing vitae proin sagittis nisl. Velit aliquet sagittis id consectetur purus ut faucibus pulvinar. Consequat interdum varius sit amet mattis vulputate enim. Ridiculus mus mauris vitae ultricies leo integer malesuada nunc. Ornare massa eget egestas purus. Lobortis scelerisque fermentum dui faucibus in ornare. Laoreet suspendisse interdum consectetur libero id faucibus nisl. Pulvinar pellentesque habitant morbi tristique. Magna sit amet purus gravida quis blandit. Proin sed libero enim sed faucibus turpis in eu. Velit laoreet id donec ultrices tincidunt arcu. In cursus turpis massa tincidunt dui ut ornare lectus sit.</string>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="yd2-n5-rul" secondAttribute="trailing" constant="15" id="6CT-eo-YHd"/>
-                                <constraint firstItem="wqq-pJ-37h" firstAttribute="top" secondItem="yd2-n5-rul" secondAttribute="bottom" constant="20" id="6o3-Li-7G1"/>
-                                <constraint firstItem="wXv-BI-gKG" firstAttribute="top" secondItem="yyU-UP-SSX" secondAttribute="bottom" constant="24" id="CCQ-DW-Jkh"/>
-                                <constraint firstItem="wXv-BI-gKG" firstAttribute="leading" secondItem="aCH-pd-Vhj" secondAttribute="leading" constant="20" id="DYB-bB-jNT"/>
+                                <constraint firstAttribute="trailing" secondItem="yd2-n5-rul" secondAttribute="trailing" id="6CT-eo-YHd"/>
                                 <constraint firstAttribute="height" constant="1300" id="Dkb-Wc-ARK"/>
-                                <constraint firstItem="yyU-UP-SSX" firstAttribute="leading" secondItem="aCH-pd-Vhj" secondAttribute="leading" constant="10" id="Efq-BJ-vyk"/>
-                                <constraint firstItem="wqq-pJ-37h" firstAttribute="leading" secondItem="aCH-pd-Vhj" secondAttribute="leading" constant="35" id="KRy-wn-pSu"/>
-                                <constraint firstAttribute="trailing" secondItem="wXv-BI-gKG" secondAttribute="trailing" constant="20" id="UGb-w7-ZF3"/>
-                                <constraint firstItem="yd2-n5-rul" firstAttribute="top" secondItem="aCH-pd-Vhj" secondAttribute="top" constant="50" id="e33-hS-dOF"/>
-                                <constraint firstItem="yd2-n5-rul" firstAttribute="leading" secondItem="aCH-pd-Vhj" secondAttribute="leading" constant="15" id="hGE-5I-jhB"/>
-                                <constraint firstAttribute="trailing" secondItem="wqq-pJ-37h" secondAttribute="trailing" constant="35" id="lJ1-0G-LOm"/>
-                                <constraint firstAttribute="trailing" secondItem="yyU-UP-SSX" secondAttribute="trailing" constant="30" id="o0U-gF-lST"/>
-                                <constraint firstItem="yyU-UP-SSX" firstAttribute="top" secondItem="wqq-pJ-37h" secondAttribute="bottom" constant="15" id="zdZ-aZ-x1s"/>
+                                <constraint firstItem="yd2-n5-rul" firstAttribute="top" secondItem="aCH-pd-Vhj" secondAttribute="top" id="e33-hS-dOF"/>
+                                <constraint firstItem="yd2-n5-rul" firstAttribute="leading" secondItem="aCH-pd-Vhj" secondAttribute="leading" id="hGE-5I-jhB"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -156,10 +79,6 @@
     </objects>
     <resources>
         <image name="hyundai-elantra" width="1600" height="1067"/>
-        <image name="paperclip" catalog="system" width="121" height="128"/>
-        <image name="phone.down.fill" catalog="system" width="128" height="52"/>
-        <image name="snow" catalog="system" width="121" height="128"/>
-        <image name="square.stack.3d.down.right" catalog="system" width="124" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
