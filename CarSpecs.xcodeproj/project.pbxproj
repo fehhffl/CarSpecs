@@ -50,6 +50,9 @@
 		9B4C08392ABF92820006B839 /* JSONConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4C08382ABF92820006B839 /* JSONConverter.swift */; };
 		9B8C6A432ABFAE4A00278207 /* RandomNumberGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8C6A422ABFAE4A00278207 /* RandomNumberGenerator.swift */; };
 		9B8C6A452ABFD72B00278207 /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8C6A442ABFD72B00278207 /* NumberFormatter.swift */; };
+		9B8C6A472ABFE44000278207 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8C6A462ABFE44000278207 /* HttpClient.swift */; };
+		9B8C6A4A2ABFE6B000278207 /* cars_data_web_crawler.py in Resources */ = {isa = PBXBuildFile; fileRef = 9B8C6A492ABFE6B000278207 /* cars_data_web_crawler.py */; };
+		9B8C6A4C2ABFE7F800278207 /* cars_data_cleaner.py in Resources */ = {isa = PBXBuildFile; fileRef = 9B8C6A4B2ABFE7F800278207 /* cars_data_cleaner.py */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +126,9 @@
 		9B4C08382ABF92820006B839 /* JSONConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONConverter.swift; sourceTree = "<group>"; };
 		9B8C6A422ABFAE4A00278207 /* RandomNumberGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomNumberGenerator.swift; sourceTree = "<group>"; };
 		9B8C6A442ABFD72B00278207 /* NumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatter.swift; sourceTree = "<group>"; };
+		9B8C6A462ABFE44000278207 /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
+		9B8C6A492ABFE6B000278207 /* cars_data_web_crawler.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = cars_data_web_crawler.py; sourceTree = "<group>"; };
+		9B8C6A4B2ABFE7F800278207 /* cars_data_cleaner.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = cars_data_cleaner.py; sourceTree = "<group>"; };
 		A741121D3DAE79040C192467 /* Pods_CarSpecsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarSpecsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF44069BD706463B1305BEE0 /* Pods-CarSpecs-CarSpecsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarSpecs-CarSpecsUITests.release.xcconfig"; path = "Target Support Files/Pods-CarSpecs-CarSpecsUITests/Pods-CarSpecs-CarSpecsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BE56B3A0F2D951EC7EB67FD2 /* Pods-CarSpecs-CarSpecsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarSpecs-CarSpecsUITests.debug.xcconfig"; path = "Target Support Files/Pods-CarSpecs-CarSpecsUITests/Pods-CarSpecs-CarSpecsUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -181,6 +187,7 @@
 				5579C1822AA93D97008DC5B3 /* SquareCardsRepository.swift */,
 				5542B6112AB11A3F0055B4C8 /* Car.swift */,
 				5542B6152AB11AF10055B4C8 /* CarRepository.swift */,
+				9B8C6A462ABFE44000278207 /* HttpClient.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -295,6 +302,7 @@
 		9B3DB9562ABF53270069720A /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				9B8C6A482ABFE68C00278207 /* Generator */,
 				9B4C082D2ABF5A1A0006B839 /* Database.swift */,
 				9B4C082F2ABF62CD0006B839 /* cars.json */,
 			);
@@ -317,6 +325,15 @@
 				9B8C6A422ABFAE4A00278207 /* RandomNumberGenerator.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		9B8C6A482ABFE68C00278207 /* Generator */ = {
+			isa = PBXGroup;
+			children = (
+				9B8C6A4B2ABFE7F800278207 /* cars_data_cleaner.py */,
+				9B8C6A492ABFE6B000278207 /* cars_data_web_crawler.py */,
+			);
+			path = Generator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -436,6 +453,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B4C08302ABF62CD0006B839 /* cars.json in Resources */,
+				9B8C6A4C2ABFE7F800278207 /* cars_data_cleaner.py in Resources */,
+				9B8C6A4A2ABFE6B000278207 /* cars_data_web_crawler.py in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,6 +529,7 @@
 				9B8C6A452ABFD72B00278207 /* NumberFormatter.swift in Sources */,
 				5551EAD02AA7D2BA00285CE9 /* TabBarController.swift in Sources */,
 				5567B7B12A85A0EC0012AB3E /* UITextField+CardSpecs.swift in Sources */,
+				9B8C6A472ABFE44000278207 /* HttpClient.swift in Sources */,
 				5542B6162AB11AF10055B4C8 /* CarRepository.swift in Sources */,
 				55EFE9F72AB4E11B007AD8D6 /* SearchViewController.swift in Sources */,
 				55843A532A7C6DAE007FDDA1 /* LoginViewController.swift in Sources */,

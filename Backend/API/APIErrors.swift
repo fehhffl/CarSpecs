@@ -9,6 +9,7 @@ import Foundation
 
 enum APIError: LocalizedError {
     case invalidEndpoint
+    case malformedQueryParams
     case malformedURL
     case missingEndpoint
     case missingPageNumber
@@ -18,6 +19,8 @@ enum APIError: LocalizedError {
         switch self {
         case .invalidEndpoint:
             return "The endpoint provided it not valid"
+        case .malformedQueryParams:
+            return "There's too many ? on the query params, it should have only one.\nIf you are trying to separate query params, use & instead"
         case .malformedURL:
             return "Something is wrong with the URL format"
         case .missingEndpoint:

@@ -39,6 +39,10 @@ public class API {
         var queryParams: [String: String] = [:]
 
         if stringAfterBaseUrl.contains("?") {
+            if stringAfterBaseUrl.numberOfOccurrencesOf(string: "?") > 1 {
+                sendResponse(for: request, statusCode: 400, error: APIError.malformedQueryParams, completionHandler)
+                return
+            }
             let componentAfterBaseUrl = stringAfterBaseUrl.split(separator: "?")
             endpoint = String(componentAfterBaseUrl[0])
             queryParams = createQueryParametersDict(using: String(componentAfterBaseUrl[1]))
@@ -48,33 +52,50 @@ public class API {
 
         switch endpoint {
         case "carList":
-            var carPreviews: [[String: Any]] = []
-            if queryParams.isEmpty {
-                carPreviews = dataBase.getCarsPreviews(page: 1, limit: Constants.defaultCarsPerPage)
-            } else if let page = Int(queryParams["page"] ?? ""),
-                      let limit = Int(queryParams["limit"] ?? String(Constants.defaultCarsPerPage)) {
-                carPreviews = dataBase.getCarsPreviews(page: page, limit: limit)
-            } else {
+            var carSummaries: [[String: Any]] = []
+            let (page, limit) = getPageAndLimit(from: queryParams)
+
+            // Page is mandatory, limit defaults to 10
+            guard let page = page else {
                 sendResponse(for: request, statusCode: 400, error: APIError.missingPageNumber, completionHandler)
                 return
             }
-            do {
-                let responseData: Data = try ["cars": carPreviews].toData()
-                sendResponse(for: request, statusCode: 200, data: responseData, completionHandler)
-                return
-            } catch {
-                sendResponse(for: request, statusCode: 500, error: error, completionHandler)
-                return
+
+            if let category = queryParams["category"] {
+                carSummaries = dataBase.getCarsInCategory(category: category, page: page, limit: limit)
+            } else {
+                carSummaries = dataBase.getCarsSummaries(page: page, limit: limit)
             }
+
+            sendResponse(for: request, rootKey: "cars", content: carSummaries, completionHandler)
 
         case "details":
             break
+
         case "search":
             break
+
         case "categories":
-            break
+            let allCategories = dataBase.getAllCategories()
+            sendResponse(for: request, rootKey: "categories", content: allCategories, completionHandler)
         default:
             sendResponse(for: request, statusCode: 400, error: APIError.invalidEndpoint, completionHandler)
+        }
+    }
+
+    func sendResponse(
+        for request: URLRequest,
+        rootKey: String,
+        content: [Any],
+        _ completionHandler: (Data?, URLResponse?, Error?) -> Void
+    ) {
+        do {
+            let responseData: Data = try [rootKey: content].toData()
+            sendResponse(for: request, statusCode: 200, data: responseData, completionHandler)
+            return
+        } catch {
+            sendResponse(for: request, statusCode: 500, error: error, completionHandler)
+            return
         }
     }
 
@@ -94,6 +115,16 @@ public class API {
                 headerFields: request.allHTTPHeaderFields),
             error
         )
+    }
+
+    private func getPageAndLimit(from queryParams: [String: String]) -> (Int?, Int) {
+        guard let page = Int(queryParams["page"] ?? "") else {
+            return (nil, 0)
+        }
+        if let limit = Int(queryParams["limit"] ?? "") {
+            return (page, limit)
+        }
+        return (page, Constants.defaultCarsPerPage)
     }
 
     func createQueryParametersDict(using queryParametersString: String) -> [String: String] {
@@ -130,5 +161,11 @@ extension URL {
             }
         }
         return (nil, "")
+    }
+}
+
+extension String {
+    func numberOfOccurrencesOf(string: String) -> Int {
+        return self.components(separatedBy:string).count - 1
     }
 }
