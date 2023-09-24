@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,6 +13,7 @@
             <connections>
                 <outlet property="exploreCollectionView" destination="JSM-O8-vfF" id="yMB-c9-m6j"/>
                 <outlet property="exploreLabel" destination="z2S-X6-sCG" id="fCr-F8-PoD"/>
+                <outlet property="heightConstraint" destination="qKJ-ZW-feu" id="yLG-EF-zXi"/>
                 <outlet property="newCarsCollectionView" destination="fP9-YT-gpg" id="X1I-4Z-dLe"/>
                 <outlet property="newCarsLabel" destination="dNW-id-Ihg" id="bgY-et-DJ6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -23,7 +25,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D7d-dq-emc">
-                    <rect key="frame" x="0.0" y="44" width="428" height="848"/>
+                    <rect key="frame" x="0.0" y="47" width="428" height="845"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xbw-Gv-ADC">
                             <rect key="frame" x="0.0" y="0.0" width="428" height="1300"/>
@@ -57,6 +59,9 @@
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="fP9-YT-gpg">
                                     <rect key="frame" x="5" y="295" width="418" height="1005"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" priority="999" constant="1005" id="qKJ-ZW-feu"/>
+                                    </constraints>
                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="clN-4K-baH">
                                         <size key="itemSize" width="128" height="128"/>
                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -78,7 +83,6 @@
                                 <constraint firstItem="JSM-O8-vfF" firstAttribute="top" secondItem="z2S-X6-sCG" secondAttribute="bottom" constant="8" id="dab-Tk-iOU"/>
                                 <constraint firstAttribute="trailing" secondItem="JSM-O8-vfF" secondAttribute="trailing" id="tap-1Z-nDG"/>
                                 <constraint firstItem="dNW-id-Ihg" firstAttribute="top" secondItem="JSM-O8-vfF" secondAttribute="bottom" constant="30" id="uIj-2E-pJv"/>
-                                <constraint firstAttribute="height" constant="1300" id="y8v-Pz-ujE"/>
                             </constraints>
                         </view>
                     </subviews>

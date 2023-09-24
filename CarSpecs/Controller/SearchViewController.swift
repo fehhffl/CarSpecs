@@ -20,7 +20,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        cars = carRepository.getAllCars()
+        // cars = carRepository.getAllCars()
         filtered = cars
         realTableView.delegate = self
         realTableView.dataSource = self

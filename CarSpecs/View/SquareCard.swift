@@ -40,7 +40,12 @@ class SquareCard: UICollectionViewCell {
         case .style2:
             heartButton.isHidden = false
             imageViewHeightConstraint.constant = 120
-            imageView.kf.setImage(with: URL(string: item.imageName)!)
+            if let imageUrl = URL(string: item.imageName) {
+                imageView.kf.setImage(with: imageUrl)
+            } else {
+                print("Failed to load image:\n\(item.imageName)")
+            }
+
             secondLabel.isHidden = false
             secondLabel.text = item.subtitle
             firstLabel.text = item.title
