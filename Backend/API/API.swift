@@ -13,6 +13,7 @@ public class API {
 
     private enum Constants {
         static let defaultCarsPerPage: Int = 10
+        static let defaultAPIDelay: UInt32 = 2
     }
 
     public func get(request: URLRequest, completionHandler: (Data?, URLResponse?, Error?) -> Void) {
@@ -138,8 +139,11 @@ public class API {
         statusCode: Int,
         data: Data? = nil,
         error: Error? = nil,
+        delayInSeconds: UInt32 = Constants.defaultAPIDelay,
         _ completionHandler: (Data?, URLResponse?, Error?) -> Void
     ) {
+        // Simulate network response time
+        sleep(delayInSeconds)
         completionHandler(
             data,
             HTTPURLResponse(
