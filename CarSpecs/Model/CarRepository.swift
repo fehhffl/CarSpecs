@@ -17,19 +17,14 @@ struct CarRepository {
     }
 
     func getAllCars(completion: ([[String: Any]]) -> Void) {
-        return httpClient.get(path: "carList?page=1&limit=10&category=suv", rootKey: "cars", completion: completion)
+        return httpClient.get(path: "carList?page=1&limit=10", rootKey: "cars", completion: completion)
     }
 
     func getCarDetails(id: Int, completion: ([String: Any]?) -> Void) {
-        httpClient.get(path: "details/\(id)", completion: completion)
+        return httpClient.get(path: "details/\(id)", completion: completion)
     }
 
-    func searchCar(nameToSearch: String) -> Car? {
-//        for car in cars {
-//            if car.name == nameToSearch {
-//                return car
-//            }
-//        }
-        return nil
+    func searchCarBy(name carName: String, completion: ([[String: Any]]) -> Void) {
+        return httpClient.get(path: "search?name=\(carName)&page=1&limit=10", rootKey: "cars", completion: completion)
     }
 }

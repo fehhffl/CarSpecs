@@ -92,6 +92,22 @@ public class API {
             }
 
         } else if endpoint.starts(with: "search") {
+            var searchResult: [[String: Any]] = []
+            let (page, limit) = getPageAndLimit(from: queryParams)
+
+            // Page is mandatory, limit defaults to 10
+            guard let page = page else {
+                sendResponse(for: request, statusCode: 400, error: APIError.missingPageNumber, completionHandler)
+                return
+            }
+
+            guard let carName = queryParams["name"] else {
+                sendResponse(for: request, statusCode: 400, error: APIError.missingCarName, completionHandler)
+                return
+            }
+            searchResult = dataBase.getCarsBy(name: carName, page: page, limit: limit)
+
+            sendResponse(for: request, rootKey: "cars", content: searchResult, completionHandler)
 
         } else if endpoint.starts(with: "categories") {
             let allCategories = dataBase.getAllCategories()

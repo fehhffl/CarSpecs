@@ -46,6 +46,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             newCarsCollectionView.layoutIfNeeded()
         }
 
+        carRepository.searchCarBy(name: " civic") { cars in
+            print(cars)
+        }
+
         super.viewDidLoad()
         exploreLabel.text = "explore_home_screen_label".localize()
         newCarsLabel.text = "new_cars_home_screen_label".localize()

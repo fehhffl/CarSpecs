@@ -14,6 +14,7 @@ enum APIError: LocalizedError {
     case malformedQueryParams
     case malformedURL
     case missingCarId
+    case missingCarName
     case missingEndpoint
     case missingPageNumber
     case missingURL
@@ -31,7 +32,9 @@ enum APIError: LocalizedError {
         case .malformedURL:
             return "Something is wrong with the URL format"
         case .missingCarId:
-            return "Couldn't find cad id after: details/"
+            return "Couldn't find car id after: details/"
+        case .missingCarName:
+            return "Couldn't find car name in query parameters"
         case .missingEndpoint:
             return "Couldn't find any endpoint specified after the baseUrl"
         case .missingPageNumber:
