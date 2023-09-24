@@ -20,6 +20,10 @@ struct CarRepository {
         return httpClient.get(path: "carList?page=1&limit=10&category=suv", rootKey: "cars", completion: completion)
     }
 
+    func getCarDetails(id: Int, completion: ([String: Any]?) -> Void) {
+        httpClient.get(path: "details/\(id)", completion: completion)
+    }
+
     func searchCar(nameToSearch: String) -> Car? {
 //        for car in cars {
 //            if car.name == nameToSearch {

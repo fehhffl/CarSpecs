@@ -50,8 +50,7 @@ public class API {
             endpoint = stringAfterBaseUrl
         }
 
-        switch endpoint {
-        case "carList":
+        if endpoint.starts(with: "carList") {
             var carSummaries: [[String: Any]] = []
             let (page, limit) = getPageAndLimit(from: queryParams)
 
@@ -69,16 +68,35 @@ public class API {
 
             sendResponse(for: request, rootKey: "cars", content: carSummaries, completionHandler)
 
-        case "details":
-            break
+        } else if endpoint.starts(with: "details") {
+            let components = endpoint.split(separator: "/")
+            guard components.count >= 2 else {
+                sendResponse(for: request, statusCode: 400, error: APIError.missingCarId, completionHandler)
+                return
+            }
+            guard let cardId = Int(components[1]) else {
+                sendResponse(for: request, statusCode: 400, error: APIError.invalidCarId, completionHandler)
+                return
+            }
+            guard let carDetails = dataBase.getCarDetails(id: cardId) else {
+                sendResponse(for: request, statusCode: 404, error: APIError.carNotFound, completionHandler)
+                return
+            }
 
-        case "search":
-            break
+            do {
+                let responseData: Data = try carDetails.toData()
+                sendResponse(for: request, statusCode: 200, data: responseData, completionHandler)
+            } catch {
+                sendResponse(for: request, statusCode: 500, error: error, completionHandler)
+                return
+            }
 
-        case "categories":
+        } else if endpoint.starts(with: "search") {
+
+        } else if endpoint.starts(with: "categories") {
             let allCategories = dataBase.getAllCategories()
             sendResponse(for: request, rootKey: "categories", content: allCategories, completionHandler)
-        default:
+        } else {
             sendResponse(for: request, statusCode: 400, error: APIError.invalidEndpoint, completionHandler)
         }
     }

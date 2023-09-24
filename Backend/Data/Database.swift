@@ -36,6 +36,16 @@ class Database {
         return cars.asCarSummaries()
     }
 
+    func getCarDetails(id: Int) -> [String: Any]? {
+        return cars.first { car in
+            guard let carId = car["id"] as? Int64 else {
+                print("Car \(car["name"] as? String ?? "") doesn't have an id")
+                return false
+            }
+            return carId == id
+        }
+    }
+
     func getAllCategories() -> [String] {
         return cars.compactMap { $0["type"] as? String }.removeDuplicates()
     }
