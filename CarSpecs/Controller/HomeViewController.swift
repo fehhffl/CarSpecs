@@ -34,12 +34,43 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         newCarsCollectionViewHeightConstraint.constant = height
         newCarsCollectionView.layoutIfNeeded()
     }
+    func getServerData() {
+        DispatchQueue.global(qos: .userInitiated).async {
+            let url = URL(string: "https://www.cars-data.com/carList?page=1")
+            URLSession.shared.dataTaskLocal(with: url!) { (data, urlResponse, error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                    return
+                }
+                if let urlResponse = urlResponse as? HTTPURLResponse {
+                    if urlResponse.statusCode != 200 {
+                        let statusCode = urlResponse.statusCode
+                        if (400..<500).contains(statusCode) {
+                            print("Not authorized")
+                            return
+                        } else if (500..<600).contains(statusCode) {
+                            print("Backend Error")
+                            return
+                        }
+                    }
+                }
+                if let data = data {
+                    let result = String(data: data, encoding: .utf8)
+                    print(result!)
+                } else {
+                    print("No data")
+                }
+            }.resume()
+        }
+    }
 
     override func viewDidLoad() {
         exploreCards = squareCardsRepository.getCategoriesCar()
         cars = carRepository.getAllCars()
 
         super.viewDidLoad()
+        getServerData()
+        showLoader()
         exploreLabel.text = "explore_home_screen_label".localize()
         newCarsLabel.text = "new_cars_home_screen_label".localize()
         exploreCollectionView.register(UINib(nibName: "SquareCard", bundle: .main), forCellWithReuseIdentifier: "SquareCard")
