@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 
 class LoadingView: UIView {
+    static var shared = LoadingView()
 
     var loadingindicator = UIActivityIndicatorView(style: .large)
     init() {

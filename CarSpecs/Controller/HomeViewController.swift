@@ -35,30 +35,40 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         newCarsCollectionView.layoutIfNeeded()
     }
     func getServerData() {
+        showLoader()
         DispatchQueue.global(qos: .userInitiated).async {
             let url = URL(string: "https://www.cars-data.com/carList?page=1")
             URLSession.shared.dataTaskLocal(with: url!) { (data, urlResponse, error) in
                 if let error = error {
-                    print(error.localizedDescription)
+                    self.showAlert(error.localizedDescription)
                     return
                 }
                 if let urlResponse = urlResponse as? HTTPURLResponse {
                     if urlResponse.statusCode != 200 {
                         let statusCode = urlResponse.statusCode
                         if (400..<500).contains(statusCode) {
-                            print("Not authorized")
+                            self.showAlert("Not authorized")
                             return
                         } else if (500..<600).contains(statusCode) {
-                            print("Backend Error")
+                            self.showAlert("Backend Error")
                             return
                         }
                     }
                 }
                 if let data = data {
-                    let result = String(data: data, encoding: .utf8)
-                    print(result!)
+                    do {
+                        let decoderJson = try JSONDecoder().decode(CarsListResponse.self, from: data)
+                        self.cars = decoderJson.cars
+                        DispatchQueue.main.async {
+                            self.hideLoader()
+                            self.newCarsCollectionView.reloadData()
+                        }
+                    } catch {
+                        print(error)
+                        self.showAlert(error.localizedDescription)
+                    }
                 } else {
-                    print("No data")
+                    self.showAlert("No data")
                 }
             }.resume()
         }
@@ -66,11 +76,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
     override func viewDidLoad() {
         exploreCards = squareCardsRepository.getCategoriesCar()
-        cars = carRepository.getAllCars()
+        // cars = carRepository.getAllCars()
 
         super.viewDidLoad()
         getServerData()
-        showLoader()
         exploreLabel.text = "explore_home_screen_label".localize()
         newCarsLabel.text = "new_cars_home_screen_label".localize()
         exploreCollectionView.register(UINib(nibName: "SquareCard", bundle: .main), forCellWithReuseIdentifier: "SquareCard")
@@ -111,7 +120,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             return UICollectionViewCell()
         }
         if collectionView == exploreCollectionView {
-            cell.configure(with: .style1, item: exploreCards[indexPath.row], car: cars[indexPath.row])
+            cell.configure(with: .style1, item: exploreCards[indexPath.row])
             return cell
         } else {
             let currentCar = cars[indexPath.row]

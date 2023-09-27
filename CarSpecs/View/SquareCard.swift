@@ -38,7 +38,7 @@ class SquareCard: UICollectionViewCell {
         })
     }
 
-    func configure(with style: Style, item: SquareCardItem, car: Car) {
+    func configure(with style: Style, item: SquareCardItem, car: Car? = nil) {
         self.carroQueRepresento = car
 
         if isCarFavorite() {

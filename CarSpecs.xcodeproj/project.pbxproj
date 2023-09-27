@@ -41,6 +41,9 @@
 		5599F0CD2A67563200E1EEDC /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5599F0CC2A67563200E1EEDC /* WelcomeViewController.swift */; };
 		5599F0D22A67563E00E1EEDC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5599F0D12A67563E00E1EEDC /* Assets.xcassets */; };
 		5599F0D52A67563E00E1EEDC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5599F0D32A67563E00E1EEDC /* LaunchScreen.storyboard */; };
+		559AB4EE2AC3856D00D398AE /* FakeHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559AB4EC2AC3856D00D398AE /* FakeHomeViewController.swift */; };
+		559AB4EF2AC3856D00D398AE /* FakeHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 559AB4ED2AC3856D00D398AE /* FakeHomeViewController.xib */; };
+		559AB4F22AC3857C00D398AE /* FakeLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 559AB4F12AC3857C00D398AE /* FakeLoadingView.xib */; };
 		559F4DE32A9D0F51000E743C /* SquareCardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559F4DE22A9D0F51000E743C /* SquareCardItem.swift */; };
 		55EFE9F72AB4E11B007AD8D6 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EFE9F52AB4E11B007AD8D6 /* SearchViewController.swift */; };
 		55EFE9F82AB4E11B007AD8D6 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55EFE9F62AB4E11B007AD8D6 /* SearchViewController.xib */; };
@@ -123,6 +126,9 @@
 		5599F0D12A67563E00E1EEDC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5599F0D42A67563E00E1EEDC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5599F0D62A67563E00E1EEDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		559AB4EC2AC3856D00D398AE /* FakeHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeHomeViewController.swift; sourceTree = "<group>"; };
+		559AB4ED2AC3856D00D398AE /* FakeHomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FakeHomeViewController.xib; sourceTree = "<group>"; };
+		559AB4F12AC3857C00D398AE /* FakeLoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FakeLoadingView.xib; sourceTree = "<group>"; };
 		559F4DE22A9D0F51000E743C /* SquareCardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareCardItem.swift; sourceTree = "<group>"; };
 		55EFE9F52AB4E11B007AD8D6 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		55EFE9F62AB4E11B007AD8D6 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
@@ -216,6 +222,7 @@
 				5579C1902AA949AC008DC5B3 /* CarGarageCell.swift */,
 				5579C1912AA949AC008DC5B3 /* CarGarageCell.xib */,
 				559603B22AC104640053CAAA /* LoadingView.swift */,
+				559AB4F12AC3857C00D398AE /* FakeLoadingView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -238,6 +245,8 @@
 				55EFE9F62AB4E11B007AD8D6 /* SearchViewController.xib */,
 				5542413D2ABD0B5C0022975F /* CarInfosViewController.swift */,
 				5542413E2ABD0B5C0022975F /* CarInfosViewController.xib */,
+				559AB4EC2AC3856D00D398AE /* FakeHomeViewController.swift */,
+				559AB4ED2AC3856D00D398AE /* FakeHomeViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -442,9 +451,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				559AB4EF2AC3856D00D398AE /* FakeHomeViewController.xib in Resources */,
 				9B4C08312ABF62FB0006B839 /* cars.json in Resources */,
 				5591464D2A819DCA00AE3F57 /* Localizable.strings in Resources */,
 				5579C18A2AA942AE008DC5B3 /* GarageViewController.xib in Resources */,
+				559AB4F22AC3857C00D398AE /* FakeLoadingView.xib in Resources */,
 				55EFE9F82AB4E11B007AD8D6 /* SearchViewController.xib in Resources */,
 				55843A542A7C6DAE007FDDA1 /* LoginViewController.xib in Resources */,
 				55964F422A9FB12B00BA3B16 /* CategoriesViewController.xib in Resources */,
@@ -556,6 +567,7 @@
 				5579C1922AA949AD008DC5B3 /* CarGarageCell.swift in Sources */,
 				5599F0C92A67563200E1EEDC /* AppDelegate.swift in Sources */,
 				5542B6122AB11A3F0055B4C8 /* Car.swift in Sources */,
+				559AB4EE2AC3856D00D398AE /* FakeHomeViewController.swift in Sources */,
 				5599F0CB2A67563200E1EEDC /* SceneDelegate.swift in Sources */,
 				5542413F2ABD0B5C0022975F /* CarInfosViewController.swift in Sources */,
 				55964F4A2A9FBEA800BA3B16 /* CategoryItem.swift in Sources */,
