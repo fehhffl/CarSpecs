@@ -34,43 +34,15 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         newCarsCollectionViewHeightConstraint.constant = height
         newCarsCollectionView.layoutIfNeeded()
     }
+
     func getServerData() {
         showLoader()
-        DispatchQueue.global(qos: .userInitiated).async {
-            let url = URL(string: "https://www.cars-data.com/carList?page=1")
-            URLSession.shared.dataTaskLocal(with: url!) { (data, urlResponse, error) in
-                if let error = error {
-                    self.showAlert(error.localizedDescription)
-                    return
-                }
-                if let urlResponse = urlResponse as? HTTPURLResponse {
-                    if urlResponse.statusCode != 200 {
-                        let statusCode = urlResponse.statusCode
-                        if (400..<500).contains(statusCode) {
-                            self.showAlert("Not authorized")
-                            return
-                        } else if (500..<600).contains(statusCode) {
-                            self.showAlert("Backend Error")
-                            return
-                        }
-                    }
-                }
-                if let data = data {
-                    do {
-                        let decoderJson = try JSONDecoder().decode(CarsListResponse.self, from: data)
-                        self.cars = decoderJson.cars
-                        DispatchQueue.main.async {
-                            self.hideLoader()
-                            self.newCarsCollectionView.reloadData()
-                        }
-                    } catch {
-                        print(error)
-                        self.showAlert(error.localizedDescription)
-                    }
-                } else {
-                    self.showAlert("No data")
-                }
-            }.resume()
+        carRepository.getAllCars { [weak self] (carsArray: [Car]) -> Void in
+            self?.cars = carsArray
+            DispatchQueue.main.async {
+                self?.hideLoader()
+                self?.newCarsCollectionView.reloadData()
+            }
         }
     }
 
@@ -126,12 +98,20 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             let currentCar = cars[indexPath.row]
             let squareCardItem = SquareCardItem(
                 title: currentCar.name,
-                subtitle: currentCar.price.currencyUS,
+                subtitle: currentCar.price.currencyFR,
                 imageName: currentCar.imageName)
 
             cell.configure(with: .style2, item: squareCardItem, car: currentCar)
 
             return cell
+        }
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == newCarsCollectionView {
+            var id: Int = 0
+            let currentCar = cars[indexPath.row]
+            id = currentCar.carId
+            navigationController?.pushViewController(CarInfosViewController(carId: id), animated: true)
         }
     }
 }

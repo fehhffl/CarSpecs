@@ -28,7 +28,7 @@ extension UIViewController {
             loadingViewSingleton.removeFromSuperview()
         }
     }
-    
+
     func showAlert(_ message: String) {
         let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "ok", style: .default)

@@ -9,29 +9,77 @@ import Foundation
 
 struct CarRepository {
     var favorites: [Car] = []
-    private let cars: [Car] = [
-//        Car(name: "Toyota Prius", price: 22959, imageName: "https://caredge.com/images/cars/photos/300_toyota-prius.jpg"),
-//        Car(name: "Honda HR-V", price: 25322, imageName: "https://caredge.com/images/cars/photos/300_honda-hr-v.jpg"),
-//        Car(name: "Subaru Crosstrek", price: 25672, imageName: "https://caredge.com/images/cars/photos/300_subaru-crosstrek.jpg"),
-//        Car(name: "Toyota RAV4", price: 26095, imageName: "https://caredge.com/images/cars/photos/300_toyota-rav4.jpg"),
-//        Car(name: "Honda CR-V", price: 26277, imageName: "https://images.drive.com.au/driveau/image/upload/c_fill,f_auto,g_auto,h_1080,q_auto:eco,w_1920/v1/cms/uploads/dtdosuwovnyzbwkozjkb"),
-//        Car(name: "Jaguar XE", price: 28278, imageName: "https://cdn.boatinternational.com/convert/bi_prd/bi/library_images/IUWZRHoiSyqRsRg4K44j_jaguar-XE-P250-Caesium-Blue.jpg/r%5Bwidth%5D=1366/IUWZRHoiSyqRsRg4K44j_jaguar-XE-P250-Caesium-Blue.webp"),
-//        Car(name: "Toyota Camry", price: 26810, imageName: "https://caredge.com/images/cars/photos/300_toyota-camry.jpg"),
-//        Car(name: "Subaru Forester", price: 27440, imageName: "https://caredge.com/images/cars/photos/300_subaru-forester.jpg"),
-//        Car(name: "Subaru Legacy", price: 27769, imageName: "https://caredge.com/images/cars/photos/300_subaru-legacy.jpg"),
-//        Car(name: "Honda Accord", price: 27880, imageName: "https://caredge.com/images/cars/photos/300_honda-accord.jpg")
-    ]
 
-    func getAllCars() -> [Car] {
-        return cars
-    }
-
-    func searchCar(nameToSearch: String) -> Car? {
-        for car in cars {
-            if car.name == nameToSearch {
-                return car
+    func getTechnicalInformation(carId: Int, completion: @escaping (CarTechnicalInformation) -> Void) {
+        DispatchQueue.global(qos: .userInitiated).async {
+            let url = URL(string: "https://www.cars-data.com/details/\(carId)")
+            let task = URLSession.shared.dataTaskLocal(with: url!) { (data, urlResponse, error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                    return
+                }
+                if let urlResponse = urlResponse as? HTTPURLResponse {
+                    if urlResponse.statusCode != 200 {
+                        let statusCode = urlResponse.statusCode
+                        if (400..<500).contains(statusCode) {
+                            print("Not authorized")
+                            return
+                        } else if (500..<600).contains(statusCode) {
+                            print("Backend Error")
+                            return
+                        }
+                    }
+                }
+                if let data = data {
+                    do {
+                        let jsonAsString = String(data: data, encoding: .utf8)
+                        let decoder = JSONDecoder()
+                        decoder.keyDecodingStrategy = .convertFromSnakeCase
+                        let information = try decoder.decode(CarTechnicalInformation.self, from: data)
+                        completion(information)
+                    } catch {
+                        print(error)
+                    }
+                }
             }
+            task.resume()
         }
-        return nil
     }
+
+    func getAllCars(completion: @escaping ([Car]) -> Void) {
+        DispatchQueue.global(qos: .userInitiated).async {
+            let url = URL(string: "https://www.cars-data.com/carList?page=1")
+            URLSession.shared.dataTaskLocal(with: url!) { (data, urlResponse, error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                    return
+                }
+                if let urlResponse = urlResponse as? HTTPURLResponse {
+                    if urlResponse.statusCode != 200 {
+                        let statusCode = urlResponse.statusCode
+                        if (400..<500).contains(statusCode) {
+                            print("Not authorized")
+                            return
+                        } else if (500..<600).contains(statusCode) {
+                            print("Backend Error")
+                            return
+                        }
+                    }
+                }
+                if let data = data {
+                    do {
+                        let decoderJson = try JSONDecoder().decode(CarsListResponse.self, from: data)
+                        let carsArray = decoderJson.cars
+                        completion(carsArray)
+                    } catch {
+                        print(error)
+                        print(error.localizedDescription)
+                    }
+                } else {
+                    print("No data")
+                }
+            }.resume()
+        }
+    }
+
 }

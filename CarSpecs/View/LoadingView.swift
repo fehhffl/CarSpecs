@@ -11,16 +11,24 @@ import SnapKit
 class LoadingView: UIView {
     static var shared = LoadingView()
 
+    let darkOverlay = UIView(frame: .zero)
+
     var loadingindicator = UIActivityIndicatorView(style: .large)
     init() {
         super.init(frame: .zero)
+        darkOverlay.backgroundColor = UIColor.black.withAlphaComponent(0.3)
+        addSubview(darkOverlay)
+        darkOverlay.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
+
         addSubview(loadingindicator)
         loadingindicator.snp.makeConstraints { (make) in
             make.center.equalToSuperview()
         }
         loadingindicator.startAnimating()
-        self.backgroundColor = UIColor.black.withAlphaComponent(0.3)
-        self.loadingindicator.color = UIColor.white
+        self.backgroundColor = .white
+        self.loadingindicator.color = .white
     }
 
     required init?(coder: NSCoder) {
