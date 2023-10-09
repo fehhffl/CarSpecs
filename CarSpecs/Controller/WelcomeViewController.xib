@@ -23,10 +23,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Pv-kO-Q8v">
-                    <rect key="frame" x="19" y="298" width="376" height="300"/>
+                    <rect key="frame" x="20" y="286" width="374" height="324"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="car" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="OAW-5h-tqN">
-                            <rect key="frame" x="113" y="1.5" width="150" height="127.5"/>
+                            <rect key="frame" x="112" y="1.5" width="150" height="127.5"/>
                             <color key="tintColor" red="0.37647058820000001" green="0.3411764706" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="130" id="LDb-wM-Xsl"/>
@@ -34,20 +34,20 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Find all informatios of your favorite vehicles" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9e7-vR-0oa">
-                            <rect key="frame" x="0.0" y="196" width="376" height="24"/>
+                            <rect key="frame" x="0.0" y="196" width="374" height="48"/>
                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Say hello to your app." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Mgr-56-AXH">
-                            <rect key="frame" x="0.0" y="130" width="376" height="41"/>
+                            <rect key="frame" x="0.0" y="130" width="374" height="41"/>
                             <color key="tintColor" systemColor="labelColor"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
                             <color key="textColor" name="AccentColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exN-Ug-nI4">
-                            <rect key="frame" x="0.0" y="250" width="376" height="50"/>
+                            <rect key="frame" x="0.0" y="274" width="374" height="50"/>
                             <color key="backgroundColor" name="AccentColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="Ch5-3L-49x"/>
@@ -84,6 +84,8 @@
             <constraints>
                 <constraint firstItem="7Pv-kO-Q8v" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="0aZ-h4-exX"/>
                 <constraint firstItem="7Pv-kO-Q8v" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="41s-Eb-qXl"/>
+                <constraint firstItem="7Pv-kO-Q8v" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="ZmH-08-Y3W"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="7Pv-kO-Q8v" secondAttribute="trailing" constant="20" id="v8C-W9-33O"/>
             </constraints>
             <point key="canvasLocation" x="141" y="107"/>
         </view>

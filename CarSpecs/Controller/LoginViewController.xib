@@ -70,7 +70,7 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n1L-RM-Z5n">
                             <rect key="frame" x="0.0" y="41.666666666666629" width="166" height="33"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                            <state key="normal" title="Forget my password">
+                            <state key="normal" title="Forgot my password">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                         </button>
@@ -106,8 +106,10 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="92R-Hk-9Sh" secondAttribute="trailing" constant="24" id="0Zm-jt-Hid"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="8vt-nQ-78e" secondAttribute="bottom" constant="10" id="8ya-gr-UvS"/>
                 <constraint firstItem="92R-Hk-9Sh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="AZf-SA-WRp"/>
                 <constraint firstItem="Kac-H5-B18" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Chs-gz-irW"/>
+                <constraint firstItem="8vt-nQ-78e" firstAttribute="top" relation="greaterThanOrEqual" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="IHI-sq-Qgp"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Kac-H5-B18" secondAttribute="trailing" constant="24" id="KNj-Xs-omf"/>
                 <constraint firstItem="Kac-H5-B18" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="PdF-Km-a60"/>
                 <constraint firstItem="aPC-Uv-a57" firstAttribute="centerX" secondItem="Kac-H5-B18" secondAttribute="centerX" id="V8i-Up-TeB"/>

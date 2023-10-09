@@ -21,8 +21,15 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        cars = carRepository.getAllCars()
-        filtered = cars
+        showLoader()
+        carRepository.getAllCars { carsArray in
+            self.cars = carsArray
+            DispatchQueue.main.async {
+                self.hideLoader()
+                self.filtered = self.cars
+                self.realTableView.reloadData()
+            }
+        }
         realTableView.delegate = self
         realTableView.dataSource = self
         searchBar.delegate = self
@@ -52,7 +59,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let car = filtered[indexPath.row]
         let item = SquareCardItem(
             title: car.name,
-            subtitle: String(format: "$%.2f", car.price),
+            subtitle: car.price.currencyFR,
             imageName: car.imageName)
         cell.configure(item: item)
         return cell

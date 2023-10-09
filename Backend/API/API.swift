@@ -25,9 +25,9 @@ public class API {
             return
         }
 
-        let (baseUrl, stringAfterBaseUrl) = url.getURLComponents()
+        let (baseUrl2, stringAfterBaseUrl) = url.getURLComponents()
 
-        guard let baseUrl, !baseUrl.isEmpty else {
+        guard let baseUrl = baseUrl2, !baseUrl.isEmpty else {
             sendResponse(for: request, statusCode: 400, error: APIError.malformedURL, completionHandler)
             return
         }
@@ -56,10 +56,10 @@ public class API {
 
         if endpoint.starts(with: "carList") {
             var carSummaries: [[String: Any]] = []
-            let (page, limit) = getPageAndLimit(from: queryParams)
+            let (page2, limit) = getPageAndLimit(from: queryParams)
 
             // Page is mandatory, limit defaults to 10
-            guard let page = page else {
+            guard let page = page2 else {
                 sendResponse(for: request, statusCode: 400, error: APIError.missingPageNumber, completionHandler)
                 return
             }
@@ -97,10 +97,10 @@ public class API {
 
         } else if endpoint.starts(with: "search") {
             var searchResult: [[String: Any]] = []
-            let (page, limit) = getPageAndLimit(from: queryParams)
+            let (page2, limit) = getPageAndLimit(from: queryParams)
 
             // Page is mandatory, limit defaults to 10
-            guard let page = page else {
+            guard let page = page2 else {
                 sendResponse(for: request, statusCode: 400, error: APIError.missingPageNumber, completionHandler)
                 return
             }

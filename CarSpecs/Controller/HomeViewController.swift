@@ -35,11 +35,23 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         newCarsCollectionView.layoutIfNeeded()
     }
 
+    func getServerData() {
+        showLoader()
+        carRepository.getAllCars { [weak self] (carsArray: [Car]) -> Void in
+            self?.cars = carsArray
+            DispatchQueue.main.async {
+                self?.hideLoader()
+                self?.newCarsCollectionView.reloadData()
+            }
+        }
+    }
+
     override func viewDidLoad() {
         exploreCards = squareCardsRepository.getCategoriesCar()
-        cars = carRepository.getAllCars()
+        // cars = carRepository.getAllCars()
 
         super.viewDidLoad()
+        getServerData()
         exploreLabel.text = "explore_home_screen_label".localize()
         newCarsLabel.text = "new_cars_home_screen_label".localize()
         exploreCollectionView.register(UINib(nibName: "SquareCard", bundle: .main), forCellWithReuseIdentifier: "SquareCard")
@@ -52,8 +64,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        let valorRecuperado = Defaults[keyPath: \.username]
-        title = valorRecuperado
+        title = "Home"
         navigationController?.navigationBar.prefersLargeTitles = false
     }
 
@@ -84,32 +95,23 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             cell.configure(with: .style1, item: exploreCards[indexPath.row])
             return cell
         } else {
-            let car = cars[indexPath.row]
+            let currentCar = cars[indexPath.row]
             let squareCardItem = SquareCardItem(
-                title: car.name,
-                subtitle: car.price.currencyUS,
-                imageName: car.imageName)
+                title: currentCar.name,
+                subtitle: currentCar.price.currencyFR,
+                imageName: currentCar.imageName)
 
-            cell.configure(with: .style2, item: squareCardItem)
+            cell.configure(with: .style2, item: squareCardItem, car: currentCar)
 
             return cell
         }
     }
-
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == newCarsCollectionView {
-            let selectedCar = cars[indexPath.item]
-            var currentFavoriteCars = Defaults[key: DefaultsKeys.favoriteCars]
-            currentFavoriteCars.append(selectedCar)
-            Defaults[key: DefaultsKeys.favoriteCars] = currentFavoriteCars
-
-            let alertController = UIAlertController(title: "Saved", message: "Car added to favorites", preferredStyle: .alert)
-            let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
-            alertController.addAction(action)
-            present(alertController, animated: true)
+            var id: Int = 0
+            let currentCar = cars[indexPath.row]
+            id = currentCar.carId
+            navigationController?.pushViewController(CarInfosViewController(carId: id), animated: true)
         }
     }
-}
-extension DefaultsKeys {
-    static var favoriteCars: DefaultsKey<[Car]> { DefaultsKey("favoriteCarsKey", defaultValue: []) }
 }

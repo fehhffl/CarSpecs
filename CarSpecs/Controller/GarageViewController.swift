@@ -17,8 +17,7 @@ class GarageViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         title = "Saved items"
-        let savedFavoriteCars = Defaults[key: DefaultsKeys.favoriteCars]
-        favoriteCars = savedFavoriteCars
+        favoriteCars = Defaults[key: DefaultsKeys.favoriteCars]
         tableView.reloadData()
     }
 

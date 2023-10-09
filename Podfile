@@ -5,4 +5,5 @@ target 'CarSpecs' do
   pod 'SwiftLint', '~> 0.52.2'
   pod 'Kingfisher', '~> 7.6.2'
   pod 'SwiftyUserDefaults', '~> 5.0'
+  pod 'SnapKit', '~> 5.6.0'
 end

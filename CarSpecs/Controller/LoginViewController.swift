@@ -28,9 +28,7 @@ class LoginViewController: UIViewController {
     @IBAction private func onLogInButtonTapped(_ sender: Any) {
         if userTextField.text == user,
            passwordTextField.text == password {
-            passwordErrorLabel.isHidden = false
-            passwordErrorLabel.text = "Success"
-            passwordErrorLabel.textColor = .green
+            passwordErrorLabel.isHidden = true
             navigationController?.pushViewController(TabBarController(), animated: true)
             Defaults[\.username] = userTextField.text
         } else {
@@ -51,7 +49,4 @@ class LoginViewController: UIViewController {
         setupButtons()
     }
 
-}
-extension DefaultsKeys {
-    var username: DefaultsKey<String?> { .init("username") }
 }
