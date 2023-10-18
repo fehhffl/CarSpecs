@@ -25,14 +25,16 @@ public class API {
             return
         }
 
-        let (baseUrl2, stringAfterBaseUrl) = url.getURLComponents()
+        let (baseUrl2, encodedStringAfterBaseUrl) = url.getURLComponents()
+        let stringAfterBaseUrl = encodedStringAfterBaseUrl.removingPercentEncoding ?? encodedStringAfterBaseUrl
 
         guard let baseUrl = baseUrl2, !baseUrl.isEmpty else {
             sendResponse(for: request, statusCode: 400, error: APIError.malformedURL, completionHandler)
             return
         }
-
-        let urlWithoutBaseUrl = url.absoluteString.replacingOccurrences(of: baseUrl, with: "")
+        
+        let urlString = url.absoluteString.removingPercentEncoding ?? url.absoluteString
+        let urlWithoutBaseUrl = urlString.replacingOccurrences(of: baseUrl, with: "")
 
         guard !urlWithoutBaseUrl.isEmpty else {
             sendResponse(for: request, statusCode: 400, error: APIError.missingEndpoint, completionHandler)

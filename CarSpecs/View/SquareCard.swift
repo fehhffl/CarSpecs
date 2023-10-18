@@ -40,7 +40,6 @@ class SquareCard: UICollectionViewCell {
 
     func configure(with style: Style, item: SquareCardItem, car: Car? = nil) {
         self.carroQueRepresento = car
-
         if isCarFavorite() {
             isFavorite = true
             heartButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)

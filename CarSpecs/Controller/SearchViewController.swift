@@ -22,7 +22,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         showLoader()
-        carRepository.getAllCars { carsArray in
+        carRepository.getAllCars(pageNumber: 1) { carsArray in
             self.cars = carsArray
             DispatchQueue.main.async {
                 self.hideLoader()

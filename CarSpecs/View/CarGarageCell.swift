@@ -17,7 +17,11 @@ class CarGarageCell: UITableViewCell {
 
     func configure(item: SquareCardItem) {
         carPrice.text = item.subtitle
-        cellImage.kf.setImage(with: URL(string: item.imageName)!)
+
+        cellImage.kf.setImage(
+            with: URL(string: item.imageName),
+            placeholder: UIImage(named: "no-image")
+        )
         carName.text = item.title
         cardBackgroundView.layer.cornerRadius = 10
         cardBackgroundView.clipsToBounds = true

@@ -9,15 +9,17 @@ import UIKit
 import SwiftyUserDefaults
 
 class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    @IBOutlet private weak var newCarsLabel: UILabel!
-    @IBOutlet private weak var exploreCollectionView: UICollectionView!
-    @IBOutlet private weak var exploreLabel: UILabel!
-    @IBOutlet private weak var newCarsCollectionView: UICollectionView!
-    @IBOutlet private weak var newCarsCollectionViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var collectionView: UICollectionView!
     private var exploreCards: [SquareCardItem] = []
     private let carRepository = CarRepository()
     private var cars: [Car] = []
     private let squareCardsRepository = SquareCardsRepository()
+    var pageNumber: Int = 1
+
+    private enum Section: Int, CaseIterable {
+        case exploreCars = 0
+        case newCars = 1
+    }
 
     public var screenWidth: CGFloat {
         return UIScreen.main.bounds.width
@@ -26,40 +28,29 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         return UIScreen.main.bounds.height
     }
 
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        // To make the height of collection view to update when new cars appear
-        // https://stackoverflow.com/questions/42437966/
-        let height: CGFloat = self.newCarsCollectionView.collectionViewLayout.collectionViewContentSize.height
-        newCarsCollectionViewHeightConstraint.constant = height
-        newCarsCollectionView.layoutIfNeeded()
+    func atualizaListaCarros(arrayDoRepositorio: [Car]) {
+        self.cars += arrayDoRepositorio
+        DispatchQueue.main.async {
+            self.hideLoader()
+            self.collectionView.reloadData()
+        }
     }
 
     func getServerData() {
         showLoader()
-        carRepository.getAllCars { [weak self] (carsArray: [Car]) -> Void in
-            self?.cars = carsArray
-            DispatchQueue.main.async {
-                self?.hideLoader()
-                self?.newCarsCollectionView.reloadData()
-            }
-        }
+        carRepository.getAllCars(pageNumber: pageNumber, completion: atualizaListaCarros)
     }
 
     override func viewDidLoad() {
         exploreCards = squareCardsRepository.getCategoriesCar()
-        // cars = carRepository.getAllCars()
 
         super.viewDidLoad()
         getServerData()
-        exploreLabel.text = "explore_home_screen_label".localize()
-        newCarsLabel.text = "new_cars_home_screen_label".localize()
-        exploreCollectionView.register(UINib(nibName: "SquareCard", bundle: .main), forCellWithReuseIdentifier: "SquareCard")
-        exploreCollectionView.delegate = self
-        exploreCollectionView.dataSource = self
-        newCarsCollectionView.register(UINib(nibName: "SquareCard", bundle: .main), forCellWithReuseIdentifier: "SquareCard")
-        newCarsCollectionView.delegate = self
-        newCarsCollectionView.dataSource = self
+        // exploreLabel.text = "explore_home_screen_label".localize()
+        // newCarsLabel.text = "new_cars_home_screen_label".localize()
+        collectionView.register(UINib(nibName: "SquareCard", bundle: .main), forCellWithReuseIdentifier: "SquareCard")
+        collectionView.delegate = self
+        collectionView.dataSource = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -69,20 +60,30 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == exploreCollectionView {
+        switch section {
+        case Section.exploreCars.rawValue:
             return exploreCards.count
-        } else {
+        case Section.newCars.rawValue:
             return cars.count
+        default:
+            return 0
         }
+    }
+
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return Section.allCases.count
     }
 
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if collectionView == exploreCollectionView {
+        switch Section(rawValue: indexPath.section) {
+        case .exploreCars:
             return CGSize(width: 128, height: 128)
-        } else {
+        case .newCars:
             return CGSize(width: screenWidth / 2 - 15, height: 200 )
+        case .none:
+            return .zero
         }
     }
 
@@ -91,10 +92,12 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SquareCard", for: indexPath) as? SquareCard else {
             return UICollectionViewCell()
         }
-        if collectionView == exploreCollectionView {
+        switch Section(rawValue: indexPath.section) {
+        case .exploreCars:
             cell.configure(with: .style1, item: exploreCards[indexPath.row])
             return cell
-        } else {
+        case .newCars:
+
             let currentCar = cars[indexPath.row]
             let squareCardItem = SquareCardItem(
                 title: currentCar.name,
@@ -104,14 +107,45 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             cell.configure(with: .style2, item: squareCardItem, car: currentCar)
 
             return cell
+        case .none:
+            return UICollectionViewCell()
         }
     }
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView == newCarsCollectionView {
+        switch Section(rawValue: indexPath.section) {
+        case .exploreCars:
+            break
+        case .newCars:
             var id: Int = 0
             let currentCar = cars[indexPath.row]
             id = currentCar.carId
             navigationController?.pushViewController(CarInfosViewController(carId: id), animated: true)
+        case .none:
+            break
+        }
+    }
+    
+    
+
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case 0:
+            break
+        case 1:
+            loadMoreCarsIfLast(currentItemIndex: indexPath.item)
+        default:
+            break
+        }
+    }
+
+    func loadMoreCarsIfLast(currentItemIndex: Int) {
+        let indiceItemAtual = currentItemIndex
+        let indiceUltimaPosicao = cars.count - 1
+
+        if indiceItemAtual == indiceUltimaPosicao {
+            pageNumber += 1
+            getServerData()
         }
     }
 }

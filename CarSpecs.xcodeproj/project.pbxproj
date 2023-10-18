@@ -13,6 +13,9 @@
 		55086B0D2A84502E00327B6C /* SquareCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55086B0B2A84502E00327B6C /* SquareCard.swift */; };
 		55086B0E2A84502E00327B6C /* SquareCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55086B0C2A84502E00327B6C /* SquareCard.xib */; };
 		5521478E2AA14A2300BDF35C /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5521478D2AA14A2300BDF35C /* WelcomeViewController.xib */; };
+		553D2F9E2AD76E62000C0824 /* CategoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553D2F9C2AD76E62000C0824 /* CategoryListViewController.swift */; };
+		553D2FA32AD7776F000C0824 /* CategoryListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 553D2FA22AD7776F000C0824 /* CategoryListViewController.xib */; };
+		553D2FA92AD77844000C0824 /* CategoriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 553D2FA82AD77843000C0824 /* CategoriesViewController.xib */; };
 		5542413F2ABD0B5C0022975F /* CarInfosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5542413D2ABD0B5C0022975F /* CarInfosViewController.swift */; };
 		554241402ABD0B5C0022975F /* CarInfosViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5542413E2ABD0B5C0022975F /* CarInfosViewController.xib */; };
 		554261152ABBAB3200AEA34D /* DefaultsKeys+CarSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554261142ABBAB3200AEA34D /* DefaultsKeys+CarSpecs.swift */; };
@@ -33,7 +36,6 @@
 		559603B32AC104640053CAAA /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559603B22AC104640053CAAA /* LoadingView.swift */; };
 		559603B62AC106520053CAAA /* UIViewController+CarSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559603B52AC106520053CAAA /* UIViewController+CarSpecs.swift */; };
 		55964F412A9FB12B00BA3B16 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55964F3F2A9FB12B00BA3B16 /* CategoriesViewController.swift */; };
-		55964F422A9FB12B00BA3B16 /* CategoriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55964F402A9FB12B00BA3B16 /* CategoriesViewController.xib */; };
 		55964F462A9FB53600BA3B16 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55964F442A9FB53600BA3B16 /* CategoryCell.swift */; };
 		55964F472A9FB53600BA3B16 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55964F452A9FB53600BA3B16 /* CategoryCell.xib */; };
 		55964F4A2A9FBEA800BA3B16 /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55964F492A9FBEA800BA3B16 /* CategoryItem.swift */; };
@@ -97,6 +99,9 @@
 		55086B0B2A84502E00327B6C /* SquareCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareCard.swift; sourceTree = "<group>"; };
 		55086B0C2A84502E00327B6C /* SquareCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SquareCard.xib; sourceTree = "<group>"; };
 		5521478D2AA14A2300BDF35C /* WelcomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
+		553D2F9C2AD76E62000C0824 /* CategoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewController.swift; sourceTree = "<group>"; };
+		553D2FA22AD7776F000C0824 /* CategoryListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryListViewController.xib; sourceTree = "<group>"; };
+		553D2FA82AD77843000C0824 /* CategoriesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoriesViewController.xib; sourceTree = "<group>"; };
 		5542413D2ABD0B5C0022975F /* CarInfosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarInfosViewController.swift; sourceTree = "<group>"; };
 		5542413E2ABD0B5C0022975F /* CarInfosViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarInfosViewController.xib; sourceTree = "<group>"; };
 		554261142ABBAB3200AEA34D /* DefaultsKeys+CarSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DefaultsKeys+CarSpecs.swift"; sourceTree = "<group>"; };
@@ -117,7 +122,6 @@
 		559603B22AC104640053CAAA /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		559603B52AC106520053CAAA /* UIViewController+CarSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+CarSpecs.swift"; sourceTree = "<group>"; };
 		55964F3F2A9FB12B00BA3B16 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
-		55964F402A9FB12B00BA3B16 /* CategoriesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoriesViewController.xib; sourceTree = "<group>"; };
 		55964F442A9FB53600BA3B16 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		55964F452A9FB53600BA3B16 /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
 		55964F492A9FBEA800BA3B16 /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
@@ -233,23 +237,25 @@
 		5567B7BD2A85A62D0012AB3E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				5542413D2ABD0B5C0022975F /* CarInfosViewController.swift */,
+				5542413E2ABD0B5C0022975F /* CarInfosViewController.xib */,
+				553D2FA82AD77843000C0824 /* CategoriesViewController.xib */,
 				55964F3F2A9FB12B00BA3B16 /* CategoriesViewController.swift */,
-				55964F402A9FB12B00BA3B16 /* CategoriesViewController.xib */,
+				553D2F9C2AD76E62000C0824 /* CategoryListViewController.swift */,
+				553D2FA22AD7776F000C0824 /* CategoryListViewController.xib */,
+				559AB4EC2AC3856D00D398AE /* FakeHomeViewController.swift */,
+				559AB4ED2AC3856D00D398AE /* FakeHomeViewController.xib */,
+				5579C1872AA942AE008DC5B3 /* GarageViewController.swift */,
+				5579C1882AA942AE008DC5B3 /* GarageViewController.xib */,
 				55086B062A844E4F00327B6C /* HomeViewController.swift */,
 				55086B072A844E4F00327B6C /* HomeViewController.xib */,
 				55843A512A7C6DAE007FDDA1 /* LoginViewController.swift */,
 				55843A522A7C6DAE007FDDA1 /* LoginViewController.xib */,
+				55EFE9F52AB4E11B007AD8D6 /* SearchViewController.swift */,
+				55EFE9F62AB4E11B007AD8D6 /* SearchViewController.xib */,
 				5551EACF2AA7D2BA00285CE9 /* TabBarController.swift */,
 				5599F0CC2A67563200E1EEDC /* WelcomeViewController.swift */,
 				5521478D2AA14A2300BDF35C /* WelcomeViewController.xib */,
-				5579C1872AA942AE008DC5B3 /* GarageViewController.swift */,
-				5579C1882AA942AE008DC5B3 /* GarageViewController.xib */,
-				55EFE9F52AB4E11B007AD8D6 /* SearchViewController.swift */,
-				55EFE9F62AB4E11B007AD8D6 /* SearchViewController.xib */,
-				5542413D2ABD0B5C0022975F /* CarInfosViewController.swift */,
-				5542413E2ABD0B5C0022975F /* CarInfosViewController.xib */,
-				559AB4EC2AC3856D00D398AE /* FakeHomeViewController.swift */,
-				559AB4ED2AC3856D00D398AE /* FakeHomeViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -460,8 +466,9 @@
 				5579C18A2AA942AE008DC5B3 /* GarageViewController.xib in Resources */,
 				559AB4F22AC3857C00D398AE /* FakeLoadingView.xib in Resources */,
 				55EFE9F82AB4E11B007AD8D6 /* SearchViewController.xib in Resources */,
+				553D2FA92AD77844000C0824 /* CategoriesViewController.xib in Resources */,
 				55843A542A7C6DAE007FDDA1 /* LoginViewController.xib in Resources */,
-				55964F422A9FB12B00BA3B16 /* CategoriesViewController.xib in Resources */,
+				553D2FA32AD7776F000C0824 /* CategoryListViewController.xib in Resources */,
 				5599F0D52A67563E00E1EEDC /* LaunchScreen.storyboard in Resources */,
 				55086B0E2A84502E00327B6C /* SquareCard.xib in Resources */,
 				5521478E2AA14A2300BDF35C /* WelcomeViewController.xib in Resources */,
@@ -558,6 +565,7 @@
 				5542B6162AB11AF10055B4C8 /* CarRepository.swift in Sources */,
 				559603B32AC104640053CAAA /* LoadingView.swift in Sources */,
 				55EFE9F72AB4E11B007AD8D6 /* SearchViewController.swift in Sources */,
+				553D2F9E2AD76E62000C0824 /* CategoryListViewController.swift in Sources */,
 				55843A532A7C6DAE007FDDA1 /* LoginViewController.swift in Sources */,
 				55086B0D2A84502E00327B6C /* SquareCard.swift in Sources */,
 				55964F412A9FB12B00BA3B16 /* CategoriesViewController.swift in Sources */,

@@ -14,7 +14,7 @@ class CategoryCell: UITableViewCell {
     let gradientLayer = CAGradientLayer()
     func configure(with item: CategoryItem) {
         setGradientBackground()
-        titleLabel.text = item.title
+        titleLabel.text = item.title.capitalized
         mainImage.image = UIImage(named: item.imageName)
     }
     func setGradientBackground() {
