@@ -38,7 +38,7 @@ class CategoryListViewController: UIViewController, UITableViewDelegate, UITable
         tableView.dataSource = self
         tableView.register(UINib(nibName: "CarGarageCell", bundle: .main), forCellReuseIdentifier: "IdentifierCarGarageCell")
         showLoader()
-        carRepository.getCategorysCars(pageNumber: pageNumber, category: category, completion: completion)
+        carRepository.getCarsFromCategory(pageNumber: pageNumber, category: category, completion: completion)
     }
     func loadMoreCarsIfLast(currentItemIndex: Int) {
         let indiceItemAtual = currentItemIndex
@@ -46,7 +46,7 @@ class CategoryListViewController: UIViewController, UITableViewDelegate, UITable
 
         if indiceItemAtual == indiceUltimaPosicao {
             pageNumber += 1
-            carRepository.getCategorysCars(pageNumber: pageNumber, category: category, completion: completion )
+            carRepository.getCarsFromCategory(pageNumber: pageNumber, category: category, completion: completion )
         }
     }
 

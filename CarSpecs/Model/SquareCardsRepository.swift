@@ -26,6 +26,7 @@ struct SquareCardsRepository {
             imageName = "dodge-ram"
         case "convertible":
             imageName = "morgan-aero 8"
+        
         default:
             print("Unknown category name:", categoryName)
         }

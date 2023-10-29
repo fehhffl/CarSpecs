@@ -27,7 +27,6 @@ class Database {
             guard let carCategory = car["type"] as? String else {
                 return false
             }
-            print("zzz carCategory:", carCategory, "category:", category)
             return carCategory == category
         }
 

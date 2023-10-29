@@ -20,7 +20,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     private let squareCardsRepository = SquareCardsRepository()
     @IBOutlet weak var mainScrollView: UIScrollView!
     private var currentPage = 1
-    private var isLoading = false
+    private var exploreCarsIsLoading = false
+    private var newCarsIsLoading = false
     public var screenWidth: CGFloat {
         return UIScreen.main.bounds.width
     }
@@ -39,30 +40,52 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
     func getServerData() {
         showLoader()
-        isLoading = true
+        newCarsIsLoading = true
         carRepository.getAllCars(pageNumber: currentPage) { [weak self] (carsArray: [Car]) -> Void in
             self?.cars += carsArray
             DispatchQueue.main.async {
-                self?.hideLoader()
-                self?.newCarsCollectionView.reloadData()
-                self?.newCarsCollectionView.layoutIfNeeded()
-                self?.isLoading = false
+                guard let strongSelf = self else { return }
+                strongSelf.newCarsCollectionView.reloadData()
+                strongSelf.newCarsCollectionView.layoutIfNeeded()
+                strongSelf.newCarsIsLoading = false
+                if !strongSelf.exploreCarsIsLoading && !strongSelf.newCarsIsLoading {
+                    strongSelf.hideLoader()
+                }
             }
         }
     }
     override func viewDidLoad() {
-         carRepository.getAllCategories { (categories: [String]) in
+        showLoader()
+        exploreCarsIsLoading = true
+        carRepository.getAllCategories { (categories: [String]) in
             var cardItems: [CardItem] = []
-            for category in categories {
-                let cardItem = self.squareCardsRepository.convertCategoryToSquareCard(using: category)
-                cardItems.append(cardItem)
-            }
-            self.exploreCards = cardItems
-            DispatchQueue.main.async {
-                self.exploreCollectionView.reloadData()
+            var categoriesProcessed = 0
+            for categoryName in categories {
+                self.carRepository.getCarsFromCategory(pageNumber: 1, category: categoryName) { carsFromCategory in
+                    let imageName = carsFromCategory.first?.imageName ?? "no-image"
+                    let item = CardItem(title: categoryName.capitalized, imageName: imageName)
+                    cardItems.append(item)
+                    categoriesProcessed += 1
+                    if categoriesProcessed == categories.count {
+                        self.exploreCards = cardItems.sorted(by: { (next, prev) -> Bool in
+                            if prev.title > next.title {
+                                return true
+                            } else {
+                                return false
+                            }
+                        })
+                        DispatchQueue.main.async {
+                            self.exploreCollectionView.reloadData()
+                            self.exploreCollectionView.layoutIfNeeded()
+                            self.exploreCarsIsLoading = false
+                            if !self.exploreCarsIsLoading && !self.newCarsIsLoading {
+                                self.hideLoader()
+                            }
+                        }
+                    }
+                }
             }
         }
-
         super.viewDidLoad()
         mainScrollView.delegate = self
         getServerData()
@@ -135,7 +158,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             let contentSizeHeight = scrollView.contentSize.height
             let offset = scrollView.contentOffset.y
             let reachedBottom = (offset > contentSizeHeight - height)
-            if reachedBottom && !isLoading {
+            if reachedBottom && !newCarsIsLoading {
                 currentPage += 1
                 getServerData()
             }

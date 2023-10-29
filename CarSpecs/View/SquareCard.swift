@@ -58,7 +58,11 @@ class SquareCard: UICollectionViewCell {
             squareCardView.layer.borderColor = UIColor.lightGray.cgColor
             heartButton.isHidden = true
             firstLabel.text = item.title
-            imageView.image = UIImage(named: item.imageName)
+            if let imageUrl = URL(string: item.imageName) {
+                imageView.kf.setImage(with: imageUrl)
+            } else {
+                imageView.image = UIImage(named: "no-image")
+            }
             labelsStackView.axis = .vertical
         case .style2:
             heartButton.isHidden = false

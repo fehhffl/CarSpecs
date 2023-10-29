@@ -55,7 +55,7 @@ struct CarRepository {
         }
     }
 
-    func getCategorysCars(pageNumber: Int, category: String, completion: @escaping ([Car]) -> Void) {
+    func getCarsFromCategory(pageNumber: Int, category: String, completion: @escaping ([Car]) -> Void) {
         let urlEncodedCategory = category.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
         let urlString: String = "https://www.cars-data.com/carList?page=\(pageNumber)&limit=10&category=\(urlEncodedCategory ?? category)"
        callBackend(urlString: urlString) { data in
