@@ -12,7 +12,7 @@ class CategoryCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var mainImage: UIImageView!
     let gradientLayer = CAGradientLayer()
-    func configure(with item: CategoryItem) {
+    func configure(with item: CardItem) {
         setGradientBackground()
         titleLabel.text = item.title.capitalized
         mainImage.image = UIImage(named: item.imageName)

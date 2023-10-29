@@ -15,7 +15,7 @@ class CarGarageCell: UITableViewCell {
     @IBOutlet weak var cardBackgroundView: UIView!
     @IBOutlet weak var carPrice: UILabel!
 
-    func configure(item: SquareCardItem) {
+    func configure(item: CardItem) {
         carPrice.text = item.subtitle
 
         cellImage.kf.setImage(

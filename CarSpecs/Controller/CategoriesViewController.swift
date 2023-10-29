@@ -9,21 +9,29 @@ import UIKit
 
 class CategoriesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView?
-    private let categoryItems: [CategoryItem] = [
-        CategoryItem(title: "suv", imageName: "tesla-model-x"),
-        CategoryItem(title: "coupé", imageName: "vw_gti"),
-        CategoryItem(title: "sedan", imageName: "morgan-aero 8"),
-        CategoryItem(title: "hatchback", imageName: "bmw-i3"),
-        CategoryItem(title: "van", imageName: "dodge-ram")
-    ]
+    private var categoryItems: [CardItem] = []
+    private let squareCardsRepository = SquareCardsRepository()
+    var carRepository = CarRepository()
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         title = "Collection"
     }
+    func completionGetCategories(allCategories: [String]) {
+        var cardItems: [CardItem] = []
+        for categoryName in allCategories {
+            let cardItem = squareCardsRepository.convertCategoryToSquareCard(using: categoryName)
+            cardItems.append(cardItem)
+        }
+        categoryItems = cardItems
+        DispatchQueue.main.sync {
+            tableView?.reloadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        carRepository.getAllCategories(completion: completionGetCategories)
         tableView?.delegate = self
         tableView?.dataSource = self
         let xib = UINib(nibName: "CategoryCell", bundle: .main)

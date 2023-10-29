@@ -10,7 +10,7 @@ import SwiftyUserDefaults
 
 class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     @IBOutlet private weak var collectionView: UICollectionView!
-    private var exploreCards: [SquareCardItem] = []
+    private var exploreCards: [CardItem] = []
     private let carRepository = CarRepository()
     private var cars: [Car] = []
     private let squareCardsRepository = SquareCardsRepository()
@@ -42,9 +42,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
 
     override func viewDidLoad() {
-        exploreCards = squareCardsRepository.getCategoriesCar()
-
         super.viewDidLoad()
+        carRepository.getAllCategories(completion: completionGetCategories)
         getServerData()
         // exploreLabel.text = "explore_home_screen_label".localize()
         // newCarsLabel.text = "new_cars_home_screen_label".localize()
@@ -67,6 +66,18 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             return cars.count
         default:
             return 0
+        }
+    }
+
+    func completionGetCategories(allCategories: [String]) {
+        var squareCards: [CardItem] = []
+        for categoryName in allCategories {
+            let cardItem = squareCardsRepository.convertCategoryToSquareCard(using: categoryName)
+            squareCards.append(cardItem)
+        }
+        exploreCards = squareCards
+        DispatchQueue.main.sync {
+            collectionView.reloadData()
         }
     }
 
@@ -99,7 +110,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         case .newCars:
 
             let currentCar = cars[indexPath.row]
-            let squareCardItem = SquareCardItem(
+            let squareCardItem = CardItem(
                 title: currentCar.name,
                 subtitle: currentCar.price.currencyFR,
                 imageName: currentCar.imageName)
@@ -125,8 +136,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             break
         }
     }
-    
-    
 
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         switch indexPath.section {

@@ -39,7 +39,7 @@ class GarageViewController: UIViewController, UITableViewDelegate, UITableViewDa
             return UITableViewCell()
         }
         let car = favoriteCars[indexPath.row]
-        let item = SquareCardItem(
+        let item = CardItem(
             title: car.name,
             subtitle: String(format: "$%.2f", car.price),
             imageName: car.imageName)

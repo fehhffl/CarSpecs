@@ -57,7 +57,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
 
         let car = filtered[indexPath.row]
-        let item = SquareCardItem(
+        let item = CardItem(
             title: car.name,
             subtitle: car.price.currencyFR,
             imageName: car.imageName)

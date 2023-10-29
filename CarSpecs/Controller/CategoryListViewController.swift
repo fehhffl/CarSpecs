@@ -47,7 +47,6 @@ class CategoryListViewController: UIViewController, UITableViewDelegate, UITable
         if indiceItemAtual == indiceUltimaPosicao {
             pageNumber += 1
             carRepository.getCategorysCars(pageNumber: pageNumber, category: category, completion: completion )
-            
         }
     }
 
@@ -66,7 +65,7 @@ class CategoryListViewController: UIViewController, UITableViewDelegate, UITable
 
         let car = cars[indexPath.row]
 
-        let item = SquareCardItem(
+        let item = CardItem(
             title: car.name,
             subtitle: car.price.currencyFR,
             imageName: car.imageName)

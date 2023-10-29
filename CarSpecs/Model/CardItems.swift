@@ -1,13 +1,11 @@
 //
-//  SquareCardConfig.swift
+//  CardItem.swift
 //  CarSpecs
 //
-//  Created by Felipe Lima on 28/08/23.
+//  Created by Felipe Lima on 30/08/23.
 //
 
-import Foundation
-
-class SquareCardItem {
+class CardItem {
     let title: String
     let subtitle: String
     let imageName: String
