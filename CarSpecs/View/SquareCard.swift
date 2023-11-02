@@ -23,24 +23,14 @@ class SquareCard: UICollectionViewCell {
     @IBOutlet weak var heartButton: UIButton!
     @IBOutlet weak var labelsStackView: UIStackView!
     private var carroQueRepresento: Car?
-    private var listaCarrosFavoritos: [Car] {
-        return Defaults[key: DefaultsKeys.favoriteCars]
-    }
+    var carRepository = CarRepository()
 
     private var isFavorite: Bool = false
-    func isCarFavorite() -> Bool {
-        return listaCarrosFavoritos.contains(where: { (car) -> Bool in
-            if car.name == carroQueRepresento?.name {
-                return true
-            } else {
-                return false
-            }
-        })
-    }
+    
 
     func configure(with style: Style, item: CardItem, car: Car? = nil) {
         self.carroQueRepresento = car
-        if isCarFavorite() {
+        if carroQueRepresento?.isFavorited == true {
             isFavorite = true
             heartButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         } else {
@@ -59,7 +49,7 @@ class SquareCard: UICollectionViewCell {
             heartButton.isHidden = true
             firstLabel.text = item.title
             if let imageUrl = URL(string: item.imageName) {
-                imageView.kf.setImage(with: imageUrl)
+                imageView.setImageResized(with: imageUrl)
             } else {
                 imageView.image = UIImage(named: "no-image")
             }
@@ -68,7 +58,7 @@ class SquareCard: UICollectionViewCell {
             heartButton.isHidden = false
             imageViewHeightConstraint.constant = 120
             if let imageUrl = URL(string: item.imageName) {
-                imageView.kf.setImage(with: imageUrl)
+                imageView.setImageResized(with: imageUrl)
             } else {
                 imageView.image = UIImage(named: "no-image")
             }
@@ -98,26 +88,11 @@ class SquareCard: UICollectionViewCell {
         if !isFavorite {
             isFavorite = true
             heartButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-            addCellCarToFavorites()
+            carRepository.addCarToFavorites(car: carroQueRepresento)
         } else {
             isFavorite = false
             heartButton.setImage(UIImage(systemName: "heart"), for: .normal)
-            removeFromFavorites()
-        }
-    }
-    private func removeFromFavorites() {
-        Defaults[key: DefaultsKeys.favoriteCars].removeAll { (car) -> Bool in
-            if car.name == carroQueRepresento?.name {
-                return true
-            } else {
-                return false
-            }
-        }
-    }
-
-    private func addCellCarToFavorites() {
-        if let carro = carroQueRepresento {
-            Defaults[key: DefaultsKeys.favoriteCars].append(carro)
+            carRepository.removeFromFavorites(car: carroQueRepresento)
         }
     }
 }

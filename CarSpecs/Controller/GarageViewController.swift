@@ -20,6 +20,12 @@ class GarageViewController: UIViewController, UITableViewDelegate, UITableViewDa
         favoriteCars = Defaults[key: DefaultsKeys.favoriteCars]
         tableView.reloadData()
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var id: Int = 0
+        let currentCar = favoriteCars[indexPath.row]
+        id = currentCar.carId
+        navigationController?.pushViewController(CarInfosViewController(carId: id), animated: true)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +47,7 @@ class GarageViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let car = favoriteCars[indexPath.row]
         let item = CardItem(
             title: car.name,
-            subtitle: String(format: "$%.2f", car.price),
+            subtitle: car.price.currencyFR,
             imageName: car.imageName)
         cell.configure(item: item)
         return cell

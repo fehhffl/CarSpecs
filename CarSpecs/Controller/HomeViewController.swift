@@ -57,32 +57,15 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     override func viewDidLoad() {
         showLoader()
         exploreCarsIsLoading = true
-        carRepository.getAllCategories { (categories: [String]) in
-            var cardItems: [CardItem] = []
-            var categoriesProcessed = 0
-            for categoryName in categories {
-                self.carRepository.getCarsFromCategory(pageNumber: 1, category: categoryName) { carsFromCategory in
-                    let imageName = carsFromCategory.first?.imageName ?? "no-image"
-                    let item = CardItem(title: categoryName.capitalized, imageName: imageName)
-                    cardItems.append(item)
-                    categoriesProcessed += 1
-                    if categoriesProcessed == categories.count {
-                        self.exploreCards = cardItems.sorted(by: { (next, prev) -> Bool in
-                            if prev.title > next.title {
-                                return true
-                            } else {
-                                return false
-                            }
-                        })
-                        DispatchQueue.main.async {
-                            self.exploreCollectionView.reloadData()
-                            self.exploreCollectionView.layoutIfNeeded()
-                            self.exploreCarsIsLoading = false
-                            if !self.exploreCarsIsLoading && !self.newCarsIsLoading {
-                                self.hideLoader()
-                            }
-                        }
-                    }
+        carRepository.getAllCategories { [weak self] cardItems in
+            guard let self = self else { return }
+            self.exploreCards = cardItems
+            DispatchQueue.main.async {
+                self.exploreCollectionView.reloadData()
+                self.exploreCollectionView.layoutIfNeeded()
+                self.exploreCarsIsLoading = false
+                if !self.exploreCarsIsLoading && !self.newCarsIsLoading {
+                    self.hideLoader()
                 }
             }
         }
@@ -149,6 +132,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             let currentCar = cars[indexPath.row]
             id = currentCar.carId
             navigationController?.pushViewController(CarInfosViewController(carId: id), animated: true)
+        } else {
+            let category = exploreCards[indexPath.row].title
+            navigationController?.pushViewController(CategoryListViewController(category: category), animated: true)
         }
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

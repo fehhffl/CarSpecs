@@ -6,32 +6,34 @@
 //
 
 import UIKit
+import SnapKit
 
-class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UIScrollViewDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var loadingViewContainer: UIView!
     @IBOutlet weak var realTableView: UITableView!
     let carRepository = CarRepository()
     var cars: [Car] = []
     var filtered: [Car] = []
+    var currentPage = 1
+    var isLoading = false
 
     override func viewWillAppear(_ animated: Bool) {
+        loadingViewContainer.isHidden = true
         super.viewWillAppear(animated)
         title = "Search Cars"
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        showLoader()
-        carRepository.getAllCars(pageNumber: 1) { carsArray in
-            self.cars = carsArray
-            DispatchQueue.main.async {
-                self.hideLoader()
-                self.filtered = self.cars
-                self.realTableView.reloadData()
-            }
+        let loadingView = LoadingView()
+        loadingViewContainer.addSubview(loadingView)
+        loadingView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
         }
         realTableView.delegate = self
         realTableView.dataSource = self
+        searchBar.returnKeyType = .search
         searchBar.delegate = self
         let xib = UINib(nibName: "CarGarageCell", bundle: .main)
         realTableView.register(xib, forCellReuseIdentifier: "IdentifierCarGarageCell")
@@ -40,17 +42,23 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         filtered.count
     }
-
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         filtered.removeAll()
-        for car in cars {
-            if car.name.lowercased().starts(with: searchText.lowercased()) {
-                filtered.append(car)
+        getServerData()
+    }
+    
+    func getServerData() {
+        loadingViewContainer.isHidden = false
+        isLoading = true
+        carRepository.getCarsForSearch(carName: searchBar.text ?? "", pageNumber: currentPage) { [weak self] (carsSearch: [Car]) in
+            self?.filtered += carsSearch
+            DispatchQueue.main.async {
+                self?.realTableView.reloadData()
+                self?.loadingViewContainer.isHidden = true
+                self?.isLoading = false
             }
         }
-        realTableView.reloadData()
     }
-
     func tableView(_ realTableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = realTableView.dequeueReusableCell(withIdentifier: "IdentifierCarGarageCell") as? CarGarageCell else {
             return UITableViewCell()
@@ -63,5 +71,23 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             imageName: car.imageName)
         cell.configure(item: item)
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var id: Int = 0
+        let currentCar = filtered[indexPath.row]
+        id = currentCar.carId
+        navigationController?.pushViewController(CarInfosViewController(carId: id), animated: true)
+        
+    }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        // check if scrollview has reached the bottom
+        let height = scrollView.frame.height
+        let contentSizeHeight = scrollView.contentSize.height
+        let offset = scrollView.contentOffset.y
+        let reachedBottom = (offset > contentSizeHeight - height)
+        if reachedBottom && !isLoading {
+            currentPage += 1
+            getServerData()
+        }
     }
 }

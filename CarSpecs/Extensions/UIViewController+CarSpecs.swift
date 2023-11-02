@@ -12,10 +12,14 @@ import SnapKit
 extension UIViewController {
 
     // Singleton
-    func showLoader() {
+    func showLoader(viewToAddLoader: UIView? = nil) {
         let loadingViewSingleton = LoadingView.shared
         DispatchQueue.main.async {
-            self.view.addSubview(loadingViewSingleton)
+            if let viewToAddLoarderNotNill = viewToAddLoader {
+                viewToAddLoarderNotNill.addSubview(loadingViewSingleton)
+            } else {
+                self.view.addSubview(loadingViewSingleton)
+            }
             loadingViewSingleton.snp.makeConstraints { (make) in
                 make.edges.equalToSuperview()
             }

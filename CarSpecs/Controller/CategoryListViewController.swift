@@ -57,7 +57,14 @@ class CategoryListViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         loadMoreCarsIfLast(currentItemIndex: indexPath.row)
     }
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var id: Int = 0
+        let currentCar = cars[indexPath.row]
+        id = currentCar.carId
+        showLoader()
+        navigationController?.pushViewController(CarInfosViewController(carId: id), animated: true)
+        hideLoader()
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "IdentifierCarGarageCell", for: indexPath) as? CarGarageCell else {
             return UITableViewCell()

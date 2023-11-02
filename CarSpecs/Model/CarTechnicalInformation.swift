@@ -8,6 +8,7 @@
 import Foundation
 
 struct CarTechnicalInformation: Codable {
+    var id: Int
     var name: String
     var price: Int
     var year: Int

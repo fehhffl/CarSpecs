@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CategoriesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CollectionTabViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView?
     private var categoryItems: [CardItem] = []
     private let squareCardsRepository = SquareCardsRepository()
@@ -17,21 +17,18 @@ class CategoriesViewController: UIViewController, UITableViewDelegate, UITableVi
         super.viewWillAppear(animated)
         title = "Collection"
     }
-    func completionGetCategories(allCategories: [String]) {
-        var cardItems: [CardItem] = []
-        for categoryName in allCategories {
-            let cardItem = squareCardsRepository.convertCategoryToSquareCard(using: categoryName)
-            cardItems.append(cardItem)
-        }
-        categoryItems = cardItems
-        DispatchQueue.main.sync {
-            tableView?.reloadData()
-        }
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        carRepository.getAllCategories(completion: completionGetCategories)
+        showLoader()
+        carRepository.getAllCategories { [weak self] cardItems in
+            guard let self = self else { return }
+            self.categoryItems = cardItems
+            DispatchQueue.main.async {
+                self.hideLoader()
+                self.tableView?.reloadData()
+            }
+        }
         tableView?.delegate = self
         tableView?.dataSource = self
         let xib = UINib(nibName: "CategoryCell", bundle: .main)

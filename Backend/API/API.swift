@@ -183,6 +183,9 @@ public class API {
         queryParameters.forEach { queryParameter in
             if queryParameter.contains("=") {
                 let keyOrValue = queryParameter.split(separator: "=")
+                if keyOrValue.count < 2 {
+                    return
+                }
                 let key = String(keyOrValue[0])
                 let value = String(keyOrValue[1])
                 queryParametersDict[key] = value

@@ -18,7 +18,7 @@ class TabBarController: UITabBarController {
 
     let arrayViewControllers: [UINavigationController] = [
         UINavigationController(rootViewController: HomeViewController()),
-        UINavigationController(rootViewController: CategoriesViewController()),
+        UINavigationController(rootViewController: CollectionTabViewController()),
         UINavigationController(rootViewController: GarageViewController()),
         UINavigationController(rootViewController: SearchViewController())
     ]

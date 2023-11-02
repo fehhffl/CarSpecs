@@ -17,7 +17,7 @@ struct Car: Codable, DefaultsSerializable {
     let price: Int
     let imageName: String
     let carId: Int
-
+// /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport
     enum CodingKeys: String, CodingKey {
         case name = "name"
         case imageName = "image"
@@ -25,3 +25,16 @@ struct Car: Codable, DefaultsSerializable {
         case carId = "id"
     }
 }
+
+extension Car {
+    var isFavorited: Bool {
+        let listaCarrosFavoritos = Defaults[key: DefaultsKeys.favoriteCars]
+        for carrosFavoritado in listaCarrosFavoritos {
+            if carrosFavoritado.name == self.name {
+                return true
+            }
+        }
+        return false
+    }
+}
+// /Users/felipe/Library/Developer/Xcode/DerivedData/CarSpecs-cipdtifvosxklxgphzstmiryigcg/Build/Products/Debug-iphoneos/CarSpecs.app

@@ -18,7 +18,7 @@ class CarGarageCell: UITableViewCell {
     func configure(item: CardItem) {
         carPrice.text = item.subtitle
 
-        cellImage.kf.setImage(
+        cellImage.setImageResized(
             with: URL(string: item.imageName),
             placeholder: UIImage(named: "no-image")
         )

@@ -15,7 +15,11 @@ class CategoryCell: UITableViewCell {
     func configure(with item: CardItem) {
         setGradientBackground()
         titleLabel.text = item.title.capitalized
-        mainImage.image = UIImage(named: item.imageName)
+        if let imageUrl = URL(string: item.imageName) {
+            mainImage.setImageResized(with: imageUrl)
+        } else {
+            mainImage.image = UIImage(named: "no-image")
+        }
     }
     func setGradientBackground() {
         let colorTop =  UIColor.black.cgColor
@@ -29,4 +33,4 @@ class CategoryCell: UITableViewCell {
         gradientLayer.frame = self.bounds
     }
 
-}
+} 

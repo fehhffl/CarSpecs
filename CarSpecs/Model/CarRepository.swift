@@ -6,9 +6,27 @@
 //
 
 import Foundation
+import SwiftyUserDefaults
 
-struct CarRepository {
+class CarRepository {
     var favorites: [Car] = []
+    var cardItems: [CardItem]? = []
+    
+     func removeFromFavorites(car: Car?) {
+        Defaults[key: DefaultsKeys.favoriteCars].removeAll { (savedCar) -> Bool in
+            if savedCar.name == car?.name {
+                return true
+            } else {
+                return false
+            }
+        }
+    }
+
+     func addCarToFavorites(car: Car?) {
+        if let carro = car {
+            Defaults[key: DefaultsKeys.favoriteCars].append(carro)
+        }
+    }
 
     func callBackend(urlString: String, completion: @escaping (Data) -> Void) {
         DispatchQueue.global(qos: .userInitiated).async {
@@ -44,7 +62,7 @@ struct CarRepository {
         }
     }
 
-    func getAllCategories(completion: @escaping ([String]) -> Void) {
+    func getAllCategoriesNames(completion: @escaping ([String]) -> Void) {
         callBackend(urlString: "https://www.cars-data.com/categories") { (data) in
             do {
                 let response = try JSONDecoder().decode(CarsCategoriesResponse.self, from: data)
@@ -55,8 +73,36 @@ struct CarRepository {
         }
     }
 
+    func getAllCategories(completion: @escaping ([CardItem]) -> Void) {
+        completion([
+            CardItem(title: "Bus", imageName: "https://www.cars-data.com/pictures/thumbs/350px/mercedes-benz/mercedes-benz-eqv_4666_1.jpg"),
+            CardItem(title: "Convertible", imageName: "https://www.cars-data.com/pictures/thumbs/350px/ferrari/ferrari-f8-spider_4601_1.jpg"),
+            CardItem(title: "Coupé", imageName: "https://www.cars-data.com/pictures/thumbs/350px/ferrari/ferrari-812-gts_4600_1.jpg"),
+            CardItem(title: "Double", imageName: "https://www.cars-data.com/pictures/thumbs/350px/mercedes-benz/mercedes-benz-sprinter-dubbele-cabine_4374_1.jpg"),
+            CardItem(title: "Hatchback", imageName: "https://www.cars-data.com/pictures/thumbs/350px/audi/audi-rs5-sportback_4625_1.jpg"),
+            CardItem(title: "Mpv", imageName: "https://www.cars-data.com/pictures/thumbs/350px/toyota/toyota-proace-city-verso_4635_1.jpg"),
+            CardItem(title: "Pick-Up", imageName: "https://www.cars-data.com/pictures/thumbs/350px/mitsubishi/mitsubishi-l200-club-cab_4661_1.jpg"),
+            CardItem(title: "Sedan", imageName: "https://www.cars-data.com/pictures/thumbs/350px/tesla/tesla-model-y_4615_1.jpg"),
+            CardItem(title: "Station", imageName: "https://www.cars-data.com/pictures/thumbs/350px/volvo/volvo-v90-cross-country_4628_1.jpg"),
+            CardItem(title: "Suv", imageName: "https://www.cars-data.com/pictures/thumbs/350px/toyota/toyota-c-hr_4596_1.jpg"),
+            CardItem(title: "Van", imageName: "https://www.cars-data.com/pictures/thumbs/350px/mercedes-benz/mercedes-benz-esprinter_4672_1.jpg")
+       ])
+    }
+    func getCarsForSearch(carName: String, pageNumber: Int, completion: @escaping ([Car]) -> Void) {
+        let urlString: String = "https://www.cars-data.com/search?name=\(carName)&page=\(pageNumber)"
+       callBackend(urlString: urlString) { data in
+            do {
+                let decodedJson = try JSONDecoder().decode(CarsListResponse.self, from: data)
+                let carsArray = decodedJson.cars
+                completion(carsArray)
+            } catch {
+                print(error)
+            }
+        }
+    }
+
     func getCarsFromCategory(pageNumber: Int, category: String, completion: @escaping ([Car]) -> Void) {
-        let urlEncodedCategory = category.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        let urlEncodedCategory = category.lowercased().addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
         let urlString: String = "https://www.cars-data.com/carList?page=\(pageNumber)&limit=10&category=\(urlEncodedCategory ?? category)"
        callBackend(urlString: urlString) { data in
             do {
