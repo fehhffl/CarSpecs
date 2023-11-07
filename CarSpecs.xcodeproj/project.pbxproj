@@ -47,6 +47,8 @@
 		5599F0D22A67563E00E1EEDC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5599F0D12A67563E00E1EEDC /* Assets.xcassets */; };
 		5599F0D52A67563E00E1EEDC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5599F0D32A67563E00E1EEDC /* LaunchScreen.storyboard */; };
 		559AB4F22AC3857C00D398AE /* FakeLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 559AB4F12AC3857C00D398AE /* FakeLoadingView.xib */; };
+		55E42B6F2AF3436A00898CE6 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E42B6D2AF3436A00898CE6 /* RegisterViewController.swift */; };
+		55E42B702AF3436A00898CE6 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55E42B6E2AF3436A00898CE6 /* RegisterViewController.xib */; };
 		55EFE9F72AB4E11B007AD8D6 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EFE9F52AB4E11B007AD8D6 /* SearchViewController.swift */; };
 		55EFE9F82AB4E11B007AD8D6 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55EFE9F62AB4E11B007AD8D6 /* SearchViewController.xib */; };
 		9B0722042AC084EC0008F41D /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0722032AC084EC0008F41D /* NetworkMonitor.swift */; };
@@ -119,6 +121,8 @@
 		5599F0D42A67563E00E1EEDC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5599F0D62A67563E00E1EEDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		559AB4F12AC3857C00D398AE /* FakeLoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FakeLoadingView.xib; sourceTree = "<group>"; };
+		55E42B6D2AF3436A00898CE6 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		55E42B6E2AF3436A00898CE6 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		55EFE9F52AB4E11B007AD8D6 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		55EFE9F62AB4E11B007AD8D6 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		8547FAF74F8CB9B83853D75E /* Pods_CarSpecs_CarSpecsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarSpecs_CarSpecsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -238,6 +242,8 @@
 				5551EACF2AA7D2BA00285CE9 /* TabBarController.swift */,
 				5599F0CC2A67563200E1EEDC /* WelcomeViewController.swift */,
 				5521478D2AA14A2300BDF35C /* WelcomeViewController.xib */,
+				55E42B6D2AF3436A00898CE6 /* RegisterViewController.swift */,
+				55E42B6E2AF3436A00898CE6 /* RegisterViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -456,6 +462,7 @@
 				55964F472A9FB53600BA3B16 /* CategoryCell.xib in Resources */,
 				554241402ABD0B5C0022975F /* CarInfosViewController.xib in Resources */,
 				55086B092A844E4F00327B6C /* HomeViewController.xib in Resources */,
+				55E42B702AF3436A00898CE6 /* RegisterViewController.xib in Resources */,
 				5579C1932AA949AD008DC5B3 /* CarGarageCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -565,6 +572,7 @@
 				55964F4A2A9FBEA800BA3B16 /* CardItems.swift in Sources */,
 				55964F462A9FB53600BA3B16 /* CategoryCell.swift in Sources */,
 				9B8C6A4E2ABFFC4600278207 /* URLSession+CarSpecs.swift in Sources */,
+				55E42B6F2AF3436A00898CE6 /* RegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
