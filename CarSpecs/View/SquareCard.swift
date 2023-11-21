@@ -27,7 +27,6 @@ class SquareCard: UICollectionViewCell {
 
     private var isFavorite: Bool = false
     
-
     func configure(with style: Style, item: CardItem, car: Car? = nil) {
         self.carroQueRepresento = car
         if carroQueRepresento?.isFavorited == true {

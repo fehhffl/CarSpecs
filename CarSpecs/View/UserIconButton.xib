@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserIconButton" customModule="CarSpecs" customModuleProvider="target">
+            <connections>
+                <outlet property="profileIconButton" destination="Z8y-gI-Py0" id="IFH-Km-RPX"/>
+                <outlet property="view" destination="iN0-l3-epB" id="8zZ-Y4-sVI"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z8y-gI-Py0">
+                    <rect key="frame" x="8" y="8" width="14" height="14"/>
+                    <color key="backgroundColor" name="Color"/>
+                    <color key="tintColor" name="AccentColor"/>
+                    <state key="normal" image="person" catalog="system"/>
+                    <connections>
+                        <action selector="onUserButtonTapped:" destination="-1" eventType="touchUpInside" id="Dat-bk-Pzq"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Z8y-gI-Py0" secondAttribute="bottom" constant="8" id="GF8-PI-A8u"/>
+                <constraint firstItem="Z8y-gI-Py0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="OPz-K8-0dH"/>
+                <constraint firstAttribute="trailing" secondItem="Z8y-gI-Py0" secondAttribute="trailing" constant="8" id="Q7U-Qm-n6z"/>
+                <constraint firstItem="Z8y-gI-Py0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="lIU-rF-OXC"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="84.782608695652186" y="283.25892857142856"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="person" catalog="system" width="128" height="117"/>
+        <namedColor name="AccentColor">
+            <color red="0.37599998712539673" green="0.34099999070167542" blue="0.66699999570846558" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Color">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

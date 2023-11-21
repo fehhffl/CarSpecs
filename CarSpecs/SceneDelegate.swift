@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftyUserDefaults
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -16,7 +17,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
-        let initalViewController = WelcomeViewController()
+        var initalViewController: UIViewController = WelcomeViewController()
+        if Defaults[\.username] != nil {
+           initalViewController = TabBarController()
+        }
+//        let initalViewController = Defaults[\.username] != nil ? WelcomeViewController() : TabBarController()
         let navigationController = UINavigationController(rootViewController: initalViewController)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()

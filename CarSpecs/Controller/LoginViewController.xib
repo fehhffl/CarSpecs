@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="CarSpecs" customModuleProvider="target">
             <connections>
+                <outlet property="eyeButtonPassword" destination="zjV-S2-Tfx" id="b9L-iI-qDJ"/>
                 <outlet property="logInButton" destination="Urd-BH-cY2" id="1ga-4X-0mL"/>
                 <outlet property="passwordTextField" destination="5pE-JX-30b" id="VIp-Kx-agY"/>
                 <outlet property="registerButton" destination="n1L-RM-Z5n" id="lhe-Oq-oen"/>
@@ -42,22 +43,44 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </textField>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5pE-JX-30b" userLabel="Password Text Field">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eF6-fk-3AE">
                             <rect key="frame" x="0.0" y="70" width="380" height="50"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5pE-JX-30b" userLabel="Password Text Field">
+                                    <rect key="frame" x="0.0" y="0.0" width="380" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="2yq-oC-XE2"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="paddingLeftCustom">
+                                            <real key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="paddingRightCustom">
+                                            <real key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zjV-S2-Tfx">
+                                    <rect key="frame" x="345.66666666666669" y="14" width="26.333333333333314" height="22"/>
+                                    <color key="tintColor" red="0.37214038729999999" green="0.19596601529999999" blue="0.6424870466" alpha="0.74647887319999995" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <state key="normal" image="eye.slash" catalog="system"/>
+                                    <connections>
+                                        <action selector="onEyeButtonTapped:" destination="-1" eventType="touchUpInside" id="XEG-Rq-xnY"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="50" id="2yq-oC-XE2"/>
+                                <constraint firstItem="zjV-S2-Tfx" firstAttribute="trailing" secondItem="5pE-JX-30b" secondAttribute="trailing" constant="-8" id="1po-fu-FIC"/>
+                                <constraint firstAttribute="bottom" secondItem="5pE-JX-30b" secondAttribute="bottom" id="2Oh-t7-PcK"/>
+                                <constraint firstItem="5pE-JX-30b" firstAttribute="leading" secondItem="eF6-fk-3AE" secondAttribute="leading" id="82W-3H-OyQ"/>
+                                <constraint firstItem="zjV-S2-Tfx" firstAttribute="centerY" secondItem="5pE-JX-30b" secondAttribute="centerY" id="XPX-NG-gW7"/>
+                                <constraint firstItem="5pE-JX-30b" firstAttribute="top" secondItem="eF6-fk-3AE" secondAttribute="top" id="ioQ-9k-xDQ"/>
+                                <constraint firstAttribute="trailing" secondItem="5pE-JX-30b" secondAttribute="trailing" id="vvg-ID-Ldg"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="paddingLeftCustom">
-                                    <real key="value" value="10"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="number" keyPath="paddingRightCustom">
-                                    <real key="value" value="10"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                        </textField>
+                        </view>
                     </subviews>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8vt-nQ-78e">
@@ -138,6 +161,7 @@
     </objects>
     <resources>
         <image name="car" catalog="system" width="128" height="93"/>
+        <image name="eye.slash" catalog="system" width="128" height="86"/>
         <namedColor name="AccentColor">
             <color red="0.37599998712539673" green="0.34099999070167542" blue="0.66699999570846558" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -22,6 +22,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         loadingViewContainer.isHidden = true
         super.viewWillAppear(animated)
         title = "Search Cars"
+        getCarsFromScratch()
     }
 
     override func viewDidLoad() {
@@ -42,11 +43,16 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         filtered.count
     }
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+
+    fileprivate func getCarsFromScratch() {
         filtered.removeAll()
         getServerData()
     }
-    
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        getCarsFromScratch()
+    }
+
     func getServerData() {
         loadingViewContainer.isHidden = false
         isLoading = true

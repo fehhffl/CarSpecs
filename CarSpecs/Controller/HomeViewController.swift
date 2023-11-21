@@ -8,12 +8,17 @@
 import UIKit
 import SwiftyUserDefaults
 
-class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
+protocol UserIconButtonDelegate {
+    func navigateToUserPage()
+}
+
+class HomeViewController: UIViewController, UserIconButtonDelegate, CarRepositoryDelegate {
     @IBOutlet private weak var newCarsLabel: UILabel!
     @IBOutlet private weak var exploreCollectionView: UICollectionView!
     @IBOutlet private weak var exploreLabel: UILabel!
     @IBOutlet private weak var newCarsCollectionView: UICollectionView!
     @IBOutlet private weak var newCarsCollectionViewHeightConstraint: NSLayoutConstraint!
+    private lazy var userIconButton = UserIconButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
     private var exploreCards: [CardItem] = []
     private let carRepository = CarRepository()
     private var cars: [Car] = []
@@ -41,22 +46,26 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func getServerData() {
         showLoader()
         newCarsIsLoading = true
-        carRepository.getAllCars(pageNumber: currentPage) { [weak self] (carsArray: [Car]) -> Void in
-            self?.cars += carsArray
-            DispatchQueue.main.async {
-                guard let strongSelf = self else { return }
-                strongSelf.newCarsCollectionView.reloadData()
-                strongSelf.newCarsCollectionView.layoutIfNeeded()
-                strongSelf.newCarsIsLoading = false
-                if !strongSelf.exploreCarsIsLoading && !strongSelf.newCarsIsLoading {
-                    strongSelf.hideLoader()
-                }
+        carRepository.getAllCars(pageNumber: currentPage, completion: updateCars)
+    }
+    
+    func updateCars(cars: [Car]) {
+        self.cars += cars
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.newCarsCollectionView.reloadData()
+            self.newCarsCollectionView.layoutIfNeeded()
+            self.newCarsIsLoading = false
+            if !self.exploreCarsIsLoading && !self.newCarsIsLoading {
+                self.hideLoader()
             }
         }
     }
+
     override func viewDidLoad() {
         showLoader()
         exploreCarsIsLoading = true
+        carRepository.delegate = self
         carRepository.getAllCategories { [weak self] cardItems in
             guard let self = self else { return }
             self.exploreCards = cardItems
@@ -80,32 +89,51 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         newCarsCollectionView.register(UINib(nibName: "SquareCard", bundle: .main), forCellWithReuseIdentifier: "SquareCard")
         newCarsCollectionView.delegate = self
         newCarsCollectionView.dataSource = self
+        userIconButton.delegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         title = "Home"
         navigationController?.navigationBar.prefersLargeTitles = false
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: userIconButton)
+        newCarsCollectionView.reloadData()
     }
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == exploreCollectionView {
-            return exploreCards.count
-        } else {
-            return cars.count
+    
+    func navigateToUserPage() {
+        let viewController = UserProfileViewController()
+        viewController.view.backgroundColor = .white
+        viewController.modalPresentationStyle = .formSheet
+        present(viewController, animated: true, completion: nil)
+    }
+}
+extension HomeViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView == mainScrollView {
+            // check if scrollview has reached the bottom
+            let height = scrollView.frame.height
+            let contentSizeHeight = scrollView.contentSize.height
+            let offset = scrollView.contentOffset.y
+            let reachedBottom = (offset > contentSizeHeight - height)
+            if reachedBottom && !newCarsIsLoading {
+                currentPage += 1
+                getServerData()
+            }
         }
     }
-
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if collectionView == exploreCollectionView {
-            return CGSize(width: 128, height: 128)
+}
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == newCarsCollectionView {
+            var id: Int = 0
+            let currentCar = cars[indexPath.row]
+            id = currentCar.carId
+            navigationController?.pushViewController(CarInfosViewController(carId: id), animated: true)
         } else {
-            return CGSize(width: screenWidth / 2 - 15, height: 200 )
+            let category = exploreCards[indexPath.row].title
+            navigationController?.pushViewController(CategoryListViewController(category: category), animated: true)
         }
     }
-
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SquareCard", for: indexPath) as? SquareCard else {
@@ -126,28 +154,20 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             return cell
         }
     }
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView == newCarsCollectionView {
-            var id: Int = 0
-            let currentCar = cars[indexPath.row]
-            id = currentCar.carId
-            navigationController?.pushViewController(CarInfosViewController(carId: id), animated: true)
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if collectionView == exploreCollectionView {
+            return CGSize(width: 128, height: 128)
         } else {
-            let category = exploreCards[indexPath.row].title
-            navigationController?.pushViewController(CategoryListViewController(category: category), animated: true)
+            return CGSize(width: screenWidth / 2 - 15, height: 200 )
         }
     }
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView == mainScrollView {
-            // check if scrollview has reached the bottom
-            let height = scrollView.frame.height
-            let contentSizeHeight = scrollView.contentSize.height
-            let offset = scrollView.contentOffset.y
-            let reachedBottom = (offset > contentSizeHeight - height)
-            if reachedBottom && !newCarsIsLoading {
-                currentPage += 1
-                getServerData()
-            }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView == exploreCollectionView {
+            return exploreCards.count
+        } else {
+            return cars.count
         }
     }
 }

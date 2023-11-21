@@ -115,7 +115,7 @@ class CarInfosViewController: UIViewController {
         info.images.forEach { (imageUrlString) in
             let imageView: UIImageView = UIImageView()
             let url = URL(string: imageUrlString)
-            imageView.setImageResized(with: url)
+            imageView.kf.setImage(with: url)
             stackViewImages.addArrangedSubview(imageView)
         }
     }

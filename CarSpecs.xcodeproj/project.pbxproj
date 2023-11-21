@@ -27,6 +27,10 @@
 		5567B7B12A85A0EC0012AB3E /* UITextField+CarSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5567B7B02A85A0EC0012AB3E /* UITextField+CarSpecs.swift */; };
 		556E63582AD0BEF60044142E /* CarTechnicalInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556E63572AD0BEF60044142E /* CarTechnicalInformation.swift */; };
 		557184AB2AE0A8B000011816 /* CategoriesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557184AA2AE0A8B000011816 /* CategoriesResponse.swift */; };
+		5578CCC32AFD98B30021D5C5 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5578CCC22AFD98B30021D5C5 /* UserRepository.swift */; };
+		557906A82B04490300AE3FE1 /* UserIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557906A72B04490300AE3FE1 /* UserIconButton.swift */; };
+		557906AC2B04491100AE3FE1 /* UserIconButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 557906AB2B04491100AE3FE1 /* UserIconButton.xib */; };
+		557906B02B044AA500AE3FE1 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557906AF2B044AA500AE3FE1 /* NibLoadable.swift */; };
 		5579C1832AA93D97008DC5B3 /* SquareCardsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5579C1822AA93D97008DC5B3 /* SquareCardsRepository.swift */; };
 		5579C1892AA942AE008DC5B3 /* GarageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5579C1872AA942AE008DC5B3 /* GarageViewController.swift */; };
 		5579C18A2AA942AE008DC5B3 /* GarageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5579C1882AA942AE008DC5B3 /* GarageViewController.xib */; };
@@ -47,6 +51,10 @@
 		5599F0D22A67563E00E1EEDC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5599F0D12A67563E00E1EEDC /* Assets.xcassets */; };
 		5599F0D52A67563E00E1EEDC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5599F0D32A67563E00E1EEDC /* LaunchScreen.storyboard */; };
 		559AB4F22AC3857C00D398AE /* FakeLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 559AB4F12AC3857C00D398AE /* FakeLoadingView.xib */; };
+		55AB08C52B0590C300363B4D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55AB08C42B0590C300363B4D /* Main.storyboard */; };
+		55AB08CA2B059B3100363B4D /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AB08C82B059B3000363B4D /* UserProfileViewController.swift */; };
+		55AB08CB2B059B3100363B4D /* UserProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55AB08C92B059B3100363B4D /* UserProfileViewController.xib */; };
+		55AB08CF2B05B98600363B4D /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AB08CE2B05B98600363B4D /* UIView+Extensions.swift */; };
 		55E42B6F2AF3436A00898CE6 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E42B6D2AF3436A00898CE6 /* RegisterViewController.swift */; };
 		55E42B702AF3436A00898CE6 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55E42B6E2AF3436A00898CE6 /* RegisterViewController.xib */; };
 		55EFE9F72AB4E11B007AD8D6 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EFE9F52AB4E11B007AD8D6 /* SearchViewController.swift */; };
@@ -99,6 +107,10 @@
 		5567B7B02A85A0EC0012AB3E /* UITextField+CarSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+CarSpecs.swift"; sourceTree = "<group>"; };
 		556E63572AD0BEF60044142E /* CarTechnicalInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarTechnicalInformation.swift; sourceTree = "<group>"; };
 		557184AA2AE0A8B000011816 /* CategoriesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesResponse.swift; sourceTree = "<group>"; };
+		5578CCC22AFD98B30021D5C5 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		557906A72B04490300AE3FE1 /* UserIconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIconButton.swift; sourceTree = "<group>"; };
+		557906AB2B04491100AE3FE1 /* UserIconButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserIconButton.xib; sourceTree = "<group>"; };
+		557906AF2B044AA500AE3FE1 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		5579C1822AA93D97008DC5B3 /* SquareCardsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareCardsRepository.swift; sourceTree = "<group>"; };
 		5579C1872AA942AE008DC5B3 /* GarageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageViewController.swift; sourceTree = "<group>"; };
 		5579C1882AA942AE008DC5B3 /* GarageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GarageViewController.xib; sourceTree = "<group>"; };
@@ -121,6 +133,10 @@
 		5599F0D42A67563E00E1EEDC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5599F0D62A67563E00E1EEDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		559AB4F12AC3857C00D398AE /* FakeLoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FakeLoadingView.xib; sourceTree = "<group>"; };
+		55AB08C42B0590C300363B4D /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		55AB08C82B059B3000363B4D /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		55AB08C92B059B3100363B4D /* UserProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfileViewController.xib; sourceTree = "<group>"; };
+		55AB08CE2B05B98600363B4D /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		55E42B6D2AF3436A00898CE6 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		55E42B6E2AF3436A00898CE6 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		55EFE9F52AB4E11B007AD8D6 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +206,8 @@
 				9B8C6A4D2ABFFC4600278207 /* URLSession+CarSpecs.swift */,
 				559603B52AC106520053CAAA /* UIViewController+CarSpecs.swift */,
 				555917182AF316F200231CD0 /* UIImage+Extensions.swift */,
+				557906AF2B044AA500AE3FE1 /* NibLoadable.swift */,
+				55AB08CE2B05B98600363B4D /* UIView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -203,6 +221,7 @@
 				5542B6152AB11AF10055B4C8 /* CarRepository.swift */,
 				556E63572AD0BEF60044142E /* CarTechnicalInformation.swift */,
 				557184AA2AE0A8B000011816 /* CategoriesResponse.swift */,
+				5578CCC22AFD98B30021D5C5 /* UserRepository.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -218,6 +237,8 @@
 				5579C1912AA949AC008DC5B3 /* CarGarageCell.xib */,
 				559603B22AC104640053CAAA /* LoadingView.swift */,
 				559AB4F12AC3857C00D398AE /* FakeLoadingView.xib */,
+				557906A72B04490300AE3FE1 /* UserIconButton.swift */,
+				557906AB2B04491100AE3FE1 /* UserIconButton.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -244,6 +265,8 @@
 				5521478D2AA14A2300BDF35C /* WelcomeViewController.xib */,
 				55E42B6D2AF3436A00898CE6 /* RegisterViewController.swift */,
 				55E42B6E2AF3436A00898CE6 /* RegisterViewController.xib */,
+				55AB08C82B059B3000363B4D /* UserProfileViewController.swift */,
+				55AB08C92B059B3100363B4D /* UserProfileViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -289,6 +312,7 @@
 				5599F0C82A67563200E1EEDC /* AppDelegate.swift */,
 				5599F0CA2A67563200E1EEDC /* SceneDelegate.swift */,
 				5599F0D62A67563E00E1EEDC /* Info.plist */,
+				55AB08C42B0590C300363B4D /* Main.storyboard */,
 			);
 			path = CarSpecs;
 			sourceTree = "<group>";
@@ -448,9 +472,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B4C08312ABF62FB0006B839 /* cars.json in Resources */,
+				557906AC2B04491100AE3FE1 /* UserIconButton.xib in Resources */,
 				5591464D2A819DCA00AE3F57 /* Localizable.strings in Resources */,
 				5579C18A2AA942AE008DC5B3 /* GarageViewController.xib in Resources */,
 				559AB4F22AC3857C00D398AE /* FakeLoadingView.xib in Resources */,
+				55AB08CB2B059B3100363B4D /* UserProfileViewController.xib in Resources */,
 				55EFE9F82AB4E11B007AD8D6 /* SearchViewController.xib in Resources */,
 				553D2FA92AD77844000C0824 /* CollectionTabViewController.xib in Resources */,
 				55843A542A7C6DAE007FDDA1 /* LoginViewController.xib in Resources */,
@@ -463,6 +489,7 @@
 				554241402ABD0B5C0022975F /* CarInfosViewController.xib in Resources */,
 				55086B092A844E4F00327B6C /* HomeViewController.xib in Resources */,
 				55E42B702AF3436A00898CE6 /* RegisterViewController.xib in Resources */,
+				55AB08C52B0590C300363B4D /* Main.storyboard in Resources */,
 				5579C1932AA949AD008DC5B3 /* CarGarageCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -550,10 +577,13 @@
 				555917192AF316F200231CD0 /* UIImage+Extensions.swift in Sources */,
 				5551EAD02AA7D2BA00285CE9 /* TabBarController.swift in Sources */,
 				5567B7B12A85A0EC0012AB3E /* UITextField+CarSpecs.swift in Sources */,
+				55AB08CF2B05B98600363B4D /* UIView+Extensions.swift in Sources */,
 				5542B6162AB11AF10055B4C8 /* CarRepository.swift in Sources */,
 				559603B32AC104640053CAAA /* LoadingView.swift in Sources */,
+				5578CCC32AFD98B30021D5C5 /* UserRepository.swift in Sources */,
 				55EFE9F72AB4E11B007AD8D6 /* SearchViewController.swift in Sources */,
 				553D2F9E2AD76E62000C0824 /* CategoryListViewController.swift in Sources */,
+				557906A82B04490300AE3FE1 /* UserIconButton.swift in Sources */,
 				55843A532A7C6DAE007FDDA1 /* LoginViewController.swift in Sources */,
 				55086B0D2A84502E00327B6C /* SquareCard.swift in Sources */,
 				55964F412A9FB12B00BA3B16 /* CollectionTabViewController.swift in Sources */,
@@ -567,11 +597,13 @@
 				5542B6122AB11A3F0055B4C8 /* Car.swift in Sources */,
 				557184AB2AE0A8B000011816 /* CategoriesResponse.swift in Sources */,
 				5599F0CB2A67563200E1EEDC /* SceneDelegate.swift in Sources */,
+				557906B02B044AA500AE3FE1 /* NibLoadable.swift in Sources */,
 				5542413F2ABD0B5C0022975F /* CarInfosViewController.swift in Sources */,
 				556E63582AD0BEF60044142E /* CarTechnicalInformation.swift in Sources */,
 				55964F4A2A9FBEA800BA3B16 /* CardItems.swift in Sources */,
 				55964F462A9FB53600BA3B16 /* CategoryCell.swift in Sources */,
 				9B8C6A4E2ABFFC4600278207 /* URLSession+CarSpecs.swift in Sources */,
+				55AB08CA2B059B3100363B4D /* UserProfileViewController.swift in Sources */,
 				55E42B6F2AF3436A00898CE6 /* RegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

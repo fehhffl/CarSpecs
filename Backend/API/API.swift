@@ -107,11 +107,11 @@ public class API {
                 return
             }
 
-            guard let carName = queryParams["name"] else {
-                sendResponse(for: request, statusCode: 400, error: APIError.missingCarName, completionHandler)
-                return
+            if let carName = queryParams["name"], !carName.isEmpty {
+                searchResult = dataBase.getCarsBy(name: carName, page: page, limit: limit)
+            } else {
+                searchResult = dataBase.getCarsSummaries(page: page, limit: limit)
             }
-            searchResult = dataBase.getCarsBy(name: carName, page: page, limit: limit)
 
             sendResponse(for: request, rootKey: "cars", content: searchResult, completionHandler)
 

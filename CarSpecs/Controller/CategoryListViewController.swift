@@ -22,9 +22,9 @@ class CategoryListViewController: UIViewController, UITableViewDelegate, UITable
 
     func completion(carsArray: [Car]) {
         self.cars += carsArray
-        DispatchQueue.main.sync {
-            tableView.reloadData()
-            hideLoader()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+            self.hideLoader()
         }
     }
 

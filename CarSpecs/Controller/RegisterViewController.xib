@@ -11,11 +11,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterViewController" customModule="CarSpecs" customModuleProvider="target">
             <connections>
+                <outlet property="confirmEyeButton" destination="eZE-uq-PFu" id="O0D-KA-J1l"/>
                 <outlet property="confirmPasswordTextField" destination="TTl-Yk-DgY" id="Oc9-JQ-Vme"/>
                 <outlet property="createAccountButton" destination="KCC-rs-TaL" id="xRs-3p-7x5"/>
+                <outlet property="emailTextField" destination="sMh-vQ-H8J" id="3J4-eY-C3r"/>
+                <outlet property="eyeButton" destination="plV-vS-zAn" id="3Lf-a4-RJo"/>
                 <outlet property="passwordTextField" destination="bcV-fr-9gr" id="cw1-cU-Zjb"/>
                 <outlet property="userNameTextField" destination="bVa-Bc-KKt" id="22O-4D-GyF"/>
-                <outlet property="userTextField" destination="sMh-vQ-H8J" id="3J4-eY-C3r"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -49,7 +51,7 @@
                                 <constraint firstAttribute="height" constant="50" id="MyE-jD-zZo"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                            <textInputTraits key="textInputTraits" textContentType="password"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="paddingLeftCustom">
                                     <real key="value" value="10"/>
@@ -59,38 +61,82 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </textField>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bcV-fr-9gr" userLabel="Password Text Field">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hn5-Ez-VUf">
                             <rect key="frame" x="0.0" y="140" width="366" height="50"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bcV-fr-9gr" userLabel="Password Text Field">
+                                    <rect key="frame" x="0.0" y="0.0" width="366" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="arq-MH-dYV"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="paddingLeftCustom">
+                                            <real key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="paddingRightCustom">
+                                            <real key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="plV-vS-zAn">
+                                    <rect key="frame" x="332" y="14" width="26" height="22"/>
+                                    <color key="tintColor" red="0.37214038729999999" green="0.19596601529999999" blue="0.6424870466" alpha="0.74647887319999995" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <state key="normal" image="eye.slash" catalog="system"/>
+                                    <connections>
+                                        <action selector="onEyeButtonTapped:" destination="-1" eventType="touchUpInside" id="Kux-Yv-LgL"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="50" id="arq-MH-dYV"/>
+                                <constraint firstItem="plV-vS-zAn" firstAttribute="centerY" secondItem="hn5-Ez-VUf" secondAttribute="centerY" id="DaI-jJ-Yhu"/>
+                                <constraint firstItem="bcV-fr-9gr" firstAttribute="top" secondItem="hn5-Ez-VUf" secondAttribute="top" id="REX-1c-iB0"/>
+                                <constraint firstAttribute="bottom" secondItem="bcV-fr-9gr" secondAttribute="bottom" id="S9E-H0-Rxz"/>
+                                <constraint firstItem="bcV-fr-9gr" firstAttribute="leading" secondItem="hn5-Ez-VUf" secondAttribute="leading" id="ZZN-gF-L1P"/>
+                                <constraint firstAttribute="trailing" secondItem="plV-vS-zAn" secondAttribute="trailing" constant="8" id="r47-Zu-iA9"/>
+                                <constraint firstAttribute="trailing" secondItem="bcV-fr-9gr" secondAttribute="trailing" id="tsY-mR-eJf"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="paddingLeftCustom">
-                                    <real key="value" value="10"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="number" keyPath="paddingRightCustom">
-                                    <real key="value" value="10"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                        </textField>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TTl-Yk-DgY" userLabel="Password Confirmation">
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WIH-jr-bae">
                             <rect key="frame" x="0.0" y="210" width="366" height="50"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TTl-Yk-DgY" userLabel="Password Confirmation">
+                                    <rect key="frame" x="0.0" y="0.0" width="366" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="fmc-rC-2Oq"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="paddingLeftCustom">
+                                            <real key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="paddingRightCustom">
+                                            <real key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZE-uq-PFu">
+                                    <rect key="frame" x="332" y="14" width="26" height="22"/>
+                                    <color key="tintColor" red="0.37214038729999999" green="0.19596601529999999" blue="0.6424870466" alpha="0.74647887319999995" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <state key="normal" image="eye.slash" catalog="system"/>
+                                    <connections>
+                                        <action selector="onConfirmEyeButtonTapped:" destination="-1" eventType="touchUpInside" id="B3k-E6-iji"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="50" id="fmc-rC-2Oq"/>
+                                <constraint firstAttribute="trailing" secondItem="eZE-uq-PFu" secondAttribute="trailing" constant="8" id="9Jj-Vu-uc5"/>
+                                <constraint firstItem="TTl-Yk-DgY" firstAttribute="top" secondItem="WIH-jr-bae" secondAttribute="top" id="9X7-Ar-cfp"/>
+                                <constraint firstAttribute="bottom" secondItem="TTl-Yk-DgY" secondAttribute="bottom" id="Lse-lD-5I0"/>
+                                <constraint firstAttribute="trailing" secondItem="TTl-Yk-DgY" secondAttribute="trailing" id="gsC-RC-daI"/>
+                                <constraint firstItem="TTl-Yk-DgY" firstAttribute="leading" secondItem="WIH-jr-bae" secondAttribute="leading" id="v5m-E3-lhe"/>
+                                <constraint firstItem="eZE-uq-PFu" firstAttribute="centerY" secondItem="WIH-jr-bae" secondAttribute="centerY" id="zN3-ZR-4sr"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="paddingLeftCustom">
-                                    <real key="value" value="10"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="number" keyPath="paddingRightCustom">
-                                    <real key="value" value="10"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                        </textField>
+                        </view>
                     </subviews>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="yGZ-Rj-1is">
@@ -123,6 +169,9 @@
                     <state key="normal" title="Create Account">
                         <color key="titleColor" name="Color"/>
                     </state>
+                    <connections>
+                        <action selector="onCreateAccountButtonTapped:" destination="-1" eventType="touchUpInside" id="dQV-dq-ipw"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
@@ -146,6 +195,7 @@
     </objects>
     <resources>
         <image name="car" catalog="system" width="128" height="93"/>
+        <image name="eye.slash" catalog="system" width="128" height="86"/>
         <namedColor name="AccentColor">
             <color red="0.37599998712539673" green="0.34099999070167542" blue="0.66699999570846558" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

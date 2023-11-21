@@ -8,10 +8,15 @@
 import Foundation
 import SwiftyUserDefaults
 
+protocol CarRepositoryDelegate {
+    func updateCars(cars: [Car])
+}
+
 class CarRepository {
     var favorites: [Car] = []
     var cardItems: [CardItem]? = []
-    
+    var delegate: CarRepositoryDelegate?
+
      func removeFromFavorites(car: Car?) {
         Defaults[key: DefaultsKeys.favoriteCars].removeAll { (savedCar) -> Bool in
             if savedCar.name == car?.name {
@@ -54,7 +59,9 @@ class CarRepository {
                     }
                 }
                 if let data = data {
-                    completion(data)
+                    DispatchQueue.main.async {
+                        completion(data)
+                    }
                 } else {
                     print("No data")
                 }
@@ -133,6 +140,7 @@ class CarRepository {
             do {
                 let decoderJson = try JSONDecoder().decode(CarsListResponse.self, from: data)
                 let carsArray = decoderJson.cars
+                //self.delegate?.updateCars(cars: carsArray)
                 completion(carsArray)
             } catch {
                 print(error)
