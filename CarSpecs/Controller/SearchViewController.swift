@@ -45,7 +45,11 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     fileprivate func getCarsFromScratch() {
+        isLoading = true
+        currentPage = 1
         filtered.removeAll()
+        realTableView.reloadData()
+        realTableView.layoutIfNeeded()
         getServerData()
     }
 
@@ -83,7 +87,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let currentCar = filtered[indexPath.row]
         id = currentCar.carId
         navigationController?.pushViewController(CarInfosViewController(carId: id), animated: true)
-        
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         // check if scrollview has reached the bottom

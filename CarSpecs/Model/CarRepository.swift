@@ -35,7 +35,8 @@ class CarRepository {
 
     func callBackend(urlString: String, completion: @escaping (Data) -> Void) {
         DispatchQueue.global(qos: .userInitiated).async {
-            guard let url = URL(string: urlString)
+            let urlEncoded = urlString.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? urlString
+            guard let url = URL(string: urlEncoded)
             else {
                 print("Invalid url")
                 return
@@ -109,7 +110,7 @@ class CarRepository {
     }
 
     func getCarsFromCategory(pageNumber: Int, category: String, completion: @escaping ([Car]) -> Void) {
-        let urlEncodedCategory = category.lowercased().addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        let urlEncodedCategory = category.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
         let urlString: String = "https://www.cars-data.com/carList?page=\(pageNumber)&limit=10&category=\(urlEncodedCategory ?? category)"
        callBackend(urlString: urlString) { data in
             do {
@@ -140,7 +141,7 @@ class CarRepository {
             do {
                 let decoderJson = try JSONDecoder().decode(CarsListResponse.self, from: data)
                 let carsArray = decoderJson.cars
-                //self.delegate?.updateCars(cars: carsArray)
+                // self.delegate?.updateCars(cars: carsArray)
                 completion(carsArray)
             } catch {
                 print(error)

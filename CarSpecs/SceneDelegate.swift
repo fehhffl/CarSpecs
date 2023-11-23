@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
         var initalViewController: UIViewController = WelcomeViewController()
-        if Defaults[\.username] != nil {
+        if Defaults[\.email] != nil {
            initalViewController = TabBarController()
         }
 //        let initalViewController = Defaults[\.username] != nil ? WelcomeViewController() : TabBarController()

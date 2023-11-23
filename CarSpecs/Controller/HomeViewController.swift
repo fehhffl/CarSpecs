@@ -11,8 +11,11 @@ import SwiftyUserDefaults
 protocol UserIconButtonDelegate {
     func navigateToUserPage()
 }
+protocol LogOutButtonDelegate {
+    func completeLogOut()
+}
 
-class HomeViewController: UIViewController, UserIconButtonDelegate, CarRepositoryDelegate {
+class HomeViewController: UIViewController, UserIconButtonDelegate, CarRepositoryDelegate, LogOutButtonDelegate {
     @IBOutlet private weak var newCarsLabel: UILabel!
     @IBOutlet private weak var exploreCollectionView: UICollectionView!
     @IBOutlet private weak var exploreLabel: UILabel!
@@ -26,7 +29,11 @@ class HomeViewController: UIViewController, UserIconButtonDelegate, CarRepositor
     @IBOutlet weak var mainScrollView: UIScrollView!
     private var currentPage = 1
     private var exploreCarsIsLoading = false
-    private var newCarsIsLoading = false
+    private var newCarsIsLoading = false {
+        didSet {
+            print("zzz newCarsIsLoading:", newCarsIsLoading)
+        }
+    }
     public var screenWidth: CGFloat {
         return UIScreen.main.bounds.width
     }
@@ -34,28 +41,46 @@ class HomeViewController: UIViewController, UserIconButtonDelegate, CarRepositor
         return UIScreen.main.bounds.height
     }
 
+    var totalNewCarsCollectionViewElements = 0 {
+        didSet {
+            print("zzz total:", totalNewCarsCollectionViewElements)
+        }
+    }
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        updateHeight()
+    }
+    
+    private func updateHeight() {
         // To make the height of collection view to update when new cars appear
         // https://stackoverflow.com/questions/42437966/
         let height: CGFloat = self.newCarsCollectionView.collectionViewLayout.collectionViewContentSize.height
+        print("zzz height:", height)
         newCarsCollectionViewHeightConstraint.constant = height
         newCarsCollectionView.layoutIfNeeded()
     }
 
     func getServerData() {
-        showLoader()
         newCarsIsLoading = true
+        newCarsCollectionView.reloadData()
         carRepository.getAllCars(pageNumber: currentPage, completion: updateCars)
     }
-    
+
+    func completeLogOut() {
+        Defaults[\.email] = nil
+        UIApplication.shared.windows.first?.rootViewController = UINavigationController(rootViewController: WelcomeViewController())
+    }
+
     func updateCars(cars: [Car]) {
         self.cars += cars
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
-            self.newCarsCollectionView.reloadData()
-            self.newCarsCollectionView.layoutIfNeeded()
             self.newCarsIsLoading = false
+            self.newCarsCollectionView.reloadData()
+            self.newCarsCollectionView.setNeedsLayout()
+            self.newCarsCollectionView.layoutIfNeeded()
+            self.updateHeight()
             if !self.exploreCarsIsLoading && !self.newCarsIsLoading {
                 self.hideLoader()
             }
@@ -99,12 +124,13 @@ class HomeViewController: UIViewController, UserIconButtonDelegate, CarRepositor
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: userIconButton)
         newCarsCollectionView.reloadData()
     }
-    
+
     func navigateToUserPage() {
         let viewController = UserProfileViewController()
+        viewController.delegate = self
         viewController.view.backgroundColor = .white
         viewController.modalPresentationStyle = .formSheet
-        present(viewController, animated: true, completion: nil)
+        navigationController?.present(viewController, animated: true, completion: nil)
     }
 }
 extension HomeViewController: UIScrollViewDelegate {
@@ -142,32 +168,64 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if collectionView == exploreCollectionView {
             cell.configure(with: .style1, item: exploreCards[indexPath.row])
             return cell
-        } else {
-            let currentCar = cars[indexPath.row]
-            let squareCardItem = CardItem(
-                title: currentCar.name,
-                subtitle: currentCar.price.currencyFR,
-                imageName: currentCar.imageName)
-
-            cell.configure(with: .style2, item: squareCardItem, car: currentCar)
+        } else if collectionView == newCarsCollectionView {
+            let a = newCarsIsLoading
+            let b = isLastItem(item: indexPath.item)
+            print("zzz a: \(a) b:  \(b) itemNum: \(indexPath.item)")
+            if newCarsIsLoading && isLastItem(item: indexPath.item) {
+                print("zzz SHOW LOADING")
+                cell.styleAsLoading()
+            } else {
+                let currentCar = cars[indexPath.item]
+                let squareCardItem = CardItem(
+                    title: currentCar.name,
+                    subtitle: currentCar.price.currencyFR,
+                    imageName: currentCar.imageName)
+                cell.configure(with: .newCarsStyle, item: squareCardItem, car: currentCar)
+            }
 
             return cell
+        } else {
+            return UICollectionViewCell()
         }
     }
+
+    private func isLastItem(item itemIndex: Int) -> Bool {
+        if itemIndex == lastElementIndex() {
+            return true
+        } else {
+            return false
+        }
+    }
+
+    private func lastElementIndex() -> Int {
+        return max(0, totalNewCarsCollectionViewElements - 1)
+    }
+
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == exploreCollectionView {
             return CGSize(width: 128, height: 128)
         } else {
-            return CGSize(width: screenWidth / 2 - 15, height: 200 )
+            if newCarsIsLoading && isLastItem(item: indexPath.item) {
+                return CGSize(width: screenWidth, height: 150)
+            }
+            return CGSize(width: screenWidth / 2 - 15, height: 200)
         }
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+       
         if collectionView == exploreCollectionView {
             return exploreCards.count
         } else {
-            return cars.count
+            print("numberOfItemsInSection")
+            if newCarsIsLoading {
+                totalNewCarsCollectionViewElements = cars.count + 1
+            } else {
+                totalNewCarsCollectionViewElements = cars.count
+            }
+            return totalNewCarsCollectionViewElements
         }
     }
 }

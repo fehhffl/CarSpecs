@@ -7,6 +7,7 @@
 
 import UIKit
 import Security
+import SwiftyUserDefaults
 
 class RegisterViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
@@ -15,7 +16,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var eyeButton: UIButton!
     @IBOutlet weak var confirmEyeButton: UIButton!
-    @IBOutlet weak var userNameTextField: UITextField!
+    @IBOutlet weak var fullNameTextField: UITextField!
     var userRepository = UserRepository()
 
     override func viewDidLoad() {
@@ -47,18 +48,20 @@ class RegisterViewController: UIViewController {
             return
         }
 
-        guard let username = emailTextField.text, let password = passwordTextField.text else {
+        guard let email = emailTextField.text,
+              let password = passwordTextField.text,
+              let fullName = fullNameTextField.text else {
             print("username or password is nill")
             return
         }
 
-        userRepository.registerUser(user: username, password: password) { error in
+        userRepository.registerUser(email: email, password: password, fullName: fullName) { error in
             if let error = error {
                 switch error {
                 case .alreadyCreated:
                     showAlert("Account already exists.")
                     return
-                case .other:
+                case .unexpectedError:
                     showAlert("Something went wrong. Please try again later")
                     return
                 }
@@ -81,7 +84,7 @@ class RegisterViewController: UIViewController {
         emailTextField.styleAsPill()
         confirmPasswordTextField.styleAsPill()
         passwordTextField.styleAsPill()
-        userNameTextField.styleAsPill()
+        fullNameTextField.styleAsPill()
         createAccountButton.styleAsPill()
     }
 

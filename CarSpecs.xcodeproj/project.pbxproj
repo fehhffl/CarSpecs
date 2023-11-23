@@ -13,6 +13,9 @@
 		55086B0D2A84502E00327B6C /* SquareCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55086B0B2A84502E00327B6C /* SquareCard.swift */; };
 		55086B0E2A84502E00327B6C /* SquareCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55086B0C2A84502E00327B6C /* SquareCard.xib */; };
 		5521478E2AA14A2300BDF35C /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5521478D2AA14A2300BDF35C /* WelcomeViewController.xib */; };
+		55231C332B0ECE3D009F79BB /* loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 55231C322B0ECE3D009F79BB /* loader.json */; };
+		553100782B0D7A8600B608E2 /* KeychainDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553100772B0D7A8600B608E2 /* KeychainDataSource.swift */; };
+		5531007E2B0D7AB600B608E2 /* UserDefaultsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5531007D2B0D7AB600B608E2 /* UserDefaultsDataSource.swift */; };
 		553D2F9E2AD76E62000C0824 /* CategoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553D2F9C2AD76E62000C0824 /* CategoryListViewController.swift */; };
 		553D2FA32AD7776F000C0824 /* CategoryListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 553D2FA22AD7776F000C0824 /* CategoryListViewController.xib */; };
 		553D2FA92AD77844000C0824 /* CollectionTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 553D2FA82AD77843000C0824 /* CollectionTabViewController.xib */; };
@@ -93,6 +96,9 @@
 		55086B0B2A84502E00327B6C /* SquareCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareCard.swift; sourceTree = "<group>"; };
 		55086B0C2A84502E00327B6C /* SquareCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SquareCard.xib; sourceTree = "<group>"; };
 		5521478D2AA14A2300BDF35C /* WelcomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
+		55231C322B0ECE3D009F79BB /* loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader.json; sourceTree = "<group>"; };
+		553100772B0D7A8600B608E2 /* KeychainDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainDataSource.swift; sourceTree = "<group>"; };
+		5531007D2B0D7AB600B608E2 /* UserDefaultsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsDataSource.swift; sourceTree = "<group>"; };
 		553D2F9C2AD76E62000C0824 /* CategoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewController.swift; sourceTree = "<group>"; };
 		553D2FA22AD7776F000C0824 /* CategoryListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryListViewController.xib; sourceTree = "<group>"; };
 		553D2FA82AD77843000C0824 /* CollectionTabViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionTabViewController.xib; sourceTree = "<group>"; };
@@ -222,6 +228,8 @@
 				556E63572AD0BEF60044142E /* CarTechnicalInformation.swift */,
 				557184AA2AE0A8B000011816 /* CategoriesResponse.swift */,
 				5578CCC22AFD98B30021D5C5 /* UserRepository.swift */,
+				553100772B0D7A8600B608E2 /* KeychainDataSource.swift */,
+				5531007D2B0D7AB600B608E2 /* UserDefaultsDataSource.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -229,14 +237,14 @@
 		5567B7BC2A85A6260012AB3E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				55964F442A9FB53600BA3B16 /* CategoryCell.swift */,
-				55086B0C2A84502E00327B6C /* SquareCard.xib */,
-				55086B0B2A84502E00327B6C /* SquareCard.swift */,
-				55964F452A9FB53600BA3B16 /* CategoryCell.xib */,
 				5579C1902AA949AC008DC5B3 /* CarGarageCell.swift */,
 				5579C1912AA949AC008DC5B3 /* CarGarageCell.xib */,
-				559603B22AC104640053CAAA /* LoadingView.swift */,
+				55964F442A9FB53600BA3B16 /* CategoryCell.swift */,
+				55964F452A9FB53600BA3B16 /* CategoryCell.xib */,
 				559AB4F12AC3857C00D398AE /* FakeLoadingView.xib */,
+				559603B22AC104640053CAAA /* LoadingView.swift */,
+				55086B0B2A84502E00327B6C /* SquareCard.swift */,
+				55086B0C2A84502E00327B6C /* SquareCard.xib */,
 				557906A72B04490300AE3FE1 /* UserIconButton.swift */,
 				557906AB2B04491100AE3FE1 /* UserIconButton.xib */,
 			);
@@ -274,6 +282,7 @@
 		5567B7BE2A85A67C0012AB3E /* Resources  */ = {
 			isa = PBXGroup;
 			children = (
+				55231C322B0ECE3D009F79BB /* loader.json */,
 				5599F0D32A67563E00E1EEDC /* LaunchScreen.storyboard */,
 				5599F0D12A67563E00E1EEDC /* Assets.xcassets */,
 			);
@@ -474,6 +483,7 @@
 				9B4C08312ABF62FB0006B839 /* cars.json in Resources */,
 				557906AC2B04491100AE3FE1 /* UserIconButton.xib in Resources */,
 				5591464D2A819DCA00AE3F57 /* Localizable.strings in Resources */,
+				55231C332B0ECE3D009F79BB /* loader.json in Resources */,
 				5579C18A2AA942AE008DC5B3 /* GarageViewController.xib in Resources */,
 				559AB4F22AC3857C00D398AE /* FakeLoadingView.xib in Resources */,
 				55AB08CB2B059B3100363B4D /* UserProfileViewController.xib in Resources */,
@@ -588,12 +598,14 @@
 				55086B0D2A84502E00327B6C /* SquareCard.swift in Sources */,
 				55964F412A9FB12B00BA3B16 /* CollectionTabViewController.swift in Sources */,
 				554261152ABBAB3200AEA34D /* DefaultsKeys+CarSpecs.swift in Sources */,
+				5531007E2B0D7AB600B608E2 /* UserDefaultsDataSource.swift in Sources */,
 				5599F0CD2A67563200E1EEDC /* WelcomeViewController.swift in Sources */,
 				5579C1892AA942AE008DC5B3 /* GarageViewController.swift in Sources */,
 				5579C1832AA93D97008DC5B3 /* SquareCardsRepository.swift in Sources */,
 				5567B7AD2A85A0D10012AB3E /* UIButton+CarSpecs.swift in Sources */,
 				5579C1922AA949AD008DC5B3 /* CarGarageCell.swift in Sources */,
 				5599F0C92A67563200E1EEDC /* AppDelegate.swift in Sources */,
+				553100782B0D7A8600B608E2 /* KeychainDataSource.swift in Sources */,
 				5542B6122AB11A3F0055B4C8 /* Car.swift in Sources */,
 				557184AB2AE0A8B000011816 /* CategoriesResponse.swift in Sources */,
 				5599F0CB2A67563200E1EEDC /* SceneDelegate.swift in Sources */,

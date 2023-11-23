@@ -9,5 +9,5 @@ import SwiftyUserDefaults
 
 extension DefaultsKeys {
     static var favoriteCars: DefaultsKey<[Car]> { DefaultsKey("favoriteCarsKey", defaultValue: []) }
-    var username: DefaultsKey<String?> { .init("username") }
+    var email: DefaultsKey<String?> { .init("internalKeyEmail") }
 }

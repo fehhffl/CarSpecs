@@ -25,10 +25,9 @@ public class API {
             return
         }
 
-        let (baseUrl2, encodedStringAfterBaseUrl) = url.getURLComponents()
-        let stringAfterBaseUrl = encodedStringAfterBaseUrl.removingPercentEncoding ?? encodedStringAfterBaseUrl
+        let (nullableBaseUrl, stringAfterBaseUrl) = url.getURLComponents()
 
-        guard let baseUrl = baseUrl2, !baseUrl.isEmpty else {
+        guard let baseUrl = nullableBaseUrl, !baseUrl.isEmpty else {
             sendResponse(for: request, statusCode: 400, error: APIError.malformedURL, completionHandler)
             return
         }
@@ -197,16 +196,17 @@ public class API {
 
 extension URL {
     func getURLComponents() -> (String?, String) {
-        let urlString = self.absoluteString
-        if urlString.contains("://") {
-            var components = urlString.components(separatedBy: "://")
+        let encodedUrlString = self.absoluteString
+        let decodedUrlString = encodedUrlString.removingPercentEncoding ?? encodedUrlString
+        if decodedUrlString.contains("://") {
+            var components = decodedUrlString.components(separatedBy: "://")
             let internetProtocol = components[0] + "://"
             let urlWithoutProtocol = components[1]
 
             if urlWithoutProtocol.contains("/") {
                 components = urlWithoutProtocol.components(separatedBy: "/")
                 let baseURL = internetProtocol + components[0] + "/"
-                let stringAfterBaseUrl = urlString.replacingOccurrences(of: baseURL, with: "")
+                let stringAfterBaseUrl = decodedUrlString.replacingOccurrences(of: baseURL, with: "")
                 return (baseURL, stringAfterBaseUrl)
             }
         }

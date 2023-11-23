@@ -16,8 +16,8 @@
                 <outlet property="createAccountButton" destination="KCC-rs-TaL" id="xRs-3p-7x5"/>
                 <outlet property="emailTextField" destination="sMh-vQ-H8J" id="3J4-eY-C3r"/>
                 <outlet property="eyeButton" destination="plV-vS-zAn" id="3Lf-a4-RJo"/>
+                <outlet property="fullNameTextField" destination="bVa-Bc-KKt" id="22O-4D-GyF"/>
                 <outlet property="passwordTextField" destination="bcV-fr-9gr" id="cw1-cU-Zjb"/>
-                <outlet property="userNameTextField" destination="bVa-Bc-KKt" id="22O-4D-GyF"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -45,7 +45,7 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </textField>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bVa-Bc-KKt" userLabel="Name Text Field">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bVa-Bc-KKt" userLabel="Name Text Field">
                             <rect key="frame" x="0.0" y="70" width="366" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="MyE-jD-zZo"/>

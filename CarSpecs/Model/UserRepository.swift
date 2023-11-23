@@ -6,37 +6,32 @@
 //
 
 import Foundation
+import SwiftyUserDefaults
 
 enum KeyChainError: Error {
     case alreadyCreated
-    case other
+    case unexpectedError
 }
 
 class UserRepository {
 
-    func registerUser(user: String, password: String, completion: (KeyChainError?) -> Void) {
-        guard let passwordData = password.data(using: .utf8) else {
-            completion(.other)
-            return
-        }
-        let attributes: [String: Any] = [
-            kSecClass as String: kSecClassGenericPassword,
-            kSecAttrAccount as String: user,
-            kSecValueData as String: passwordData
-        ]
-        // Creating Account with the given information
-        let result = SecItemAdd(attributes as CFDictionary, nil)
-        if result == noErr {
-            completion(nil)
-        } else {
-            if result == errSecDuplicateItem {
-                completion(.alreadyCreated)
-            } else {
-                completion(.other)
+    private let keychainDataSource = KeychainDataSource()
+    private let userDefaultsDataSource = UserDefaultsDataSource()
+
+    func registerUser(email: String, password: String, fullName: String, completion: (KeyChainError?) -> Void) {
+
+        keychainDataSource.saveToKeychain(email: email, password: password) { error in
+            if error == nil {
+                userDefaultsDataSource.saveToUserDefaults(email: email, fullName: fullName)
             }
+            completion(error)
         }
-        // OR completion(result == noErr)
     }
+
+    func getFullName(using email: String) -> String {
+        return userDefaultsDataSource.getValueFromUserDefaultsAt(internalKeyName: "chave-full-name-do-email-" + email)
+    }
+
     func login(typedPassword: String, typedUser: String, completion: (KeyChainError?) -> Void) {
         let consulta: [String: Any] = [
             kSecAttrAccount as String: typedUser,
@@ -52,8 +47,7 @@ class UserRepository {
            typedPassword == passwordString {
             completion(nil)
         } else {
-            completion(.other)
+            completion(.unexpectedError)
         }
    }
 }
-

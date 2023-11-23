@@ -38,14 +38,14 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction private func onLogInButtonTapped(_ sender: Any) {
-        guard let typedPassword = passwordTextField.text else {
+        guard let typedPassword = passwordTextField.text,
+              let user = userTextField.text else {
             return
         }
-        let user = userTextField.text ?? ""
         userRepository.login(typedPassword: typedPassword, typedUser: user) { error in
             if error == nil {
                 navigationController?.pushViewController(TabBarController(), animated: true)
-                Defaults[\.username] = userTextField.text
+                Defaults[\.email] = userTextField.text
             } else {
                 showAlert("Invalid password or Email.")
             }
