@@ -11,15 +11,18 @@ import SnapKit
 
 extension UIViewController {
 
+    var screenWidth: Int {
+        return Int(UIScreen.main.bounds.width)
+    }
+    var screenHeight: Int {
+        return Int(UIScreen.main.bounds.height)
+    }
+
     // Singleton
-    func showLoader(viewToAddLoader: UIView? = nil) {
-        let loadingViewSingleton = LoadingView.shared
+    func showLoader() {
+        let loadingViewSingleton = FullScreenLoadingView.shared
         DispatchQueue.main.async {
-            if let viewToAddLoarderNotNill = viewToAddLoader {
-                viewToAddLoarderNotNill.addSubview(loadingViewSingleton)
-            } else {
-                self.view.addSubview(loadingViewSingleton)
-            }
+            self.view.addSubview(loadingViewSingleton)
             loadingViewSingleton.snp.makeConstraints { (make) in
                 make.edges.equalToSuperview()
             }
@@ -27,7 +30,7 @@ extension UIViewController {
     }
 
     func hideLoader() {
-        let loadingViewSingleton = LoadingView.shared
+        let loadingViewSingleton = FullScreenLoadingView.shared
         DispatchQueue.main.async {
             loadingViewSingleton.removeFromSuperview()
         }
@@ -41,5 +44,4 @@ extension UIViewController {
             self.present(alertController, animated: true)
         }
     }
-
 }

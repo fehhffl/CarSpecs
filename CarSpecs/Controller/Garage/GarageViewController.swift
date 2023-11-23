@@ -9,7 +9,7 @@ import SwiftyUserDefaults
 import UIKit
 
 class GarageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    @IBOutlet weak var mainStackView: UIStackView!
     @IBOutlet weak var tableView: UITableView!
     let carRepository = CarRepository()
     var favoriteCars: [Car] = []

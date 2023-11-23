@@ -54,8 +54,15 @@ class CarInfosViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        heartButton = UIBarButtonItem(image: UIImage(systemName: "heart"), style: .plain, target: self, action: #selector(onHeartButtonTapped))
+
+        heartButton = UIBarButtonItem(
+            image: UIImage(systemName: "heart"),
+            style: .plain,
+            target: self,
+            action: #selector(onHeartButtonTapped)
+        )
         navigationItem.rightBarButtonItem = heartButton
+
         showLoader()
         carRepository.getTechnicalInformation(
             carId: carId,
@@ -101,8 +108,19 @@ class CarInfosViewController: UIViewController {
             return
         }
         let performance = info.performance
-        topSpeedInformationText.text = String(format: "%dKm/h", performance.topSpeed)
-        zeroToOneHundredInformationText.text = String(format: "%.1fs", performance.acceleration)
+
+        if let topSpeed = performance.topSpeed {
+            topSpeedInformationText.text = String(format: "%dKm/h", topSpeed)
+        } else {
+            topSpeedInformationText.text = "?"
+        }
+
+        if let acceleration = performance.acceleration {
+            zeroToOneHundredInformationText.text = String(format: "%.1fs", acceleration)
+        } else {
+            zeroToOneHundredInformationText.text = "?"
+        }
+
         horsepowersInformationText.text = String(format: "%dHP", info.drive.horsePower)
         descriptionText.text = info.description
         carPrice.text = info.price.currencyFR
@@ -112,10 +130,19 @@ class CarInfosViewController: UIViewController {
         transmission.text = info.transmission.capitalized
         carYear.text = String(info.year)
 
+        let marginSpacing = 24
+        let imageViewWidth = screenWidth - (2 * marginSpacing)
+
+        let carImageOriginalWidth = 350
+        let carImageOriginalHeight = 233
+
         info.images.forEach { (imageUrlString) in
             let imageView: UIImageView = UIImageView()
+            imageView.widthAnchor.constraint(equalToConstant: CGFloat(imageViewWidth)).isActive = true
+            imageView.setAspectRatio(carImageOriginalWidth, carImageOriginalHeight)
             let url = URL(string: imageUrlString)
             imageView.kf.setImage(with: url)
+            imageView.contentMode = .scaleAspectFill
             stackViewImages.addArrangedSubview(imageView)
         }
     }

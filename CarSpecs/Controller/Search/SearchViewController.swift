@@ -9,8 +9,9 @@ import UIKit
 import SnapKit
 
 class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UIScrollViewDelegate {
+    @IBOutlet weak var mainStackView: UIStackView!
     @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var loadingViewContainer: UIView!
+    @IBOutlet weak var fullScreenloadingViewContainer: UIView!
     @IBOutlet weak var realTableView: UITableView!
     let carRepository = CarRepository()
     var cars: [Car] = []
@@ -19,7 +20,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var isLoading = false
 
     override func viewWillAppear(_ animated: Bool) {
-        loadingViewContainer.isHidden = true
+        fullScreenloadingViewContainer.isHidden = true
         super.viewWillAppear(animated)
         title = "Search Cars"
         getCarsFromScratch()
@@ -27,13 +28,14 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let loadingView = LoadingView()
-        loadingViewContainer.addSubview(loadingView)
-        loadingView.snp.makeConstraints { (make) in
+        let fullScreenLoadingView = FullScreenLoadingView()
+        fullScreenloadingViewContainer.addSubview(fullScreenLoadingView)
+        fullScreenLoadingView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
         realTableView.delegate = self
         realTableView.dataSource = self
+        // Execute search when user presses ENTER
         searchBar.returnKeyType = .search
         searchBar.delegate = self
         let xib = UINib(nibName: "CarGarageCell", bundle: .main)
@@ -50,6 +52,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         filtered.removeAll()
         realTableView.reloadData()
         realTableView.layoutIfNeeded()
+        showLoaderOnTopOfTableView()
         getServerData()
     }
 
@@ -58,17 +61,17 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     func getServerData() {
-        loadingViewContainer.isHidden = false
         isLoading = true
         carRepository.getCarsForSearch(carName: searchBar.text ?? "", pageNumber: currentPage) { [weak self] (carsSearch: [Car]) in
             self?.filtered += carsSearch
             DispatchQueue.main.async {
                 self?.realTableView.reloadData()
-                self?.loadingViewContainer.isHidden = true
+                self?.hideLoaderOnTopOfTableView()
                 self?.isLoading = false
             }
         }
     }
+
     func tableView(_ realTableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = realTableView.dequeueReusableCell(withIdentifier: "IdentifierCarGarageCell") as? CarGarageCell else {
             return UITableViewCell()
@@ -80,14 +83,18 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             subtitle: car.price.currencyFR,
             imageName: car.imageName)
         cell.configure(item: item)
+        // Don't highlight cell when selected
+        cell.selectionStyle = .none
         return cell
     }
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var id: Int = 0
         let currentCar = filtered[indexPath.row]
         id = currentCar.carId
         navigationController?.pushViewController(CarInfosViewController(carId: id), animated: true)
     }
+
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         // check if scrollview has reached the bottom
         let height = scrollView.frame.height
@@ -98,5 +105,13 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             currentPage += 1
             getServerData()
         }
+    }
+
+    private func showLoaderOnTopOfTableView() {
+        fullScreenloadingViewContainer.isHidden = false
+    }
+
+    private func hideLoaderOnTopOfTableView() {
+        fullScreenloadingViewContainer.isHidden = true
     }
 }

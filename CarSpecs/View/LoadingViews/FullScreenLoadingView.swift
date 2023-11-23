@@ -1,5 +1,5 @@
 //
-//  LoadingView.swift
+//  FullScreenLoadingView.swift
 //  CarSpecs
 //
 //  Created by Felipe Lima on 24/09/23.
@@ -8,8 +8,8 @@
 import UIKit
 import SnapKit
 
-class LoadingView: UIView {
-    static var shared = LoadingView()
+class FullScreenLoadingView: UIView {
+    static var shared = FullScreenLoadingView()
 
     let darkOverlay = UIView(frame: .zero)
 

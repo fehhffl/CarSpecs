@@ -11,16 +11,18 @@ class UserIconButton: UIView {
     @IBOutlet weak var profileIconButton: UIButton!
     @IBOutlet var view: UIView!
     
-    var delegate: UserIconButtonDelegate? = nil
+    var delegate: UserIconButtonDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         loadNibContent()
         setupViewButton()
     }
+
     func setupViewButton() {
         view.styleAsPillView()
     }
+
     @IBAction func onUserButtonTapped(_ sender: Any) {
         delegate?.navigateToUserPage()
     }

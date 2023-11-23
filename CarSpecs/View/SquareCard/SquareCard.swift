@@ -7,23 +7,15 @@
 
 import UIKit
 import SwiftyUserDefaults
-import Lottie
-import SnapKit
 
 enum Style {
     case style1
-    case newCarsStyle
+    case style2
     case style3
 }
 
 class SquareCard: UICollectionViewCell {
-    @IBOutlet weak var imageViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var secondLabel: UILabel!
-    @IBOutlet weak var loadingContainerView: UIView! {
-        didSet {
-            setUpLoadingView()
-        }
-    }
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var squareCardView: UIView!
     @IBOutlet weak var firstLabel: UILabel!
@@ -31,21 +23,7 @@ class SquareCard: UICollectionViewCell {
     @IBOutlet weak var labelsStackView: UIStackView!
     private var carroQueRepresento: Car?
     var carRepository = CarRepository()
-    private lazy var animationView = AnimationView(name: "loader")
     private var isFavorite: Bool = false
-
-    func setUpLoadingView() {
-        loadingContainerView.addSubview(animationView)
-        animationView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
-        animationView.loopMode = .loop
-        animationView.contentMode = .scaleAspectFit
-    }
-    
-    func styleAsLoading() {
-        loadingContainerView.isHidden = false
-    }
 
     func configure(with style: Style, item: CardItem, car: Car? = nil) {
         self.carroQueRepresento = car
@@ -59,8 +37,7 @@ class SquareCard: UICollectionViewCell {
 
         switch style {
         case .style1:
-            loadingContainerView.isHidden = true
-            imageViewHeightConstraint.constant = 75
+            imageView.setAspectRatio(4, 3)
             squareCardView.layer.cornerRadius = 8
             squareCardView.clipsToBounds = true
             squareCardView.layer.borderWidth = 1
@@ -74,10 +51,9 @@ class SquareCard: UICollectionViewCell {
                 imageView.image = UIImage(named: "no-image")
             }
             labelsStackView.axis = .vertical
-        case . newCarsStyle:
-            loadingContainerView.isHidden = true
+        case .style2:
+            imageView.setAspectRatio(16, 9)
             heartButton.isHidden = false
-            imageViewHeightConstraint.constant = 120
             if let imageUrl = URL(string: item.imageName) {
                 imageView.setImageResized(with: imageUrl)
             } else {
@@ -89,10 +65,9 @@ class SquareCard: UICollectionViewCell {
             squareCardView.layer.borderWidth = 0
             labelsStackView.axis = .vertical
         case .style3:
-            loadingContainerView.isHidden = true
+            imageView.setAspectRatio(16, 9)
             heartButton.isHidden = true
             squareCardView.layer.borderWidth = 10
-            imageViewHeightConstraint.constant = 120
             imageView.image = UIImage(named: item.imageName)
             secondLabel.isHidden = false
             secondLabel.text = item.subtitle
@@ -104,11 +79,6 @@ class SquareCard: UICollectionViewCell {
             labelsStackView.addArrangedSubview(secondLabel)
             labelsStackView.addArrangedSubview(firstLabel)
         }
-    }
-
-    override func didMoveToSuperview() {
-        super.didMoveToSuperview()
-        animationView.play()
     }
 
     @IBAction func onHeartButtonTapped(_ sender: Any) {

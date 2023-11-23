@@ -27,7 +27,7 @@ class Database {
             guard let carCategory = car["type"] as? String else {
                 return false
             }
-            return carCategory == category
+            return carCategory.lowercased() == category.lowercased()
         }
 
         guard let (start, end) = getCarArrayStartEnd(page, limit, filteredCars) else {

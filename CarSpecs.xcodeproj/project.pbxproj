@@ -13,7 +13,7 @@
 		55086B0D2A84502E00327B6C /* SquareCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55086B0B2A84502E00327B6C /* SquareCard.swift */; };
 		55086B0E2A84502E00327B6C /* SquareCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55086B0C2A84502E00327B6C /* SquareCard.xib */; };
 		5521478E2AA14A2300BDF35C /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5521478D2AA14A2300BDF35C /* WelcomeViewController.xib */; };
-		55231C332B0ECE3D009F79BB /* loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 55231C322B0ECE3D009F79BB /* loader.json */; };
+		55231C332B0ECE3D009F79BB /* spinnerLottieAnimationFile.json in Resources */ = {isa = PBXBuildFile; fileRef = 55231C322B0ECE3D009F79BB /* spinnerLottieAnimationFile.json */; };
 		553100782B0D7A8600B608E2 /* KeychainDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553100772B0D7A8600B608E2 /* KeychainDataSource.swift */; };
 		5531007E2B0D7AB600B608E2 /* UserDefaultsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5531007D2B0D7AB600B608E2 /* UserDefaultsDataSource.swift */; };
 		553D2F9E2AD76E62000C0824 /* CategoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553D2F9C2AD76E62000C0824 /* CategoryListViewController.swift */; };
@@ -42,7 +42,7 @@
 		55843A532A7C6DAE007FDDA1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55843A512A7C6DAE007FDDA1 /* LoginViewController.swift */; };
 		55843A542A7C6DAE007FDDA1 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55843A522A7C6DAE007FDDA1 /* LoginViewController.xib */; };
 		5591464D2A819DCA00AE3F57 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5591464F2A819DCA00AE3F57 /* Localizable.strings */; };
-		559603B32AC104640053CAAA /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559603B22AC104640053CAAA /* LoadingView.swift */; };
+		559603B32AC104640053CAAA /* FullScreenLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559603B22AC104640053CAAA /* FullScreenLoadingView.swift */; };
 		559603B62AC106520053CAAA /* UIViewController+CarSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559603B52AC106520053CAAA /* UIViewController+CarSpecs.swift */; };
 		55964F412A9FB12B00BA3B16 /* CollectionTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55964F3F2A9FB12B00BA3B16 /* CollectionTabViewController.swift */; };
 		55964F462A9FB53600BA3B16 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55964F442A9FB53600BA3B16 /* CategoryCell.swift */; };
@@ -53,7 +53,6 @@
 		5599F0CD2A67563200E1EEDC /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5599F0CC2A67563200E1EEDC /* WelcomeViewController.swift */; };
 		5599F0D22A67563E00E1EEDC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5599F0D12A67563E00E1EEDC /* Assets.xcassets */; };
 		5599F0D52A67563E00E1EEDC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5599F0D32A67563E00E1EEDC /* LaunchScreen.storyboard */; };
-		559AB4F22AC3857C00D398AE /* FakeLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 559AB4F12AC3857C00D398AE /* FakeLoadingView.xib */; };
 		55AB08C52B0590C300363B4D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55AB08C42B0590C300363B4D /* Main.storyboard */; };
 		55AB08CA2B059B3100363B4D /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AB08C82B059B3000363B4D /* UserProfileViewController.swift */; };
 		55AB08CB2B059B3100363B4D /* UserProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55AB08C92B059B3100363B4D /* UserProfileViewController.xib */; };
@@ -63,6 +62,7 @@
 		55EFE9F72AB4E11B007AD8D6 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EFE9F52AB4E11B007AD8D6 /* SearchViewController.swift */; };
 		55EFE9F82AB4E11B007AD8D6 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55EFE9F62AB4E11B007AD8D6 /* SearchViewController.xib */; };
 		9B0722042AC084EC0008F41D /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0722032AC084EC0008F41D /* NetworkMonitor.swift */; };
+		9B3D323F2B0F08E100CE40FA /* LastItemLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D323E2B0F08E100CE40FA /* LastItemLoadingView.swift */; };
 		9B3DB94C2ABF53140069720A /* Backend.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B3DB94B2ABF53140069720A /* Backend.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9B3DB94F2ABF53140069720A /* Backend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B3DB9492ABF53140069720A /* Backend.framework */; };
 		9B4C082E2ABF5A1A0006B839 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4C082D2ABF5A1A0006B839 /* Database.swift */; };
@@ -96,7 +96,7 @@
 		55086B0B2A84502E00327B6C /* SquareCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareCard.swift; sourceTree = "<group>"; };
 		55086B0C2A84502E00327B6C /* SquareCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SquareCard.xib; sourceTree = "<group>"; };
 		5521478D2AA14A2300BDF35C /* WelcomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
-		55231C322B0ECE3D009F79BB /* loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader.json; sourceTree = "<group>"; };
+		55231C322B0ECE3D009F79BB /* spinnerLottieAnimationFile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = spinnerLottieAnimationFile.json; sourceTree = "<group>"; };
 		553100772B0D7A8600B608E2 /* KeychainDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainDataSource.swift; sourceTree = "<group>"; };
 		5531007D2B0D7AB600B608E2 /* UserDefaultsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsDataSource.swift; sourceTree = "<group>"; };
 		553D2F9C2AD76E62000C0824 /* CategoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewController.swift; sourceTree = "<group>"; };
@@ -125,7 +125,7 @@
 		55843A512A7C6DAE007FDDA1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		55843A522A7C6DAE007FDDA1 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		5591464E2A819DCA00AE3F57 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		559603B22AC104640053CAAA /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		559603B22AC104640053CAAA /* FullScreenLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenLoadingView.swift; sourceTree = "<group>"; };
 		559603B52AC106520053CAAA /* UIViewController+CarSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+CarSpecs.swift"; sourceTree = "<group>"; };
 		55964F3F2A9FB12B00BA3B16 /* CollectionTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTabViewController.swift; sourceTree = "<group>"; };
 		55964F442A9FB53600BA3B16 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
@@ -138,7 +138,6 @@
 		5599F0D12A67563E00E1EEDC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5599F0D42A67563E00E1EEDC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5599F0D62A67563E00E1EEDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		559AB4F12AC3857C00D398AE /* FakeLoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FakeLoadingView.xib; sourceTree = "<group>"; };
 		55AB08C42B0590C300363B4D /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		55AB08C82B059B3000363B4D /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		55AB08C92B059B3100363B4D /* UserProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfileViewController.xib; sourceTree = "<group>"; };
@@ -150,6 +149,7 @@
 		8547FAF74F8CB9B83853D75E /* Pods_CarSpecs_CarSpecsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarSpecs_CarSpecsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92C2AF38429C7B5069DE3A48 /* Pods_CarSpecs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarSpecs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B0722032AC084EC0008F41D /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		9B3D323E2B0F08E100CE40FA /* LastItemLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastItemLoadingView.swift; sourceTree = "<group>"; };
 		9B3DB9492ABF53140069720A /* Backend.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Backend.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B3DB94B2ABF53140069720A /* Backend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Backend.h; sourceTree = "<group>"; };
 		9B4C082D2ABF5A1A0006B839 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
@@ -221,15 +221,10 @@
 		5567B7BB2A85A61E0012AB3E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				55964F492A9FBEA800BA3B16 /* CardItems.swift */,
-				5579C1822AA93D97008DC5B3 /* SquareCardsRepository.swift */,
-				5542B6112AB11A3F0055B4C8 /* Car.swift */,
-				5542B6152AB11AF10055B4C8 /* CarRepository.swift */,
-				556E63572AD0BEF60044142E /* CarTechnicalInformation.swift */,
-				557184AA2AE0A8B000011816 /* CategoriesResponse.swift */,
-				5578CCC22AFD98B30021D5C5 /* UserRepository.swift */,
-				553100772B0D7A8600B608E2 /* KeychainDataSource.swift */,
-				5531007D2B0D7AB600B608E2 /* UserDefaultsDataSource.swift */,
+				9B3D323A2B0F07FA00CE40FA /* DataSources */,
+				9B3D32382B0F07D400CE40FA /* Entities */,
+				9B3D323B2B0F082300CE40FA /* NetworkResponses */,
+				9B3D32392B0F07E300CE40FA /* Repositories */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -237,16 +232,11 @@
 		5567B7BC2A85A6260012AB3E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5579C1902AA949AC008DC5B3 /* CarGarageCell.swift */,
-				5579C1912AA949AC008DC5B3 /* CarGarageCell.xib */,
-				55964F442A9FB53600BA3B16 /* CategoryCell.swift */,
-				55964F452A9FB53600BA3B16 /* CategoryCell.xib */,
-				559AB4F12AC3857C00D398AE /* FakeLoadingView.xib */,
-				559603B22AC104640053CAAA /* LoadingView.swift */,
-				55086B0B2A84502E00327B6C /* SquareCard.swift */,
-				55086B0C2A84502E00327B6C /* SquareCard.xib */,
-				557906A72B04490300AE3FE1 /* UserIconButton.swift */,
-				557906AB2B04491100AE3FE1 /* UserIconButton.xib */,
+				9B3D32332B0F077400CE40FA /* CarGarageCell */,
+				9B3D32342B0F078000CE40FA /* CategoryCell */,
+				9B3D32362B0F07A300CE40FA /* LoadingViews */,
+				9B3D32352B0F079100CE40FA /* SquareCard */,
+				9B3D32372B0F07B400CE40FA /* UserIconButton */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -254,27 +244,17 @@
 		5567B7BD2A85A62D0012AB3E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				5542413D2ABD0B5C0022975F /* CarInfosViewController.swift */,
-				5542413E2ABD0B5C0022975F /* CarInfosViewController.xib */,
-				553D2FA82AD77843000C0824 /* CollectionTabViewController.xib */,
-				55964F3F2A9FB12B00BA3B16 /* CollectionTabViewController.swift */,
-				553D2F9C2AD76E62000C0824 /* CategoryListViewController.swift */,
-				553D2FA22AD7776F000C0824 /* CategoryListViewController.xib */,
-				5579C1872AA942AE008DC5B3 /* GarageViewController.swift */,
-				5579C1882AA942AE008DC5B3 /* GarageViewController.xib */,
-				55086B062A844E4F00327B6C /* HomeViewController.swift */,
-				55086B072A844E4F00327B6C /* HomeViewController.xib */,
-				55843A512A7C6DAE007FDDA1 /* LoginViewController.swift */,
-				55843A522A7C6DAE007FDDA1 /* LoginViewController.xib */,
-				55EFE9F52AB4E11B007AD8D6 /* SearchViewController.swift */,
-				55EFE9F62AB4E11B007AD8D6 /* SearchViewController.xib */,
-				5551EACF2AA7D2BA00285CE9 /* TabBarController.swift */,
-				5599F0CC2A67563200E1EEDC /* WelcomeViewController.swift */,
-				5521478D2AA14A2300BDF35C /* WelcomeViewController.xib */,
-				55E42B6D2AF3436A00898CE6 /* RegisterViewController.swift */,
-				55E42B6E2AF3436A00898CE6 /* RegisterViewController.xib */,
-				55AB08C82B059B3000363B4D /* UserProfileViewController.swift */,
-				55AB08C92B059B3100363B4D /* UserProfileViewController.xib */,
+				9B3D32322B0F073400CE40FA /* Welcome */,
+				9B3D322F2B0F06EC00CE40FA /* Register */,
+				9B3D322E2B0F06E000CE40FA /* Login */,
+				9B3D322D2B0F06D000CE40FA /* Home */,
+				9B3D322A2B0F069D00CE40FA /* Collection */,
+				9B3D322C2B0F06B800CE40FA /* Garage */,
+				9B3D32302B0F06F800CE40FA /* Search */,
+				9B3D322B2B0F06A400CE40FA /* Tabs */,
+				9B3D32282B0F067800CE40FA /* CarInfos */,
+				9B3D32292B0F068300CE40FA /* CategoryList */,
+				9B3D32312B0F072500CE40FA /* UserProfile */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -282,7 +262,7 @@
 		5567B7BE2A85A67C0012AB3E /* Resources  */ = {
 			isa = PBXGroup;
 			children = (
-				55231C322B0ECE3D009F79BB /* loader.json */,
+				55231C322B0ECE3D009F79BB /* spinnerLottieAnimationFile.json */,
 				5599F0D32A67563E00E1EEDC /* LaunchScreen.storyboard */,
 				5599F0D12A67563E00E1EEDC /* Assets.xcassets */,
 			);
@@ -334,6 +314,186 @@
 				A741121D3DAE79040C192467 /* Pods_CarSpecsTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9B3D32282B0F067800CE40FA /* CarInfos */ = {
+			isa = PBXGroup;
+			children = (
+				5542413D2ABD0B5C0022975F /* CarInfosViewController.swift */,
+				5542413E2ABD0B5C0022975F /* CarInfosViewController.xib */,
+			);
+			path = CarInfos;
+			sourceTree = "<group>";
+		};
+		9B3D32292B0F068300CE40FA /* CategoryList */ = {
+			isa = PBXGroup;
+			children = (
+				553D2F9C2AD76E62000C0824 /* CategoryListViewController.swift */,
+				553D2FA22AD7776F000C0824 /* CategoryListViewController.xib */,
+			);
+			path = CategoryList;
+			sourceTree = "<group>";
+		};
+		9B3D322A2B0F069D00CE40FA /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				55964F3F2A9FB12B00BA3B16 /* CollectionTabViewController.swift */,
+				553D2FA82AD77843000C0824 /* CollectionTabViewController.xib */,
+			);
+			path = Collection;
+			sourceTree = "<group>";
+		};
+		9B3D322B2B0F06A400CE40FA /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				5551EACF2AA7D2BA00285CE9 /* TabBarController.swift */,
+			);
+			path = Tabs;
+			sourceTree = "<group>";
+		};
+		9B3D322C2B0F06B800CE40FA /* Garage */ = {
+			isa = PBXGroup;
+			children = (
+				5579C1872AA942AE008DC5B3 /* GarageViewController.swift */,
+				5579C1882AA942AE008DC5B3 /* GarageViewController.xib */,
+			);
+			path = Garage;
+			sourceTree = "<group>";
+		};
+		9B3D322D2B0F06D000CE40FA /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				55086B062A844E4F00327B6C /* HomeViewController.swift */,
+				55086B072A844E4F00327B6C /* HomeViewController.xib */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		9B3D322E2B0F06E000CE40FA /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				55843A512A7C6DAE007FDDA1 /* LoginViewController.swift */,
+				55843A522A7C6DAE007FDDA1 /* LoginViewController.xib */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		9B3D322F2B0F06EC00CE40FA /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				55E42B6D2AF3436A00898CE6 /* RegisterViewController.swift */,
+				55E42B6E2AF3436A00898CE6 /* RegisterViewController.xib */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		9B3D32302B0F06F800CE40FA /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				55EFE9F52AB4E11B007AD8D6 /* SearchViewController.swift */,
+				55EFE9F62AB4E11B007AD8D6 /* SearchViewController.xib */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		9B3D32312B0F072500CE40FA /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				55AB08C82B059B3000363B4D /* UserProfileViewController.swift */,
+				55AB08C92B059B3100363B4D /* UserProfileViewController.xib */,
+			);
+			path = UserProfile;
+			sourceTree = "<group>";
+		};
+		9B3D32322B0F073400CE40FA /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				5599F0CC2A67563200E1EEDC /* WelcomeViewController.swift */,
+				5521478D2AA14A2300BDF35C /* WelcomeViewController.xib */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		9B3D32332B0F077400CE40FA /* CarGarageCell */ = {
+			isa = PBXGroup;
+			children = (
+				5579C1902AA949AC008DC5B3 /* CarGarageCell.swift */,
+				5579C1912AA949AC008DC5B3 /* CarGarageCell.xib */,
+			);
+			path = CarGarageCell;
+			sourceTree = "<group>";
+		};
+		9B3D32342B0F078000CE40FA /* CategoryCell */ = {
+			isa = PBXGroup;
+			children = (
+				55964F442A9FB53600BA3B16 /* CategoryCell.swift */,
+				55964F452A9FB53600BA3B16 /* CategoryCell.xib */,
+			);
+			path = CategoryCell;
+			sourceTree = "<group>";
+		};
+		9B3D32352B0F079100CE40FA /* SquareCard */ = {
+			isa = PBXGroup;
+			children = (
+				55086B0B2A84502E00327B6C /* SquareCard.swift */,
+				55086B0C2A84502E00327B6C /* SquareCard.xib */,
+			);
+			path = SquareCard;
+			sourceTree = "<group>";
+		};
+		9B3D32362B0F07A300CE40FA /* LoadingViews */ = {
+			isa = PBXGroup;
+			children = (
+				559603B22AC104640053CAAA /* FullScreenLoadingView.swift */,
+				9B3D323E2B0F08E100CE40FA /* LastItemLoadingView.swift */,
+			);
+			path = LoadingViews;
+			sourceTree = "<group>";
+		};
+		9B3D32372B0F07B400CE40FA /* UserIconButton */ = {
+			isa = PBXGroup;
+			children = (
+				557906A72B04490300AE3FE1 /* UserIconButton.swift */,
+				557906AB2B04491100AE3FE1 /* UserIconButton.xib */,
+			);
+			path = UserIconButton;
+			sourceTree = "<group>";
+		};
+		9B3D32382B0F07D400CE40FA /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				556E63572AD0BEF60044142E /* CarTechnicalInformation.swift */,
+				5542B6112AB11A3F0055B4C8 /* Car.swift */,
+				55964F492A9FBEA800BA3B16 /* CardItems.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		9B3D32392B0F07E300CE40FA /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				5578CCC22AFD98B30021D5C5 /* UserRepository.swift */,
+				5542B6152AB11AF10055B4C8 /* CarRepository.swift */,
+				5579C1822AA93D97008DC5B3 /* SquareCardsRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		9B3D323A2B0F07FA00CE40FA /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				553100772B0D7A8600B608E2 /* KeychainDataSource.swift */,
+				5531007D2B0D7AB600B608E2 /* UserDefaultsDataSource.swift */,
+			);
+			path = DataSources;
+			sourceTree = "<group>";
+		};
+		9B3D323B2B0F082300CE40FA /* NetworkResponses */ = {
+			isa = PBXGroup;
+			children = (
+				557184AA2AE0A8B000011816 /* CategoriesResponse.swift */,
+			);
+			path = NetworkResponses;
 			sourceTree = "<group>";
 		};
 		9B3DB94A2ABF53140069720A /* Backend */ = {
@@ -483,9 +643,8 @@
 				9B4C08312ABF62FB0006B839 /* cars.json in Resources */,
 				557906AC2B04491100AE3FE1 /* UserIconButton.xib in Resources */,
 				5591464D2A819DCA00AE3F57 /* Localizable.strings in Resources */,
-				55231C332B0ECE3D009F79BB /* loader.json in Resources */,
+				55231C332B0ECE3D009F79BB /* spinnerLottieAnimationFile.json in Resources */,
 				5579C18A2AA942AE008DC5B3 /* GarageViewController.xib in Resources */,
-				559AB4F22AC3857C00D398AE /* FakeLoadingView.xib in Resources */,
 				55AB08CB2B059B3100363B4D /* UserProfileViewController.xib in Resources */,
 				55EFE9F82AB4E11B007AD8D6 /* SearchViewController.xib in Resources */,
 				553D2FA92AD77844000C0824 /* CollectionTabViewController.xib in Resources */,
@@ -581,6 +740,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B3D323F2B0F08E100CE40FA /* LastItemLoadingView.swift in Sources */,
 				559603B62AC106520053CAAA /* UIViewController+CarSpecs.swift in Sources */,
 				55086B082A844E4F00327B6C /* HomeViewController.swift in Sources */,
 				9B8C6A452ABFD72B00278207 /* NumberFormatter.swift in Sources */,
@@ -589,7 +749,7 @@
 				5567B7B12A85A0EC0012AB3E /* UITextField+CarSpecs.swift in Sources */,
 				55AB08CF2B05B98600363B4D /* UIView+Extensions.swift in Sources */,
 				5542B6162AB11AF10055B4C8 /* CarRepository.swift in Sources */,
-				559603B32AC104640053CAAA /* LoadingView.swift in Sources */,
+				559603B32AC104640053CAAA /* FullScreenLoadingView.swift in Sources */,
 				5578CCC32AFD98B30021D5C5 /* UserRepository.swift in Sources */,
 				55EFE9F72AB4E11B007AD8D6 /* SearchViewController.swift in Sources */,
 				553D2F9E2AD76E62000C0824 /* CategoryListViewController.swift in Sources */,

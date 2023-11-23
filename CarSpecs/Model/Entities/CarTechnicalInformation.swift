@@ -21,8 +21,8 @@ struct CarTechnicalInformation: Codable {
 }
 
 struct Perfomance: Codable {
-    var topSpeed: Int
-    var acceleration: Double
+    var topSpeed: Int?
+    var acceleration: Double?
 }
 
 struct Drive: Codable {

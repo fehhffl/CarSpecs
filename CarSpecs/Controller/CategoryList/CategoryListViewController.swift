@@ -8,7 +8,7 @@
 import UIKit
 
 class CategoryListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    @IBOutlet weak var mainStackView: UIStackView!
     @IBOutlet weak var tableView: UITableView!
     private let category: String
     private let carRepository = CarRepository()
@@ -20,7 +20,7 @@ class CategoryListViewController: UIViewController, UITableViewDelegate, UITable
         super.init(nibName: nil, bundle: nil)
     }
 
-    func completion(carsArray: [Car]) {
+    func updateCars(carsArray: [Car]) {
         self.cars += carsArray
         DispatchQueue.main.async {
             self.tableView.reloadData()
@@ -38,7 +38,7 @@ class CategoryListViewController: UIViewController, UITableViewDelegate, UITable
         tableView.dataSource = self
         tableView.register(UINib(nibName: "CarGarageCell", bundle: .main), forCellReuseIdentifier: "IdentifierCarGarageCell")
         showLoader()
-        carRepository.getCarsFromCategory(pageNumber: pageNumber, category: category, completion: completion)
+        carRepository.getCarsFromCategory(pageNumber: pageNumber, category: category, completion: updateCars)
     }
     func loadMoreCarsIfLast(currentItemIndex: Int) {
         let indiceItemAtual = currentItemIndex
@@ -46,25 +46,23 @@ class CategoryListViewController: UIViewController, UITableViewDelegate, UITable
 
         if indiceItemAtual == indiceUltimaPosicao {
             pageNumber += 1
-            carRepository.getCarsFromCategory(pageNumber: pageNumber, category: category, completion: completion )
+            carRepository.getCarsFromCategory(pageNumber: pageNumber, category: category, completion: updateCars)
         }
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return cars.count
     }
+
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         loadMoreCarsIfLast(currentItemIndex: indexPath.row)
     }
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var id: Int = 0
         let currentCar = cars[indexPath.row]
-        id = currentCar.carId
-        showLoader()
-        navigationController?.pushViewController(CarInfosViewController(carId: id), animated: true)
-        hideLoader()
+        navigationController?.pushViewController(CarInfosViewController(carId: currentCar.carId), animated: true)
     }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "IdentifierCarGarageCell", for: indexPath) as? CarGarageCell else {
             return UITableViewCell()
