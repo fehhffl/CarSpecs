@@ -18,23 +18,7 @@ extension UIViewController {
         return Int(UIScreen.main.bounds.height)
     }
 
-    // Singleton
-    func showLoader() {
-        let loadingViewSingleton = FullScreenLoadingView.shared
-        DispatchQueue.main.async {
-            self.view.addSubview(loadingViewSingleton)
-            loadingViewSingleton.snp.makeConstraints { (make) in
-                make.edges.equalToSuperview()
-            }
-        }
-    }
-
-    func hideLoader() {
-        let loadingViewSingleton = FullScreenLoadingView.shared
-        DispatchQueue.main.async {
-            loadingViewSingleton.removeFromSuperview()
-        }
-    }
+   
 
     func showAlert(_ message: String) {
         let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
@@ -42,6 +26,22 @@ extension UIViewController {
         alertController.addAction(action)
         DispatchQueue.main.async {
             self.present(alertController, animated: true)
+        }
+    }
+
+    func allLabelsInThisScreen() -> [UILabel] {
+        var allLabels: [UILabel] = []
+        findLabelsInSubviews(self.view.subviews, labelsArray: &allLabels)
+        return allLabels
+    }
+
+    func findLabelsInSubviews(_ subviews: [UIView], labelsArray: inout [UILabel]) {
+        for view in subviews {
+            if let label = view as? UILabel {
+                labelsArray.append(label)
+            } else {
+                findLabelsInSubviews(view.subviews, labelsArray: &labelsArray)
+            }
         }
     }
 }

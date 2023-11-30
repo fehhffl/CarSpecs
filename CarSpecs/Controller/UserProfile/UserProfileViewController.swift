@@ -8,12 +8,12 @@
 import UIKit
 import SwiftyUserDefaults
 
-class UserProfileViewController: UIViewController {
+class UserProfileViewController: BaseViewController {
     @IBOutlet weak var userView: UIView!
     @IBOutlet weak var userLogOutView: UIView!
     @IBOutlet weak var logOutButton: UIButton!
     @IBOutlet weak var fullNameLabel: UILabel!
-    var delegate: LogOutButtonDelegate?
+    weak var delegate: LogOutButtonDelegate?
     var userRepository = UserRepository()
     var email = Defaults[\.email]
 

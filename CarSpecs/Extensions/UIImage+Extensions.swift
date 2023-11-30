@@ -24,7 +24,7 @@ extension UIImageView {
     func setAspectRatio(_ horizontal: Int, _ vertical: Int) {
         self.heightAnchor.constraint(
             equalTo: self.widthAnchor,
-            multiplier: Double(vertical)/Double(horizontal)
+            multiplier: CGFloat(Double(vertical)/Double(horizontal))
         ).isActive = true
     }
 }

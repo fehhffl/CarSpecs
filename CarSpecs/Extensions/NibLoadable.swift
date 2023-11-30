@@ -38,7 +38,7 @@ extension NibLoadable where Self: UIView {
     }
 }
 
-extension NibLoadable where Self: UIViewController {
+extension NibLoadable where Self: BaseViewController {
     static func instantiate() -> Self {
         return Self(nibName: String(describing: self), bundle: Bundle(for: self))
     }

@@ -8,7 +8,7 @@ import Kingfisher
 
 import UIKit
 
-class CarInfosViewController: UIViewController {
+class CarInfosViewController: BaseViewController {
     @IBOutlet weak var view2: UIView!
     @IBOutlet weak var view1: UIView!
     @IBOutlet weak var view3: UIView!
@@ -40,6 +40,11 @@ class CarInfosViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func clearLabels() {
+        
+    }
+
     @objc func onHeartButtonTapped() {
         if !isFavorite {
             isFavorite = true

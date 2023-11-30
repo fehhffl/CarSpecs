@@ -9,7 +9,7 @@ import UIKit
 import SwiftyUserDefaults
 import Security
 
-class LoginViewController: UIViewController {
+class LoginViewController: BaseViewController {
     @IBOutlet private weak var userTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet weak var registerButton: UIButton!

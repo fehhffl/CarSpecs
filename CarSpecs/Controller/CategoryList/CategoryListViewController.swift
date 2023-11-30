@@ -7,29 +7,21 @@
 
 import UIKit
 
-class CategoryListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CategoryListViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var mainStackView: UIStackView!
     @IBOutlet weak var tableView: UITableView!
-    private let category: String
-    private let carRepository = CarRepository()
-    private var cars: [Car] = []
-    var pageNumber: Int = 1
-
+    private let viewModel: CategoryListViewModel
+    
     init(category: String) {
-        self.category = category
         super.init(nibName: nil, bundle: nil)
+        viewModel = CategoryListViewModel(category: category)
     }
 
     func updateCars(carsArray: [Car]) {
-        self.cars += carsArray
         DispatchQueue.main.async {
             self.tableView.reloadData()
             self.hideLoader()
         }
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 
     override func viewDidLoad() {
@@ -38,28 +30,23 @@ class CategoryListViewController: UIViewController, UITableViewDelegate, UITable
         tableView.dataSource = self
         tableView.register(UINib(nibName: "CarGarageCell", bundle: .main), forCellReuseIdentifier: "IdentifierCarGarageCell")
         showLoader()
-        carRepository.getCarsFromCategory(pageNumber: pageNumber, category: category, completion: updateCars)
+        viewModel.getCarsFromCategory(viewControllerCompletion: updateCars)
     }
-    func loadMoreCarsIfLast(currentItemIndex: Int) {
-        let indiceItemAtual = currentItemIndex
-        let indiceUltimaPosicao = cars.count - 1
-
-        if indiceItemAtual == indiceUltimaPosicao {
-            pageNumber += 1
-            carRepository.getCarsFromCategory(pageNumber: pageNumber, category: category, completion: updateCars)
-        }
-    }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cars.count
+        return viewModel.cars.count
     }
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        loadMoreCarsIfLast(currentItemIndex: indexPath.row)
+        let indiceItemAtual = currentItemIndex
+        let indiceUltimaPosicao = viewModel.cars.count - 1
+        if indiceItemAtual == indiceUltimaPosicao {
+            viewModel.loadNextPage(viewControllerCompletion: updateCars)
+        }
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let currentCar = cars[indexPath.row]
+        let currentCar = viewModel.cars[indexPath.row]
         navigationController?.pushViewController(CarInfosViewController(carId: currentCar.carId), animated: true)
     }
 
@@ -68,7 +55,7 @@ class CategoryListViewController: UIViewController, UITableViewDelegate, UITable
             return UITableViewCell()
         }
 
-        let car = cars[indexPath.row]
+        let car = viewModel.cars[indexPath.row]
 
         let item = CardItem(
             title: car.name,

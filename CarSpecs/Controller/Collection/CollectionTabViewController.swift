@@ -7,10 +7,9 @@
 
 import UIKit
 
-class CollectionTabViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CollectionTabViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView?
     private var categoryItems: [CardItem] = []
-    private let squareCardsRepository = SquareCardsRepository()
     var carRepository = CarRepository()
 
     override func viewWillAppear(_ animated: Bool) {

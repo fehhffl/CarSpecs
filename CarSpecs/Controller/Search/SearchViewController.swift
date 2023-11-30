@@ -8,16 +8,26 @@
 import UIKit
 import SnapKit
 
-class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UIScrollViewDelegate {
+class SearchViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UIScrollViewDelegate {
     @IBOutlet weak var mainStackView: UIStackView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var fullScreenloadingViewContainer: UIView!
     @IBOutlet weak var realTableView: UITableView!
     let carRepository = CarRepository()
+    private let lastItemLoadingView = LastItemLoadingView()
     var cars: [Car] = []
     var filtered: [Car] = []
     var currentPage = 1
-    var isLoading = false
+    var isLoading = false {
+        didSet {
+            lastItemLoadingView.isHidden = !isLoading
+            if isLoading {
+                lastItemLoadingView.play()
+            } else {
+                lastItemLoadingView.stop()
+            }
+        }
+    }
 
     override func viewWillAppear(_ animated: Bool) {
         fullScreenloadingViewContainer.isHidden = true
@@ -40,6 +50,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         searchBar.delegate = self
         let xib = UINib(nibName: "CarGarageCell", bundle: .main)
         realTableView.register(xib, forCellReuseIdentifier: "IdentifierCarGarageCell")
+        mainStackView.addArrangedSubview(lastItemLoadingView)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -8,7 +8,7 @@
 import SwiftyUserDefaults
 import UIKit
 
-class GarageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class GarageViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var mainStackView: UIStackView!
     @IBOutlet weak var tableView: UITableView!
     let carRepository = CarRepository()

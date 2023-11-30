@@ -15,7 +15,7 @@ protocol LogOutButtonDelegate: AnyObject {
     func completeLogOut()
 }
 
-class HomeViewController: UIViewController, UserIconButtonDelegate, CarRepositoryDelegate, LogOutButtonDelegate {
+class HomeViewController: BaseViewController, UserIconButtonDelegate, CarRepositoryDelegate, LogOutButtonDelegate {
     @IBOutlet weak var mainScrollView: UIScrollView!
     @IBOutlet weak var mainStackView: UIStackView!
     @IBOutlet private weak var newCarsLabel: UILabel!
@@ -29,7 +29,6 @@ class HomeViewController: UIViewController, UserIconButtonDelegate, CarRepositor
     private var exploreCards: [CardItem] = []
     private let carRepository = CarRepository()
     private var cars: [Car] = []
-    private let squareCardsRepository = SquareCardsRepository()
 
     private var currentPage = 1
     private var exploreCarsIsLoading = false
@@ -115,6 +114,7 @@ class HomeViewController: UIViewController, UserIconButtonDelegate, CarRepositor
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        showLoader()
         title = "Home"
         navigationController?.navigationBar.prefersLargeTitles = false
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: userIconButton)
@@ -195,8 +195,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
         case newCarsCollectionView:
             let itemsPerLine = 2
-            let spaceBetweenElements = 10
-            let marginSpacing = 24
+            let spaceBetweenElements = 12
+            let marginSpacing = 12
 
             let emptySpaces = ((itemsPerLine - 1) * spaceBetweenElements) + (2 * marginSpacing)
             let itemWidth = (screenWidth - emptySpaces) / itemsPerLine
