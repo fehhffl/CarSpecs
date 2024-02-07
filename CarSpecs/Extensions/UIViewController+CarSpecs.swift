@@ -11,23 +11,14 @@ import SnapKit
 
 extension UIViewController {
 
-    // Singleton
-    func showLoader() {
-        let loadingViewSingleton = LoadingView.shared
-        DispatchQueue.main.async {
-            self.view.addSubview(loadingViewSingleton)
-            loadingViewSingleton.snp.makeConstraints { (make) in
-                make.edges.equalToSuperview()
-            }
-        }
+    var screenWidth: Int {
+        return Int(UIScreen.main.bounds.width)
+    }
+    var screenHeight: Int {
+        return Int(UIScreen.main.bounds.height)
     }
 
-    func hideLoader() {
-        let loadingViewSingleton = LoadingView.shared
-        DispatchQueue.main.async {
-            loadingViewSingleton.removeFromSuperview()
-        }
-    }
+   
 
     func showAlert(_ message: String) {
         let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
@@ -38,4 +29,19 @@ extension UIViewController {
         }
     }
 
+    func allLabelsInThisScreen() -> [UILabel] {
+        var allLabels: [UILabel] = []
+        findLabelsInSubviews(self.view.subviews, labelsArray: &allLabels)
+        return allLabels
+    }
+
+    func findLabelsInSubviews(_ subviews: [UIView], labelsArray: inout [UILabel]) {
+        for view in subviews {
+            if let label = view as? UILabel {
+                labelsArray.append(label)
+            } else {
+                findLabelsInSubviews(view.subviews, labelsArray: &labelsArray)
+            }
+        }
+    }
 }

@@ -25,14 +25,15 @@ public class API {
             return
         }
 
-        let (baseUrl2, stringAfterBaseUrl) = url.getURLComponents()
+        let (nullableBaseUrl, stringAfterBaseUrl) = url.getURLComponents()
 
-        guard let baseUrl = baseUrl2, !baseUrl.isEmpty else {
+        guard let baseUrl = nullableBaseUrl, !baseUrl.isEmpty else {
             sendResponse(for: request, statusCode: 400, error: APIError.malformedURL, completionHandler)
             return
         }
-
-        let urlWithoutBaseUrl = url.absoluteString.replacingOccurrences(of: baseUrl, with: "")
+        
+        let urlString = url.absoluteString.removingPercentEncoding ?? url.absoluteString
+        let urlWithoutBaseUrl = urlString.replacingOccurrences(of: baseUrl, with: "")
 
         guard !urlWithoutBaseUrl.isEmpty else {
             sendResponse(for: request, statusCode: 400, error: APIError.missingEndpoint, completionHandler)
@@ -105,11 +106,11 @@ public class API {
                 return
             }
 
-            guard let carName = queryParams["name"] else {
-                sendResponse(for: request, statusCode: 400, error: APIError.missingCarName, completionHandler)
-                return
+            if let carName = queryParams["name"], !carName.isEmpty {
+                searchResult = dataBase.getCarsBy(name: carName, page: page, limit: limit)
+            } else {
+                searchResult = dataBase.getCarsSummaries(page: page, limit: limit)
             }
-            searchResult = dataBase.getCarsBy(name: carName, page: page, limit: limit)
 
             sendResponse(for: request, rootKey: "cars", content: searchResult, completionHandler)
 
@@ -181,6 +182,9 @@ public class API {
         queryParameters.forEach { queryParameter in
             if queryParameter.contains("=") {
                 let keyOrValue = queryParameter.split(separator: "=")
+                if keyOrValue.count < 2 {
+                    return
+                }
                 let key = String(keyOrValue[0])
                 let value = String(keyOrValue[1])
                 queryParametersDict[key] = value
@@ -192,16 +196,17 @@ public class API {
 
 extension URL {
     func getURLComponents() -> (String?, String) {
-        let urlString = self.absoluteString
-        if urlString.contains("://") {
-            var components = urlString.components(separatedBy: "://")
+        let encodedUrlString = self.absoluteString
+        let decodedUrlString = encodedUrlString.removingPercentEncoding ?? encodedUrlString
+        if decodedUrlString.contains("://") {
+            var components = decodedUrlString.components(separatedBy: "://")
             let internetProtocol = components[0] + "://"
             let urlWithoutProtocol = components[1]
 
             if urlWithoutProtocol.contains("/") {
                 components = urlWithoutProtocol.components(separatedBy: "/")
                 let baseURL = internetProtocol + components[0] + "/"
-                let stringAfterBaseUrl = urlString.replacingOccurrences(of: baseURL, with: "")
+                let stringAfterBaseUrl = decodedUrlString.replacingOccurrences(of: baseURL, with: "")
                 return (baseURL, stringAfterBaseUrl)
             }
         }

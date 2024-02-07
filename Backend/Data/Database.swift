@@ -23,11 +23,11 @@ class Database {
 
     func getCarsInCategory(category: String, page: Int, limit: Int) -> [[String: Any]] {
 
-        let filteredCars = cars.filter { car in
+        let filteredCars = carsSortedByYear.filter { car in
             guard let carCategory = car["type"] as? String else {
                 return false
             }
-            return carCategory == category
+            return carCategory.lowercased() == category.lowercased()
         }
 
         guard let (start, end) = getCarArrayStartEnd(page, limit, filteredCars) else {

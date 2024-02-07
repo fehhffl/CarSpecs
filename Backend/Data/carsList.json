@@ -1,0 +1,17 @@
+// CarListResponse
+{
+  "cars": [  // Car                                                       // Car
+            {                                                          , {
+              "name" : "Tesla Model Y Long Range AWD",                      "name" : "Audi RS5 Sportback TFSI quattro",
+              "id" : 384,                                                   "id" : 19,
+              "price" : 64000,                                              "price" : 119250,
+              "image" : "https://www.cars-data.com/pictures/tesla.jpg",     "image" : "https://www.cars-data.com/pictures/audi-rs5.jpg",
+              "year" : 2021                                                 "year" : 2020
+            }                                                             }
+          ]
+}
+
+
+
+
+
